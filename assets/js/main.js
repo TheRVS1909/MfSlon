@@ -77,7 +77,7 @@ jQuery(document).ready(function () {
             $(".modal").hide();
             return;
         }
-       $(this).parent().parent().hide();
+       $(this).parent().parent().parent().hide();
         if($(".Quiz").attr("data-open") == "close") {
             $(".modal").hide();
             $(".overlay").toggle();
@@ -178,13 +178,18 @@ jQuery(document).ready(function () {
         $("#material-list-"+num).addClass("d-flex");
     });
 
-    $(".info-click").on("click",function (){
-        let text = $(this).next().html();
-        $("#info-input").html();
-        $("#info-input").html(text);
-        $(".modal").css("display","flex");
-        $(".modal-info").css('display', 'flex');
+    $("#btn-info").on("click",function (){
+        console.log('jbcccccccccccc');
     });
+
+    // $("#btn-info").on("click",function (){
+    //     console.log('jbcccccccccccc')
+    //     let text = $(this).next().html();
+    //     $("#info-input").html();
+    //     $("#info-input").html(text);
+    //     $(".modal").css("display","flex");
+    //     $(".modal-info").css('display', 'flex');
+    // });
     //Quiz
     $("#quiz-next").on("click",function (){
 
