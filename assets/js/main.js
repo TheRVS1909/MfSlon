@@ -3,7 +3,7 @@ jQuery(document).ready(function () {
     $("#menu-item").on("click",function (){
        $(".menu").toggle("slow");
     });
-    $(".fixed-block").before().on("click",function (){
+    $(".psevdo-before").on("click",function (){
         if($(".fixed-block").data("open") == "close") {
             $(".fixed-block").css("right", 0);
             $(".fixed-block").data("open","open");
@@ -81,12 +81,16 @@ jQuery(document).ready(function () {
 
     // });
 
-    $('.cross').on("click", () => {
-        $(`section.modal`).hide();
-        const overlayDisplayValue = $('.overlay')[0].css("display");
-        if (overlayDisplayValue !== "none") {
-            overlay.hide();
+    $('.text-center').on("click", function (){
+        if ($(this).children('.modal3')) {
+            $(".modal-3").css("display","flex");
+            $(".modal").css("display","flex");
         }
+    });
+
+    $('.cross').on("click", function (){
+        $(`section.modal`).hide();
+        $(this).parent().parent().hide();
     });
 
     $(".item-form").on("click",function (){
@@ -185,7 +189,6 @@ jQuery(document).ready(function () {
 
     for (let i = 1; i <= 5; i++) {
         $(`#btn-info-${i}`).on("click", function () {
-            console.log('jbcccccccccccc');
             let text = $(this).next().html();
             $("#info-input").html();
             $("#info-input").html(text);
