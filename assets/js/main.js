@@ -55,39 +55,38 @@ jQuery(document).ready(function () {
        $(".modal").css("display","flex");
     });
 
-    $("#Quiz-cross").on("click",function (){
+    $("#Quiz-cross").on("click",function () {
             $(".Quiz").hide();
             $(".modal").hide();
             $("body").css("overflow","scroll");
             $(".overlay").toggle();
     });
-    $(".overlay").on("click",function (){
-        if($(this).parent().parent().parent().data("open") == "open"){
-            $(".Quiz").hide();
-            $(".modal").hide();
-            return;
-        }
-        $(this).parent().parent().hide();
-        if($(".Quiz").attr("data-open") == "close") {
-            $(".modal").hide();
-            $(".overlay").toggle();
-        }
-
-
+    $(".overlay").on("click",function () {
+        $("section.modal").hide();
+        $(".overlay").toggle();
     });
-    $(".cross").on("click",function (){
-        if($(this).parent().parent().parent().data("open") == "open"){
-            $(".Quiz").hide();
-            $(".modal").hide();
-            return;
-        }
-       $(this).parent().parent().parent().hide();
-        if($(".Quiz").attr("data-open") == "close") {
-            $(".modal").hide();
-            $(".overlay").toggle();
-        }
+    // $(".cross").on("click",function (){
+    //     console.log($(this).parent().parent().parent());
+    //     // if($(this).parent().parent().parent().data("open") == "open"){
+    //     //     $(".Quiz").hide();
+    //     //     $(".modal").hide();
+    //     //     return;
+    //     // }
+    //     // $(this).parent().parent().parent().hide();
+    //     // if($(".Quiz").attr("data-open") == "close") {
+    //     //     $(".modal").hide();
+    //     //     $(".overlay").toggle();
+    //     // }
 
 
+    // });
+
+    $('.cross').on("click", () => {
+        $(`section.modal`).hide();
+        const overlayDisplayValue = $('.overlay')[0].css("display");
+        if (overlayDisplayValue !== "none") {
+            overlay.hide();
+        }
     });
 
     $(".item-form").on("click",function (){
@@ -98,40 +97,42 @@ jQuery(document).ready(function () {
         $(this).parent().parent().find("img.quiz-img").attr("src",img);
     });
 
-    $('.slider').slick({
-        centerMode: true,
-        centerPadding: '60px',
-        adaptiveHeight: true,
-        slidesToShow: 3,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 3
+    $(document).ready(() => {
+        $('.slider').slick({
+            centerMode: true,
+            centerPadding: '60px',
+            adaptiveHeight: true,
+            slidesToShow: 3,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
                 }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
-                }
-            }
-        ]
-    });
-    $(".review-slider").slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 1000,
-        adaptiveHeight: true,
-        prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>',
-        nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+            ]
+        });
+        $(".review-slider").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 1000,
+            adaptiveHeight: true,
+            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>',
+            nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+        });
     });
 
     $("#employee").on("click", function (){
@@ -182,18 +183,16 @@ jQuery(document).ready(function () {
         $("#material-list-"+num).addClass("d-flex");
     });
 
-    $("#btn-info").on("click",function (){
-        console.log('jbcccccccccccc');
-    });
-
-    // $("#btn-info").on("click",function (){
-    //     console.log('jbcccccccccccc')
-    //     let text = $(this).next().html();
-    //     $("#info-input").html();
-    //     $("#info-input").html(text);
-    //     $(".modal").css("display","flex");
-    //     $(".modal-info").css('display', 'flex');
-    // });
+    for (let i = 1; i <= 5; i++) {
+        $(`#btn-info-${i}`).on("click", function () {
+            console.log('jbcccccccccccc');
+            let text = $(this).next().html();
+            $("#info-input").html();
+            $("#info-input").html(text);
+            $(".modal").css("display","flex");
+            $(".modal-info").css('display', 'flex');
+        });
+    }
     //Quiz
     $("#quiz-next").on("click",function (){
 
