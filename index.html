@@ -145,7 +145,7 @@
 </header>
 <main>
     <section class="block-quiz">
-        <div class="container">
+        <div class="container"  id="calculate-price">
             <div class="row mf-bold justify-content-center d-flex text-center">
                 <h2 class="d-block text-center fw-bold mb-5">
                     РАССЧИТАЙТЕ <span class="green">СТОИМОСТЬ ВАШЕЙ КУХНИ</span> В З-х ВАРИАНТАХ<br>
@@ -207,11 +207,11 @@
                         <span class="mf-bold mf-white item-name">Прямая</span>
                     </div>
                     <div class="col-5 offset-1 item-form">
-                        <img alt="" src="./assets/img/Угловая%20правая.jpg">
+                        <img alt="" src="./assets/img/Угловая-правая.jpg">
                         <span class="mf-bold mf-white item-name">Угловая правая</span>
                     </div>
                     <div class="col-5 offset-1 item-form">
-                        <img alt="" src="./assets/img/Угловая%20левая.jpg">
+                        <img alt="" src="./assets/img/Угловая-левая.jpg">
                         <span class="mf-bold mf-white item-name">Угловая левая</span>
                     </div>
                 </div>
@@ -735,7 +735,7 @@
                     стоимость фурнитуры или монтаж кухни.
                 </div>
                 <div class="col-12 d-flex justify-content-center mt-5">
-                    <div class="mf-button quiz-open">Рассчитать цену вашей кухни</div>
+                    <div class="mf-button quiz-open"><a href="#calculate-price">Рассчитать цену вашей кухни</a></div>
                 </div>
             </div>
         </div>
@@ -795,7 +795,10 @@
                 <div class="col-6">
                     <form action="#" class="form-design d-flex flex-wrap justify-content-center">
                         <input class="input-design" id="DesignName" placeholder="Ваше имя" type="text">
-                        <input class="input-design" id="DesignFile" placeholder="Прикрепите файл" type="text">
+                        <div class="div-file-design">
+                            <input class="input-file-design" id="DesignFile" type="file">
+                            <label for="DesignFile">Прикрепите файл</label>
+                        </div>
                         <input class="input-design" id="DesignTel" placeholder="+7 919 000 0000" type="tel">
                         <div class="mf-bold mf-button">Получить лучшyю цену на кухню</div>
                         <p class="mf-white text-center low-text">Нажимая кнопку, вы даете согласие на обработку
@@ -2127,11 +2130,11 @@
                         <span class="mf-bold mf-white item-name f-16">Прямая</span>
                     </div>
                     <div class="col-4 offset-1 item-form">
-                        <img alt="" src="./assets/img/Угловая%20правая.jpg">
+                        <img alt="" src="./assets/img/Угловая-правая.jpg">
                         <span class="mf-bold mf-white item-name f-16">Угловая правая</span>
                     </div>
                     <div class="col-4 offset-2 item-form">
-                        <img alt="" src="./assets/img/Угловая%20левая.jpg">
+                        <img alt="" src="./assets/img/Угловая-левая.jpg">
                         <span class="mf-bold mf-white item-name f-16">Угловая левая</span>
                     </div>
                 </div>
@@ -2771,7 +2774,7 @@
     </div>
 </section>
 
-<div class="fixed-block mf-white" data-open="close">
+<div class="fixed-block mf-white close-block" data-open="close">
     <div class="row quiz-open">
         <div class="col-2 ">
             <img alt="" src="./assets/img/calculator.png">

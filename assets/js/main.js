@@ -7,9 +7,13 @@ jQuery(document).ready(function () {
         if($(".fixed-block").data("open") == "close") {
             $(".fixed-block").css("right", 0);
             $(".fixed-block").data("open","open");
+            $(".fixed-block").toggleClass("close-block");
+            $(".fixed-block").toggleClass("open-block");
         }else{
             $(".fixed-block").css("right", "-390px");
             $(".fixed-block").data("open","close");
+            $(".fixed-block").toggleClass("close-block");
+            $(".fixed-block").toggleClass("open-block");
         }
     });
     $("#quiz-open").on("click",function (){
