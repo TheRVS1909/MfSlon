@@ -1056,6 +1056,15 @@ width: 45%!important;
     padding-bottom: 5px;
 }
 
+.psevdo-before {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 20px;
+    height: 20px;
+    z-index: 5;
+}
+
 .fixed-block .row{
     margin-top: 10px;
     margin-bottom: 10px;
