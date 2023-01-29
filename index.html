@@ -64,13 +64,33 @@
                 </div>
             </div>
         </div>
+        <script>
+            const openModal = () => {
+                jQuery(document).ready(function () {
+                    $(`.section.modal`).hide();
+                    $('.modal-info').hide();
+                    $(".modal-3").css("display","flex");
+                    $(".modal").css("display","flex");
+                    
+                });
+            }
+            const openModal2 = () => {
+                jQuery(document).ready(function () {
+                    $(`.section.modal`).hide();
+                    $('.modal-info').hide();
+                    $(".modal").css("display","flex");
+                    $(".modal-form").toggle();
+                    
+                });
+            };
+        </script>
         <div class="container-fluid row header-info mf-bold">
             <div class="col-12">
                 <ul>
                     <li class="op-open">Каждому покупателю <span class="green">подарок на выбор</span>
                         <img alt="" class="info-click" id="btn-info-2" src="./assets/img/info.svg">
                         <div class="info-text">
-                            Воспользуйтесь одной из наших акций и получите <span class="green modal3" data-modal="3">гарантированный подарок</span> при заказе кухни
+                            Воспользуйтесь одной из наших акций и получите <span class="green" onclick="openModal()">гарантированный подарок</span> при заказе кухни
                         </div>
                     </li>
                     <li><span class="green">5 лет реальной гарантии</span> на кухню
@@ -120,7 +140,7 @@
 
                             Приезжайте на фабрику на ознакомительную экскурсию и увидите как будет изготавливаться Ваша будущая кухня.
 
-                            Для экскурсии на фабрику - отправьте заявку.
+                            Для экскурсии на фабрику - <span class="green" onclick="openModal2()">отправьте заявку</span>.
                         </div>
                     </li>
                 </ul>
@@ -735,7 +755,7 @@
                     стоимость фурнитуры или монтаж кухни.
                 </div>
                 <div class="col-12 d-flex justify-content-center mt-5">
-                    <div class="mf-button quiz-open"><a href="#calculate-price">Рассчитать цену вашей кухни</a></div>
+                    <div class="mf-button"><a href="#calculate-price">Рассчитать цену вашей кухни</a></div>
                 </div>
             </div>
         </div>
@@ -981,19 +1001,19 @@
                         </div>
                         <div class="col-3">
                             <img alt="" class="bx-sh br-20" src="./assets/img/cooment1.png">
-                            <a class="mf-link" href="">Смотреть</a>
+                            <a class="mf-link" href="#">Смотреть</a>
                         </div>
                         <div class="col-3">
                             <img alt="" class="bx-sh br-20" src="./assets/img/cooment2.png">
-                            <a class="mf-link" href="">Смотреть</a>
+                            <a class="mf-link" href="#">Смотреть</a>
                         </div>
                         <div class="col-3">
                             <img alt="" class="bx-sh br-20" src="./assets/img/cooment3.png">
-                            <a class="mf-link" href="">Смотреть</a>
+                            <a class="mf-link" href="#">Смотреть</a>
                         </div>
                         <div class="col-3">
                             <img alt="" class="bx-sh br-20" src="./assets/img/cooment4.png">
-                            <a class="mf-link" href="">Смотреть</a>
+                            <a class="mf-link" href="#">Смотреть</a>
                         </div>
                         <div class="col-12 mt-5 justify-content-center ">
                             <form action="" class="justify-content-center d-flex flex-wrap">
@@ -1189,7 +1209,7 @@
                     <div class="bx-sh br-20 mb-5">
                         <img src="./assets/img/demo-1.png" alt="" class="w-100 br-20">
                     </div>
-                    <div class="mf-button bx-sh">
+                    <div class="mf-button bx-sh restart">
                         Начать с первого шага
                     </div>
                 </div>
@@ -2261,19 +2281,19 @@
                 </div>
                 <div class="col-6 row f-16">
                     <div class="col-5 offset-1 item-form">
-                        <img alt="" src="./assets/quiz/Угловая%20левая%20верх%20по%20А.jpg">
+                        <img alt="" src="./assets/quiz/Угловая-левая-верх-по-А.jpg">
                         <span class="mf-bold mf-white item-name active f-16">Верхние шкафы по A</span>
                     </div>
                     <div class="col-5 offset-1 item-form">
-                        <img alt="" src="./assets/quiz/Угловая%20левая%20верх%20по%20В.jpg">
+                        <img alt="" src="./assets/quiz/Угловая-левая-верх-по-В.jpg">
                         <span class="mf-bold mf-white item-name f-16">Верхние шкафы по B</span>
                     </div>
                     <div class="col-5 offset-1 item-form">
-                        <img alt="" src="./assets/quiz/Угловая%20левая%20без%20верха.jpg">
+                        <img alt="" src="./assets/quiz/Угловая-левая-без-верха.jpg">
                         <span class="mf-bold mf-white item-name f-16">Без верхних шкафов</span>
                     </div>
                     <div class="col-5 offset-1 item-form">
-                        <img alt="" src="./assets/quiz/Угловая%20левая%20верх%20по%20А%20В.jpg">
+                        <img alt="" src="./assets/quiz/Угловая-левая-верх-по-А-В.jpg">
                         <span class="mf-bold mf-white item-name f-16">Верхние шкафы по A и B</span>
                     </div>
                 </div>
@@ -2822,6 +2842,6 @@
 <script src="links/jquery-3.6.0.min.js"></script>
 <script src="./links/bootstrap.min.js"></script>
 <script src="./assets/js/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" type="text/javascript"></script>
 </body>
 </html>
