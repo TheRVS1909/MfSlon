@@ -81,16 +81,10 @@ jQuery(document).ready(function () {
 
     // });
 
-    $('.text-center').on("click", function (){
-        if ($(this).children('.modal3')) {
-            $(".modal-3").css("display","flex");
-            $(".modal").css("display","flex");
-        }
-    });
-
     $('.cross').on("click", function (){
         $(`section.modal`).hide();
         $(this).parent().parent().hide();
+        $(".overlay").css('display', 'none');
     });
 
     $(".item-form").on("click",function (){
@@ -157,6 +151,12 @@ jQuery(document).ready(function () {
         $(".stage .catalog-select[data-stage="+name+"]").addClass("active");
         $(".stage .catalog-active").removeClass("catalog-active");
         $("#"+name).addClass("catalog-active");
+    });
+    $(".restart").on("click", function (){
+        $(".stage .catalog-select.active").removeClass("active");
+        $(".stage .catalog-select[data-stage=project]").addClass("active");
+        $(".stage .catalog-active").removeClass("catalog-active");
+        $("#project").addClass("catalog-active");
     });
     $(".stage-4-goals>div").on("click",function (){
         let name = $(this).attr("id");
