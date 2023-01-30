@@ -1391,3 +1391,32 @@ width: 45%!important;
 #quiz-2,#quiz-3,#quiz-4,#quiz-5,#quiz-6,#quiz-7,#quiz-8,#quiz-9,#quiz-10,#quiz-11,#quiz-12{
     display: none;
 }
+
+.div-file-design{
+    width: 100%;
+    position: relative;
+}
+
+.input-file-design{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.div-file-design label{
+    margin: 0 0 20px 0;
+    padding: 11px;
+    width: 100%;
+    height: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-style: normal;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #969696;
+    cursor: pointer;
+}
