@@ -786,6 +786,16 @@ width: 45%!important;
     transform: scale(1.08);
 }
 /*End Slider Section*/
+/* Stage Slider Section */
+.stage-slider div img{
+    width: auto;
+    height: 250px;
+    margin: 0 auto 0 auto;
+}
+.stage-slider div {
+    overflow: hidden;
+}
+/* End Stage Slider Section */
 /* Review Section*/
 .review{
     padding: 76px 0;
