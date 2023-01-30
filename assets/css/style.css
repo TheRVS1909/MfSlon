@@ -325,7 +325,7 @@ width: 45%!important;
     display: block;
     width: 100%;
     font-size: 16px;
-    background: #969696;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) -100%, rgba(0, 0, 0, 0) 100%), #969696;
     text-align: center;
     border-radius: 0 0 20px 20px;
     padding: 14px 0;
@@ -346,7 +346,7 @@ width: 45%!important;
 }
 .catalog-select{
     width: fit-content;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) -100%, rgba(0, 0, 0, 0) 100%), #969696;;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) -100%, rgba(0, 0, 0, 0) 100%), #969696;
     color:white;
     padding: 12px 22px 8px 22px;
     border-radius: 20px 20px 0 0;
@@ -701,7 +701,7 @@ width: 45%!important;
     align-items: end;
     flex: 0 0 auto;
     padding: 10px;
-    background: #969696;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) -100%, rgba(0, 0, 0, 0) 100%), #969696;
     color: white;
     width: fit-content;
 }
@@ -737,7 +737,7 @@ width: 45%!important;
 .dot{
     width: 5px;
     height: 5px;
-    background:#969696;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) -100%, rgba(0, 0, 0, 0) 100%), #969696;
     margin: 0px 10px;
     border-radius: 50%;
 }
@@ -786,6 +786,16 @@ width: 45%!important;
     transform: scale(1.08);
 }
 /*End Slider Section*/
+/* Stage Slider Section */
+.stage-slider div img{
+    width: auto;
+    height: 250px;
+    margin: 0 auto 0 auto;
+}
+.stage-slider div {
+    overflow: hidden;
+}
+/* End Stage Slider Section */
 /* Review Section*/
 .review{
     padding: 76px 0;
@@ -859,7 +869,7 @@ width: 45%!important;
 }
 .employee-example-select{
     width: fit-content;
-    background: #969696;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) -100%, rgba(0, 0, 0, 0) 100%), #969696;
     color: white;
     padding: 12px 22px 8px 22px;
     border-radius: 20px 20px 0 0;

@@ -125,8 +125,15 @@ jQuery(document).ready(function () {
         $(".review-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 1000,
+            autoplay: true,
+            autoplaySpeed: 10000,
+            adaptiveHeight: true,
+            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>',
+            nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+        });
+        $(".stage-slider").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
             adaptiveHeight: true,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
