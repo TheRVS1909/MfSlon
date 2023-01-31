@@ -402,3 +402,29 @@ addFileInput2.addEventListener('change', function(event) {
     event.preventDefault();
     showStatus(addFileLabel2, addFileInput2);  
 });
+
+//quiz 12 checkbox 
+let switchSale = document.getElementById('switch-sale');
+let switchCredit = document.getElementById('switch-credit');
+let switchCash = document.getElementById('switch-cash');
+
+function changeCheckedInput(inp1, inp2, inp3) {
+    inp1.checked = false;
+    inp2.checked = false;
+    inp3.setAttribute("checked", "checked");
+}
+
+switchSale.addEventListener('change', function(event){
+    event.preventDefault();
+    changeCheckedInput(switchCredit, switchCash, switchSale);
+});
+
+switchCredit.addEventListener('change', function(event){
+    event.preventDefault();
+    changeCheckedInput(switchSale, switchCash, switchCredit);
+});
+
+switchCash.addEventListener('change', function(event){
+    event.preventDefault();
+    changeCheckedInput(switchSale, switchCredit, switchCash);
+});
