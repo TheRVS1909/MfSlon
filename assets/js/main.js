@@ -55,9 +55,15 @@ jQuery(document).ready(function () {
        $(".modal").css("display","flex");
     });
 
+    $("#modal-slider").on("click",function (){
+        $(".modal-slider").css("display","flex");
+        $(".modal").css("display","flex");
+     });
+
     $("#Quiz-cross").on("click",function () {
             $(".Quiz").hide();
             $(".modal").hide();
+            $(".Quiz").attr("data-open","close")
             $("body").css("overflow","scroll");
             $(".overlay").toggle();
     });
@@ -82,9 +88,15 @@ jQuery(document).ready(function () {
     // });
 
     $('.cross').on("click", function (){
-        $(`section.modal`).hide();
-        $(this).parent().parent().hide();
-        $(".overlay").css('display', 'none');
+        if ($(this).parent().parent().data("info") && $(".Quiz").attr("data-open") == 'open') {
+            $(".modal-info").hide();
+        }else {
+            $(`section.modal`).hide();
+            $(`section.modal`).hide();
+            $(this).parent().parent().hide();
+            $(".overlay").css('display', 'none');
+        };
+        
     });
 
     $(".item-form").on("click",function (){
@@ -101,6 +113,10 @@ jQuery(document).ready(function () {
             centerPadding: '60px',
             adaptiveHeight: true,
             slidesToShow: 3,
+            autoplay: false,
+            autoplaySpeed: 5000,
+            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+            nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>',
             responsive: [
                 {
                     breakpoint: 768,
@@ -125,18 +141,36 @@ jQuery(document).ready(function () {
         $(".review-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: true,
+            autoplay: false,
             autoplaySpeed: 10000,
             adaptiveHeight: true,
-            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>',
+            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
         });
         $(".stage-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             adaptiveHeight: true,
-            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>',
+            autoplay: false,
+            autoplaySpeed: 4000,
+            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+        });
+        $(".background-slider").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            autoplay: false,
+            autoplaySpeed: 10000,
+        });
+        $(".message-slider").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            autoplay: false,
+            autoplaySpeed: 4000,
+            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+            nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
         });
     });
 
@@ -203,11 +237,28 @@ jQuery(document).ready(function () {
             $(".modal-info").css('display', 'flex');
         });
     }
+    for (let i = 1; i <= 10; i++) {
+        $(`#btn-info-q${i}`).on("click", function () {
+            let text = $(this).next().html();
+            $("#info-input").html();
+            $("#info-input").html(text);
+            $(".modal").css("display","flex");
+            $(".modal-info").css('display', 'flex');
+        });
+    }
     //Quiz
+    $(`#quiz-next`).on("click", function () {
+        if ($("#quiz-"+(step+1)+" .info-text").html()) {
+            let text = $("#quiz-"+(step+1)+" .info-text").html();
+            $("#info-input").html();
+            $("#info-input").html(text);
+            $(".modal").css("display","flex");
+            $(".modal-info").css('display', 'flex');
+        };
+    });
     $("#quiz-next").on("click",function (){
 
 
-        $(".modal-info").hide();
         $("#quiz-"+step).hide();
         $("#quiz-"+(step+1)).css('display', 'flex');
         $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
