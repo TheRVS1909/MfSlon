@@ -113,7 +113,7 @@ jQuery(document).ready(function () {
             centerPadding: '60px',
             adaptiveHeight: true,
             slidesToShow: 3,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 5000,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>',
@@ -141,7 +141,7 @@ jQuery(document).ready(function () {
         $(".review-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 10000,
             adaptiveHeight: true,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
@@ -151,7 +151,7 @@ jQuery(document).ready(function () {
             slidesToShow: 1,
             slidesToScroll: 1,
             adaptiveHeight: true,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 4000,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
@@ -160,14 +160,14 @@ jQuery(document).ready(function () {
             slidesToShow: 1,
             slidesToScroll: 1,
             adaptiveHeight: true,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 10000,
         });
         $(".message-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             adaptiveHeight: true,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 4000,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
