@@ -325,8 +325,29 @@ jQuery(document).ready(function () {
 
 });
 
+// designed-form section, add files
 
+let addFileLabel1 = document.querySelector('.addFileLabel1');
+let addFileLabel2 = document.querySelector('.addFileLabel2');
 
+let addFileInput1 = document.querySelector('.addFileInput1');
+let addFileInput2 = document.querySelector('.addFileInput2');
 
+function showStatus(label, input) {
+    if (input.value !== undefined) {
+        label.textContent = 'Файл добавлен';
+        label.style.color = '#40AC46';
+    } else {
+        label.textContent = 'Прикрепите файл';;
+    }
+}
 
-// Перенесенные слайдеры
+addFileInput1.addEventListener('change', function(event) {
+    event.preventDefault();
+    showStatus(addFileLabel1, addFileInput1);  
+});
+
+addFileInput2.addEventListener('change', function(event) {
+    event.preventDefault();
+    showStatus(addFileLabel2, addFileInput2);  
+});
