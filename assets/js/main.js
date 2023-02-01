@@ -49,13 +49,19 @@ jQuery(document).ready(function () {
         $(".overlay").toggle();
     })
 
+    $(".open-modal-design").on("click",function (){
+        $(".modal").css("display","flex");
+        $(".modal-design").toggle();
+        $(".overlay").toggle();
+    })
+
     $("#modal-2,#modal-3,#modal-4").on("click",function (){
        let name = $(this).attr("id");
        $("."+name).css("display","flex");
        $(".modal").css("display","flex");
     });
 
-    $("#modal-slider").on("click",function (){
+    $(".stage-bg .open-modal-slider").on("click",function (){
         $(".modal-slider").css("display","flex");
         $(".modal").css("display","flex");
      });
@@ -91,7 +97,6 @@ jQuery(document).ready(function () {
         if ($(this).parent().parent().data("info") && $(".Quiz").attr("data-open") == 'open') {
             $(".modal-info").hide();
         }else {
-            $(`section.modal`).hide();
             $(`section.modal`).hide();
             $(this).parent().parent().hide();
             $(".overlay").css('display', 'none');
@@ -186,6 +191,21 @@ jQuery(document).ready(function () {
        $(".catalog-kitchen .catalog-active").removeClass("catalog-active");
        $("#"+name).addClass("catalog-active");
     });
+    $(".thanc-you .price-select").on("click",function (){
+        let name = $(this).attr("data-price");
+        $(".thanc-you .price-select.active").removeClass("active");
+        $(".thanc-you .price-select[data-price="+name+"]").addClass("active");
+        $(".thanc-you .price-active").removeClass("price-active");
+        $(".thanc-you #"+name).addClass("price-active");
+     });
+    $(".catalog-kitchen .catalog-item-select").on("click",function (){
+        let name = $(this).attr("data-type");
+        let firstName = $(this).parent().parent().parent().attr("data-name");
+        $(".catalog-kitchen ."+firstName+" .catalog-item-select.active").removeClass("active");
+        $(".catalog-kitchen ."+firstName+" .catalog-item-select[data-type="+name+"]").addClass("active");
+        $(".catalog-kitchen ."+firstName+" .catalog-item-active").removeClass("catalog-item-active");
+        $("."+firstName+" #"+name).addClass("catalog-item-active");
+     });
     $(" .catalog-select").on("click",function (){
         let name = $(this).attr("data-stage");
         $(".stage .catalog-select.active").removeClass("active");
