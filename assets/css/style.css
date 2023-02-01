@@ -508,7 +508,7 @@ width: 45%!important;
     top:-33px;
     right: 0;
 }
-.mf-list{
+.mf-list {
     padding: 0;
     margin: 0;
     height: 100%;
@@ -533,6 +533,83 @@ width: 45%!important;
     vertical-align: middle;
     float: left;
 
+}
+.mf-list-mod-1{
+	padding: 0;
+	margin-top: 18px;
+	width: 474px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.mf-list-mod-1 li{
+	list-style: none;
+	float:left;
+	font-size: 16px;
+}
+
+.mf-list-mod-1 li:before{
+	content: "";
+	margin-right: 4px;
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	background-color: #D9D9D9;;
+	border-radius: 50%;
+}
+.mf-list-mod-2{
+	padding: 0;
+	margin-top: 18px;
+	width: 474px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.mf-list-mod-2 li{
+	list-style: none;
+	float:left;
+	font-size: 16px;
+}
+
+.mf-list-mod-2 li:before{
+	content: "";
+	margin-right: 4px;
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	background-color: #D9D9D9;;
+	border-radius: 50%;
+}
+
+.mf-list-mod-3{
+	padding: 0;
+	margin-top: 18px;
+	margin-left: 68px;
+	width: 474px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.mf-list-mod-3 li{
+	list-style: none;
+	float:left;
+	font-size: 16px;
+}
+
+.mf-list-mod-3 li:before{
+	content: "";
+	margin-right: 4px;
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	background-color: #D9D9D9;;
+	border-radius: 50%;
 }
 .mf-list li::marker{
     vertical-align: middle;
@@ -856,6 +933,49 @@ width: 45%!important;
     height: 250px;
     margin: 0 auto 0 auto;
 }
+.stage-slider-mod-1{
+	width: 474px;
+	height: 292px;
+}
+
+.stage-slider-mod-1 div{
+	width: 474px;
+	height: 292px;
+}
+
+.stage-slider-mod-1 div img{
+	width: 100%;
+	height: 100%;
+}
+.stage-slider-mod-2{
+	width: 474px;
+	height: 292px;
+}
+
+.stage-slider-mod-2 div{
+	width: 474px;
+	height: 292px;
+}
+
+.stage-slider-mod-2 div img{
+	width: 100%;
+	height: 100%;
+}
+
+.stage-slider-mod-3{
+	width: 474px;
+	height: 250px;
+}
+
+.stage-slider-mod-3 div{
+	width: 474px;
+	height: 250px;
+}
+
+.stage-slider-mod-3 div img{
+	width: 100%;
+	height: 100%;
+}
 /* End Stage Slider Section */
 /* Review Section*/
 .review{
@@ -1039,6 +1159,36 @@ width: 45%!important;
     padding: 20px;
     border-radius: 20px;
     width: 800px;
+}
+.modal-mod-1{
+	z-index: 8;
+	display: none;	
+	position: absolute;
+	background: #ffffff;
+	padding: 35px;
+	border-radius: 20px;
+	width: 1390px;
+	height: 550px;
+}
+.modal-mod-2{
+	z-index: 8;
+	display: none;	
+	position: absolute;
+	background: #ffffff;
+	padding: 35px;
+	border-radius: 20px;
+	width: 1390px;
+	height: 745px;
+}
+.modal-mod-3{
+	z-index: 8;
+	display: none;	
+	position: absolute;
+	background: #ffffff;
+	padding: 35px;
+	border-radius: 20px;
+	width: 1390px;
+	height: 745px;
 }
 .message-slider div img{
     width: 100%;
@@ -1480,6 +1630,17 @@ width: 45%!important;
     width: 100%;
     position: relative;
     z-index: 1;
+}
+
+.div-file-design::before {
+	content: '';
+	position: absolute;
+	left: 20;
+	top: 5;
+	width: 18px;
+	height: 21px;
+	background-image: url('./assets/img/Скрепка.svg');
+	z-index: 10;
 }
 
 .input-file-design{
