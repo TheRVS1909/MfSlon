@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
             $(".fixed-block").data("open","open");
             $(".fixed-block").toggleClass("close-block");
             $(".fixed-block").toggleClass("open-block");
-        }else{
+        } else {
             $(".fixed-block").css("right", "-390px");
             $(".fixed-block").data("open","close");
             $(".fixed-block").toggleClass("close-block");
@@ -156,6 +156,33 @@ jQuery(document).ready(function () {
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
         });
+		  $(".stage-slider-mod-1").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: true,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+	 		});
+		  $(".stage-slider-mod-2").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: true,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+	 		});
+		  $(".stage-slider-mod-3").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: true,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+	 		});
         $(".background-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -257,8 +284,6 @@ jQuery(document).ready(function () {
         };
     });
     $("#quiz-next").on("click",function (){
-
-
         $("#quiz-"+step).hide();
         $("#quiz-"+(step+1)).css('display', 'flex');
         $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
@@ -318,8 +343,6 @@ jQuery(document).ready(function () {
             $(".progress-bar").css("--myVar",(100 - 5)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
         }
-
-
     });
 
     $("#quiz-back").on("click",function (){
@@ -347,6 +370,20 @@ jQuery(document).ready(function () {
 
     })
 
+	 $(".count-project-btn").on("click",function (){ 
+		$(".modal-mod-1").css("display","flex");
+		$(".modal").css("display","flex");
+	});
+
+	 $(".catalog-black-btn").on("click",function (){ 
+		$(".modal-mod-2").css("display","flex");
+		$(".modal").css("display","flex");
+	});
+
+	 $(".order-project-btn").on("click",function (){ 
+		$(".modal-mod-3").css("display","flex");
+		$(".modal").css("display","flex");
+	});
 
     $(".quiz-design-link").on("click",function (){
        let text = $("#quiz-"+step).find(".info-text").html();
