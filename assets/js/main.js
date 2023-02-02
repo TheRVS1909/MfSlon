@@ -1,3 +1,156 @@
+const catalog = {
+    'minimalism-3': {
+        title: '1069Ц',
+        price: {
+            standart: {
+                price: '292 434 р',
+                equipment: [
+                    ['Размер, м', '2,5*1,8*1,8'],
+                    ['Высота кухни, мм', '2725'],
+                    ['Основа', 'МДФ'],
+                    ['Фрезеровка', 'Люкс'],
+                    ['Ручки', 'Базовая'],
+                    ['Фасады', 'Термопламинат'],
+                    ['Корпус', 'ЛДСП Lamarty'],
+                    ['Сушка', 'Хромированная'],
+                    ['Наполнение', 'Метабокс Boyard без доводчиков'],
+                    ['Столешница', 'Слон'],
+                    ['Бутылочница', 'Boyard'],
+                    ['Лоток для приборов', 'нет'],
+                    ['Цоколь', 'ЛДСП'],
+                    ['Фурнитура', 'Boyard без доводчиков'],
+                ],
+            },
+            comfort: {
+                price: '495 184 р',
+                equipment: [
+                    ['Размер, м', '2,5*1,8*1,8'],
+                    ['Высота кухни, мм', '2725'],
+                    ['Основа', 'МДФ'],
+                    ['Фрезеровка', 'Люкс'],
+                    ['Ручки', 'Итальянские'],
+                    ['Фасады', 'Термопламинат'],
+                    ['Корпус', 'ЛДСП Lamarty'],
+                    ['Сушка', 'Хромированная'],
+                    ['Наполнение', 'Метабокс Boyard с доводчиками'],
+                    ['Столешница', 'Искусственный камень'],
+                    ['Бутылочница', 'Италия с доводчиком'],
+                    ['Лоток для приборов', 'вкладыш'],
+                    ['Цоколь', 'ЛДСП'],
+                    ['Фурнитура', 'Blum с доводчиками'],
+                ],
+            },
+            premium: {
+                price: '576 286 р',
+                equipment: [
+                    ['Размер, м', '2,5*1,8*1,8'],
+                    ['Высота кухни, мм', '2725'],
+                    ['Основа', 'МДФ'],
+                    ['Фрезеровка', 'Люкс'],
+                    ['Ручки', 'Итальянские'],
+                    ['Фасады', 'Эмаль'],
+                    ['Корпус', 'ЛДСП Egger'],
+                    ['Сушка', 'Siena премиум'],
+                    ['Наполнение', 'Метабокс Boyard с доводчиками'],
+                    ['Столешница', 'Искусственный камень'],
+                    ['Бутылочница', 'Италия с доводчиком'],
+                    ['Лоток для приборов', 'встроенный'],
+                    ['Цоколь', 'МДФ в цвет фасада'],
+                    ['Фурнитура', 'Blum с доводчиками'],
+                ],
+            },
+        },
+        src:
+            [
+                './assets/img/catalog/1069Ц/DSC03368.jpg',
+                './assets/img/catalog/1069Ц/DSC03374.jpg',
+                './assets/img/catalog/1069Ц/DSC03394.jpg',
+                './assets/img/catalog/1069Ц/DSC03397.jpg',
+                './assets/img/catalog/1069Ц/DSC03404.jpg',
+                './assets/img/catalog/1069Ц/DSC03417.jpg',
+                './assets/img/catalog/1069Ц/DSC03418.jpg',
+            ],
+    },
+    'minimalism-2':{
+        title: '433М',
+        price: {},
+        src:
+            [
+                './assets/img/catalog/433М/DSC04896.jpg',
+                './assets/img/catalog/433М/DSC04910.jpg',
+                './assets/img/catalog/433М/DSC04911.jpg',
+                './assets/img/catalog/433М/DSC04932.jpg',
+                './assets/img/catalog/433М/DSC04933.jpg',
+                './assets/img/catalog/433М/DSC04940.jpg',
+                './assets/img/catalog/433М/DSC04941.jpg',
+                './assets/img/catalog/433М/DSC04942.jpg',
+                './assets/img/catalog/433М/DSC04946.jpg',
+                './assets/img/catalog/433М/DSC04947.jpg',
+                './assets/img/catalog/433М/DSC04948.jpg',
+            ],
+    },
+    'minimalism-1': {
+        title: '034Р',
+        price: {},
+        src:
+            [
+                './assets/img/catalog/034Р/DSC02084.jpg',
+                './assets/img/catalog/034Р/DSC02092.jpg',
+                './assets/img/catalog/034Р/DSC02096.jpg',
+                './assets/img/catalog/034Р/DSC02098.jpg',
+                './assets/img/catalog/034Р/DSC02100.jpg',
+                './assets/img/catalog/034Р/DSC02116.jpg',
+                './assets/img/catalog/034Р/DSC02135.jpg',
+            ],
+    },
+    'classic-1': {
+        title: '028Р',
+        price: {},
+        src:
+            [
+                './assets/img/catalog/028Р/DSC03635.jpg',
+                './assets/img/catalog/028Р/DSC03636.jpg',
+                './assets/img/catalog/028Р/DSC03649.jpg',
+                './assets/img/catalog/028Р/DSC03657.jpg',
+                './assets/img/catalog/028Р/028Р.jpg',
+            ],
+    },
+    'classic-2':{
+        title: '35М',
+        price: {},
+        src:
+            [
+                './assets/img/catalog/35М/1.jpeg',
+                './assets/img/catalog/35М/2.jpeg',
+                './assets/img/catalog/35М/3.jpeg',
+                './assets/img/catalog/35М/4.jpeg',
+                './assets/img/catalog/35М/5.jpeg',
+                './assets/img/catalog/35М/6.jpeg',
+                './assets/img/catalog/35М/7.jpeg',
+                './assets/img/catalog/35М/8.jpeg',
+            ],
+    },
+    'classic-3':{
+        title: '35М',
+        price: {},
+        src:
+            [
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+                './assets/img/catalog/84М/DSC04691.jpg',
+            ],
+    },
+};
+
 jQuery(document).ready(function () {
     let step = 1;
     $("#menu-item").on("click",function (){
@@ -59,10 +212,16 @@ jQuery(document).ready(function () {
        let name = $(this).attr("id");
        $("."+name).css("display","flex");
        $(".modal").css("display","flex");
+       $(".overlay").toggle();
     });
 
-    $(".stage-bg .open-modal-slider").on("click",function (){
+    $(".open-modal-slider").on("click",function (){
         $(".modal-slider").css("display","flex");
+        $(".modal").css("display","flex");
+    });
+
+    $(".open-slider-design").on("click",function (){
+        $(".modal-slider-design").css("display","flex");
         $(".modal").css("display","flex");
      });
 
@@ -72,10 +231,6 @@ jQuery(document).ready(function () {
             $(".Quiz").attr("data-open","close")
             $("body").css("overflow","scroll");
             $(".overlay").toggle();
-    });
-    $(".overlay").on("click",function () {
-        $("section.modal").hide();
-        $(".overlay").toggle();
     });
     // $(".cross").on("click",function (){
     //     console.log($(this).parent().parent().parent());
@@ -102,6 +257,41 @@ jQuery(document).ready(function () {
             $(".overlay").css('display', 'none');
         };
         
+    });
+
+    $(".cross-modal-slider").on("click", function (){
+        if ($(".modal-mod-3").css("display") == "flex") {
+            $(".modal-slider").hide();
+        }else {
+            $(`section.modal`).hide();
+            $(this).parent().parent().hide();
+            $(".overlay").css('display', 'none');
+        };
+    });
+
+    $(".cross-slider-design").on("click", function (){
+        $(".modal-slider-design").hide();
+    });
+
+    $(".cross-mod").on("click", function (){
+        let number = $(this).parent().parent().attr('data-number')
+        $(`section.modal`).hide();
+        $(this).parent().parent().hide();
+        $(".overlay").css('display', 'none');
+        $(".stage-slider-mod-"+number).empty();
+        $(".stage-slider-mod-"+number).removeClass("slick-initialized");
+        $(".stage-slider-mod-"+number).removeClass("slick-slider");
+    });
+
+    $(".cross-mod-2").on("click", function (){
+        let number = $(this).parent().parent().attr('data-number')
+        $(`section.modal`).hide();
+        $(this).parent().parent().hide();
+        $(".overlay").css('display', 'none');
+        $(".stage-slider-mod-"+number).empty();
+        $('.modal-mod-2 .price-table ul').empty();
+        $(".stage-slider-mod-"+number).removeClass("slick-initialized");
+        $(".stage-slider-mod-"+number).removeClass("slick-slider");
     });
 
     $(".item-form").on("click",function (){
@@ -161,33 +351,6 @@ jQuery(document).ready(function () {
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
         });
-		  $(".stage-slider-mod-1").slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			adaptiveHeight: true,
-			autoplay: true,
-			autoplaySpeed: 4000,
-			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
-			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
-	 		});
-		  $(".stage-slider-mod-2").slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			adaptiveHeight: true,
-			autoplay: true,
-			autoplaySpeed: 4000,
-			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
-			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
-	 		});
-		  $(".stage-slider-mod-3").slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			adaptiveHeight: true,
-			autoplay: true,
-			autoplaySpeed: 4000,
-			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
-			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
-	 		});
         $(".background-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -195,7 +358,7 @@ jQuery(document).ready(function () {
             autoplay: true,
             autoplaySpeed: 10000,
         });
-        $(".message-slider").slick({
+        $(".message-slider, .design-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             adaptiveHeight: true,
@@ -391,19 +554,79 @@ jQuery(document).ready(function () {
     })
 
 	 $(".count-project-btn").on("click",function (){ 
+		let name = $(this).parent().parent().parent().parent().attr("data-name");
 		$(".modal-mod-1").css("display","flex");
-		$(".modal").css("display","flex");
+        $(".overlay").toggle();
+        $(".modal").css("display","flex");
+        $(".modal-mod-1 .title-mod").html(`Кухня ${catalog[name].title}`);
+        for (item of catalog[name].src) {
+            $(".stage-slider-mod-1").append(createSlider(item));
+        }
+        $(".stage-slider-mod-1").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: true,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+	 	});
 	});
 
-	 $(".catalog-black-btn").on("click",function (){ 
+    const createPriceTable = (element) => ($(`
+        <li class="row">
+            <div class="col-auto mf-bold">${element[0]}</div>
+            <div class="col text-end kitchen-size">${element[1]}</div>
+        </li>`
+    ));
+
+	$(".catalog-black-btn").on("click",function (){ 
+		let name = $(this).parent().parent().parent().parent().attr("data-name");
+        let type = $(`.${name}`).find('.active').attr('data-type');
 		$(".modal-mod-2").css("display","flex");
-		$(".modal").css("display","flex");
+        $(".overlay").toggle();
+        $(".modal").css("display","flex");
+        $(".modal-mod-2 .title-mod").html(`Кухня ${catalog[name].title}`);
+        $(".modal-mod-2 .table-price").html(catalog[name].price[type].price);
+        for (item of catalog[name].src) {
+            $(".stage-slider-mod-2").append(createSlider(item));
+        }
+        for (item of catalog[name].price[type].equipment) {
+            $('.modal-mod-2 .price-table ul').append(createPriceTable(item));
+        }
+        $(".stage-slider-mod-2").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: true,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+	 	});
 	});
 
-	 $(".order-project-btn").on("click",function (){ 
+    const createSlider = (src) => ($(`<div><img src=${src}></img></div>`));
+
+
+	$(".order-project-btn").on("click",function (){ 
+        let name = $(this).parent().parent().parent().parent().attr("data-name");
 		$(".modal-mod-3").css("display","flex");
-		$(".modal").css("display","flex");
-	});
+        $(".overlay").toggle();
+        $(".modal").css("display","flex");
+        $(".modal-mod-3 .title-mod").html(`Кухня ${catalog[name].title}`);
+        for (item of catalog[name].src) {
+            $(".stage-slider-mod-3").append(createSlider(item));
+        }
+        $(".stage-slider-mod-3").slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: true,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+	 	});
+    });
 
     $(".quiz-design-link").on("click",function (){
        let text = $("#quiz-"+step).find(".info-text").html();
