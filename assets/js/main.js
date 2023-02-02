@@ -485,3 +485,13 @@ switchCash.addEventListener('change', function(event){
     event.preventDefault();
     changeCheckedInput(switchSale, switchCredit, switchCash);
 });
+
+//modal design
+
+let inputDate = document.querySelector('.inputDate');
+let getDateInp = document.querySelector('.getDateInp');
+getDateInp.addEventListener('click', function(event) {
+    event.preventDefault();
+    getDateInp.style.display = 'none';
+    inputDate.style.display = 'flex';
+});

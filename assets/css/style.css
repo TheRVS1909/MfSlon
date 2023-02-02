@@ -1727,3 +1727,10 @@ width: 45%!important;
     text-align: center;
     text-decoration: none;
 }
+
+/* modal-design */
+.inputDate{
+    display: none;
+    cursor: pointer;
+}
+
