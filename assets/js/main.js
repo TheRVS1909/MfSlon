@@ -708,3 +708,15 @@ switchCash.addEventListener('change', function(event){
     event.preventDefault();
     changeCheckedInput(switchSale, switchCredit, switchCash);
 });
+
+let inputDate = document.querySelector('.inputDate');
+
+inputDate.addEventListener('focus', function(event){
+    event.preventDefault();
+    this.type='date'
+});
+
+inputDate.addEventListener('blur', function(event){
+    event.preventDefault();
+    this.type='text';
+});
