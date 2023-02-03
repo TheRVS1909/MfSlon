@@ -684,7 +684,7 @@ const catalog = {
                 ],
             },
             comfort: {
-                price: '260 000 р',
+                price: '267 000 р',
                 equipment: [
                     ['Размер, м', '2,5*1,8'],
                     ['Высота верхних модулей, мм', '900'],
@@ -704,7 +704,7 @@ const catalog = {
                 ],
             },
             premium: {
-                price: '348 562 р',
+                price: '324 889 р',
                 equipment: [
                     ['Размер, м', '2,5*1,8'],
                     ['Высота верхних модулей, мм', '900'],
@@ -809,7 +809,7 @@ const catalog = {
             ],
     },
 
-//provance
+    //provance
 
     'provance-1':{
         title: '55М',
@@ -967,6 +967,9 @@ jQuery(document).ready(function () {
     $("#menu-item").on("click",function (){
        $(".menu").toggle("slow");
     });
+    $(".menu li").on("click",function (){
+        $(".menu").toggle("slow");
+     });
     $(".psevdo-before").on("click",function (){
         if($(".fixed-block").data("open") == "close") {
             $(".fixed-block").css("right", 0);
