@@ -982,6 +982,15 @@ width: 45%!important;
 .review .slick-slide{
    padding: 25px;
 }
+.review-slider {
+	position: relative;
+	height: 674px;
+}
+
+.review-slider .div {
+	position: relative;
+	height: 100%;
+}
 .review-block{
     display: flex;
     border-radius: 20px;
@@ -989,16 +998,93 @@ width: 45%!important;
     border-width: 5px;
     border-style: solid;
     box-shadow: 0px 5px 15px black;
+	height: 100%;
 }
-.review-block > div{
+
+.review-block .col-7 {
+	height: 100%;
+}
+.review-block .img-block{
+	height: 100%;
+	border-top-left-radius: 16px;
+	border-bottom-left-radius: 16px;
+	overflow: hidden;
     padding: 0;
+	display: block;
+	position: relative;
 }
-.review-block img{
+.review-block .img-block img{
+	border-radius: 5px;
     width: 100%;
-    border-radius: 15px 0 0 15px;
+	height: 100%;
+	z-index: 5;
+}
+.review-slider-comment-info {
+	position: relative;
+	margin-left: 63px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .review-content{
-    padding: 0px 60px;
+	margin-left: -25px;
+	margin-bottom: 52px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+}
+
+.review-content .col-4{
+	position: relative;
+}
+
+.review-content .img-review {
+	position: absolute;
+	left: 0;
+	top: -32px;
+	width: 220px;
+	height: 220px;
+	border-radius: 50%;
+	background-color: #ffffff;
+	z-index: 5;
+}
+
+.review-content .col-8{
+	margin-top: 33px;
+}
+.review-text {
+	margin-right: 92px;
+	max-height: 300px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.review-footer {
+	margin-top: 20px;
+	margin-bottom: 58px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.text-end {
+	position: relative;
+	right: 94px;
+	z-index: 5;
+}
+
+.review-vk-icon{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+.review-vk-icon a{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 .name-review{
 
@@ -1010,6 +1096,7 @@ width: 45%!important;
     width: 40px;
 }
 .review-vk-icon img{
+	margin-right: 15px;
     width: 30px;
     height: 30px;
     border-radius: 0;
