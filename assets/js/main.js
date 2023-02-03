@@ -684,7 +684,7 @@ const catalog = {
                 ],
             },
             comfort: {
-                price: '260 000 р',
+                price: '267 000 р',
                 equipment: [
                     ['Размер, м', '2,5*1,8'],
                     ['Высота верхних модулей, мм', '900'],
@@ -704,7 +704,7 @@ const catalog = {
                 ],
             },
             premium: {
-                price: '348 562 р',
+                price: '324 889 р',
                 equipment: [
                     ['Размер, м', '2,5*1,8'],
                     ['Высота верхних модулей, мм', '900'],
@@ -809,7 +809,7 @@ const catalog = {
             ],
     },
 
-//provance
+    //provance
 
     'provance-1':{
         title: '55М',
@@ -967,6 +967,9 @@ jQuery(document).ready(function () {
     $("#menu-item").on("click",function (){
        $(".menu").toggle("slow");
     });
+    $(".menu li").on("click",function (){
+        $(".menu").toggle("slow");
+     });
     $(".psevdo-before").on("click",function (){
         if($(".fixed-block").data("open") == "close") {
             $(".fixed-block").css("right", 0);
@@ -974,7 +977,7 @@ jQuery(document).ready(function () {
             $(".fixed-block").toggleClass("close-block");
             $(".fixed-block").toggleClass("open-block");
         } else {
-            $(".fixed-block").css("right", "-390px");
+            $(".fixed-block").css("right", `${$(document).width() < 768 ? '-230px' : '-390px'}`);
             $(".fixed-block").data("open","close");
             $(".fixed-block").toggleClass("close-block");
             $(".fixed-block").toggleClass("open-block");
@@ -1147,8 +1150,7 @@ jQuery(document).ready(function () {
         $(".review-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            // // autoplay: true,
-			
+            autoplay: true,
             autoplaySpeed: 10000,
             adaptiveHeight: false,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
@@ -1178,6 +1180,15 @@ jQuery(document).ready(function () {
             autoplaySpeed: 4000,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -40px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+        });
+        $(".action-slider").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            autoplay: false,
+            autoplaySpeed: 4000,
+            prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+            nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
         });
     });
 
@@ -1521,6 +1532,8 @@ switchCash.addEventListener('change', function(event){
     changeCheckedInput(switchSale, switchCredit, switchCash);
 });
 
+$(".review-slider").on("beforeChange", () => appointHiddenReviewWatchFull());
+
 const toggleHidden = (index) => {
 	if (reviewWatchFullText[index].scrollHeight > reviewWatchFullText[index].offsetHeight) {
 		reviewSlider.style.height = 674 + reviewWatchFullText[index].scrollHeight - reviewWatchFullText[index].offsetHeight + 'px';
@@ -1540,15 +1553,15 @@ const reviewSlider = document.querySelector('.review-slider');
 
 reviewWatchFullBtn.forEach((element, index) => element.addEventListener("click", () => toggleHidden(index)));
 
-let reviewBtnNext = document.querySelectorAll('.review #next');
-let reviewBtnPrev = document.querySelectorAll('.review #prev');
+// let reviewBtnNext = document.querySelectorAll('.review #next');
+// let reviewBtnPrev = document.querySelectorAll('.review #prev');
 
-setTimeout(() => {
-	reviewBtnNext = document.querySelector('.review #next');
-	reviewBtnPrev = document.querySelector('.review #prev');
-	reviewBtnNext.addEventListener("click", () => appointHiddenReviewWatchFull());
-	reviewBtnPrev.addEventListener("click", () => appointHiddenReviewWatchFull());
-}, 1000);
+// setTimeout(() => {
+// 	reviewBtnNext = document.querySelector('.review #next');
+// 	reviewBtnPrev = document.querySelector('.review #prev');
+// 	reviewBtnNext.addEventListener("click", () => appointHiddenReviewWatchFull());
+// 	reviewBtnPrev.addEventListener("click", () => appointHiddenReviewWatchFull());
+// }, 1000);
 let inputDate = document.querySelector('.inputDate');
 
 inputDate.addEventListener('focus', function(event){

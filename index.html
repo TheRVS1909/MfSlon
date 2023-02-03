@@ -19,15 +19,15 @@
 
 <header>
 		<div class="container-fluid row mf-nav">
-			<div class="col-1">
+			<div class="col-3 col-md-1">
 					<img alt="" class="w-100" src="./assets/img/logo.png">
 			</div>
-			<div class="col-2">
-					<p class="low-text">Уже 29 лет производим кухни для вас
+			<div class="col-md-3 d-none d-md-flex">
+					<p class="low-text f-12">Уже 29 лет производим кухни для вас
 						Фабрика кухонь с сетью по всей России</p>
 			</div>
-			<div class="col-6 text-center">
-					<div class="mf-bold">Доставим и установим Вашу кухню
+			<div class="col-md-4 col-6 text-center">
+					<div class="mf-bold f-16">Доставим и установим Вашу кухню
 						<span class="green">в г. Орел и Орловскую область</span>
 					<img alt="" class="info-click" id="btn-info-1" src="./assets/img/info.svg">
 					<div class="info-text">
@@ -36,27 +36,31 @@
 					</div>
 
 			</div>
-			<div class="col-2 text-end">
+			<div class="col-md-3 text-end tel-menu">
 					<span class="small-text">Есть вопросы? Звоните - поможем!</span><br>
 					<span class="b-green f-20">+7 (962) 477-57-27</span>
 			</div>
-			<div class="col-1 justify-content-end align-items-center d-flex">
+			<div class="col-md-1 col-3 justify-content-end align-items-center d-flex">
 					<img alt="" height="26" id="menu-item" src="./assets/img/menu_icon.png" width="30">
 			</div>
     	</div>
     	<div class="container-fluid">
-        <div class="menu">
-            <ul>
-                <li class="open-modal-design">3D-проект он-лайн</li>
-                <li><a href="#examples">Примеры работ</a></li>
-                <li><a href="#sale">Скидки на встраиваемую технику</a></li>
-                <li id="modal-3">Акции</li>
-                <li><a href="#installment-plan">Рассрочка</a></li>
-                <li><a href="#reviews">Отзывы</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-        </div>
-   	 </div>
+            <div class="menu f-16">
+                <ul>
+                    <li class="open-modal-design">3D-проект он-лайн</li>
+                    <li><a href="#examples">Примеры работ</a></li>
+                    <li><a href="#sale">Скидки на встраиваемую технику</a></li>
+                    <li id="modal-3">Акции</li>
+                    <li><a href="#installment-plan">Рассрочка</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <div class="row text-center column d-md-none tel-menu-mobil">
+                    <span class="small-text">Есть вопросы? Звоните - поможем!</span><br>
+                    <span class="b-green f-20">+7 (962) 477-57-27</span>
+                </div>
+            </div>
+   	    </div>
     	<div class="container-fluid header mf-white">
         <div class="background-slider">
             <div class="bg-slide">
@@ -72,9 +76,9 @@
         <div class="container justify-content-center">
             <div class="text-center justify-content-center d-flex">
                 <div class="d-flex header-text justify-content-center flex-wrap">
-                    <h2 class="mf-bold d-block">Кухни на заказ от фабрики в Орле,
+                    <h2 class="mf-bold d-block f-32">Кухни на заказ от фабрики в Орле,
 								<span class="green">которые прослужат до 15 лет</span></h2>
-                    <p class="d-block">от 120 000 руб. включая замер, 3D-проект, изготовление, доставку и установку</p>
+                    <p class="d-block f-24">от 120 000 руб. включая замер, 3D-проект, изготовление, доставку и установку</p>
                 </div>
             </div>
         </div>
@@ -99,7 +103,7 @@
 					};
 			</script>
 			<div class="container-fluid row header-info mf-bold">
-            <div class="col-12">
+            <div class="col-12 f-16">
                 <ul>
                     <li class="op-open">Каждому покупателю <span class="green">подарок на выбор</span>
                         <img alt="" class="info-click" id="btn-info-2" src="./assets/img/info.svg">
@@ -163,12 +167,12 @@
         <div class="container-fluid row header-action mf-bold">
             <div class="col-12 justify-content-center d-flex flex-wrap text-center">
 						<div>
-							<p>Ответьте на 9 вопросов и узнайте стоимость
+							<p class="f-16">Ответьте на 9 вопросов и узнайте стоимость
 								<br>Вашей кухни с точностью до 90%</p>
 						</div>
 						<div class="w-100 justify-content-center d-flex">
 							<div class="button-bg">
-								<div class="mf-button" id="quiz-open">Быстрый расчет стоимости кухни</div>
+								<div class="mf-button f-16" id="quiz-open">Быстрый расчет стоимости кухни</div>
 								<img alt="" class="img-bg" src="./assets/img/present.png">
 							</div>
 						</div>
@@ -180,14 +184,14 @@
 		<section class="block-quiz">
 			<div class="container"  id="calculate-price">
             <div class="row mf-bold justify-content-center d-flex text-center">
-                <h2 class="d-block text-center fw-bold mb-5">
+                <h2 class="d-block text-center fw-bold mb-5 f-32">
                     РАССЧИТАЙТЕ <span class="green">СТОИМОСТЬ ВАШЕЙ КУХНИ</span> В З-х ВАРИАНТАХ<br>
                     стандарт, комфорт и премиум</h2>
 
             </div>
             <div class="row">
 						<div class="progress-bar">
-							<span class="z-2 mf-bold">Расчет пройден на 0%</span>
+							<span class="z-2 mf-bold f-16">Расчет пройден на 0%</span>
 						</div>
             </div>
             <div class="row mt-5">
@@ -209,7 +213,7 @@
 									</div>
 							</div>
 							<div class="col-12 mb-5">
-									<ul class="mf-list">
+									<ul class="mf-list f-16">
 										<li>
 											расчет кухни по Вашим параметрам в 3-х ценовых вариантах
 										</li>
@@ -264,7 +268,7 @@
                 <h2 class="d-block">КУХНИ, НА КОТОРЫХ<span class="green">ПРИЯТНО ГОТОВИТЬ</span></h2>
                 <p class="d-block">и просто находиться</p>
             </div>
-            <div class="row mt-5 ">
+            <div class="row mt-5 f-16">
                 <div class="col row">
                     <div class="col-12 d-flex justify-content-center "><img alt=""
                                                                             src="./assets/img/catalog-icon-1.png"></div>
@@ -296,15 +300,15 @@
                     <div class="col-12 text-center"><p class="mf-white">Хватит места в шкафах и на полках</p></div>
                 </div>
             </div>
-            <div class="row flex-nowrap px-5">
+            <div class="row flex-nowrap px-3 px-lg-5 f-16">
                 <div class="catalog-select active" data-catalog="minimalism">Минимализм</div>
                 <div class="catalog-select" data-catalog="classic">Классика</div>
                 <div class="catalog-select" data-catalog="neoclassic">Неоклассика</div>
                 <div class="catalog-select" data-catalog="loft">Лофт</div>
                 <div class="catalog-select" data-catalog="provance">Прованс</div>
             </div>
-            <div class="row catalog-item catalog-active" id="minimalism">
-                <div class="col-4 minimalism-1" data-name="minimalism-1">
+            <div class="row catalog-item catalog-active justify-content-center" id="minimalism">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 minimalism-1 kitchen" data-name="minimalism-1">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/Rectangle%20122.png">
@@ -314,7 +318,7 @@
                                 <div class="catalog-black-btn">Посмотреть характеристики</div>
                             </div>
                         </div>
-                        <div class="d-grid catalog-item-btn">
+                        <div class="d-grid catalog-item-btn f-16">
                             <div class="catalog-item-select active" data-type="standart">Стандарт</div>
                             <div class="catalog-item-select" data-type="comfort">Комфорт</div>
                             <div class="catalog-item-select" data-type="premium">Премиум</div>
@@ -351,7 +355,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 minimalism-2" data-name="minimalism-2">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 minimalism-2 kitchen" data-name="minimalism-2">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/Rectangle%20122%20(1).png">
@@ -398,7 +402,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 minimalism-3" data-name="minimalism-3">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 minimalism-3 kitchen" data-name="minimalism-3">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/Rectangle%20122%20(2).png">
@@ -446,8 +450,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row catalog-item" id="classic">
-                <div class="col-4 classic-1" data-name="classic-1">
+            <div class="row catalog-item justify-content-center" id="classic">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 classic-1 kitchen" data-name="classic-1">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/classic-1.png">
@@ -494,7 +498,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 classic-2" data-name="classic-2">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 classic-2 kitchen" data-name="classic-2">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/classic-2.png">
@@ -541,7 +545,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 classic-3" data-name="classic-3">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 classic-3 kitchen" data-name="classic-3">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/classic-3.png">
@@ -589,8 +593,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row catalog-item" id="neoclassic">
-                <div class="col-4 neoclassic-1" data-name="neoclassic-1">
+            <div class="row catalog-item justify-content-center" id="neoclassic">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 neoclassic-1 kitchen" data-name="neoclassic-1">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/neoclassic-1.png">
@@ -637,7 +641,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 neoclassic-2" data-name="neoclassic-2">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 neoclassic-2 kitchen" data-name="neoclassic-2">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/neoclassic-2.png">
@@ -684,7 +688,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 neoclassic-3" data-name="neoclassic-3">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 neoclassic-3 kitchen" data-name="neoclassic-3">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/neoclassic-3.png">
@@ -732,8 +736,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row catalog-item" id="loft">
-                <div class="col-6 loft-1" data-name="loft-1">
+            <div class="row catalog-item justify-content-center" id="loft">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 loft-1 kitchen" data-name="loft-1">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/loft-1.png">
@@ -780,7 +784,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 loft-2" data-name="loft-2">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 loft-2 kitchen" data-name="loft-2">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/loft-2.png">
@@ -828,8 +832,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row catalog-item" id="provance">
-                <div class="col-6 provance-1" data-name="provance-1">
+            <div class="row catalog-item justify-content-center" id="provance">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 provance-1 kitchen" data-name="provance-1">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/provance-1.png">
@@ -876,7 +880,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 provance-2" data-name="provance-2">
+                <div class="row-lg-none col-10 col-md-8 col-lg-4 provance-2 kitchen" data-name="provance-2">
                     <div class="bx-sh br-20">
                         <div class="hover-img position-relative overflow-hidden">
                             <img alt="" src="./assets/img/provance-2.png">
@@ -980,9 +984,9 @@
     </section>
     <section class="info-2 mf-white">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-6"></div>
-                <div class="col-6">
+                <div class="col-12 col-lg-8 col-xl-6 hover-box">
                     <div class="row">
                         <div class="col-6 fs-24 mf-bold mf-border-r">НАСЛАЖДАЙТЕСЬ КОМФОРТОМ КАЖДЫЙ ДЕНЬ</div>
                         <div class="col-6 mf-bold d-flex justify-content-center align-items-center">
@@ -1137,13 +1141,21 @@
                 <p class="d-block">Бережно доставим, установим и подключим вашу кухню в <span class="green">г. Орле и в Орловской области</span>
                 </p>
             </div>
-            <div class="row flex-nowrap px-5 mt-5">
+            <div class="row flex-nowrap px-5 mt-5 f-16 stage-buttons">
                 <div class="catalog-select active" data-stage="project">Проект</div>
                 <div class="catalog-select" data-stage="froze">Замер</div>
                 <div class="catalog-select" data-stage="agreement">Согласование</div>
                 <div class="catalog-select" data-stage="production">Производство</div>
                 <div class="catalog-select" data-stage="install">Установка</div>
                 <div class="catalog-select" data-stage="demo">Демонстрация</div>
+            </div>
+            <div class="row flex-nowrap px-5 mt-5 d-lg-none stage-buttons-mobile">
+                <div class="catalog-select active" data-stage="project">1</div>
+                <div class="catalog-select" data-stage="froze">2</div>
+                <div class="catalog-select" data-stage="agreement">3</div>
+                <div class="catalog-select" data-stage="production">4</div>
+                <div class="catalog-select" data-stage="install">5</div>
+                <div class="catalog-select" data-stage="demo">6</div>
             </div>
             <div class="row stage-item stage-item-1 justify-content-between catalog-active" id="project">
                 <div class="col-12 text-center mf-white fs-24 mb-4">Первый шаг - <span class="green">проект</span></div>
@@ -1497,7 +1509,7 @@
                 </div>
             </div>
             <div class="row d-flex material-list" id="material-list-1">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/ldsp.png">
                 </div>
                 <div class="col">
@@ -1510,7 +1522,7 @@
                 </div>
             </div>
             <div class="row d-none material-list" id="material-list-2">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/material-2.png">
                 </div>
                 <div class="col">
@@ -1524,7 +1536,7 @@
                 </div>
             </div>
             <div class="row d-none material-list" id="material-list-3">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/material-3.png">
                 </div>
                 <div class="col">
@@ -1538,7 +1550,7 @@
                 </div>
             </div>
             <div class="row d-none material-list" id="material-list-4">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/material-4.png">
                 </div>
                 <div class="col">
@@ -1551,7 +1563,7 @@
                 </div>
             </div>
             <div class="row d-none material-list" id="material-list-5">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/material-5.png">
                 </div>
                 <div class="col">
@@ -1565,7 +1577,7 @@
                 </div>
             </div>
             <div class="row d-none material-list" id="material-list-6">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/material-6.png">
                 </div>
                 <div class="col">
@@ -1579,7 +1591,7 @@
                 </div>
             </div>
             <div class="row d-none material-list" id="material-list-7">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/material-7.png">
                 </div>
                 <div class="col">
@@ -1593,7 +1605,7 @@
                 </div>
             </div>
             <div class="row d-none material-list" id="material-list-8">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/material-8.png">
                 </div>
                 <div class="col">
@@ -1605,7 +1617,7 @@
                 </div>
             </div>
             <div class="row d-none material-list" id="material-list-9">
-                <div class="col-4">
+                <div class="col-8 col-md-4">
                     <img alt="" src="./assets/img/material-9.png">
                 </div>
                 <div class="col">
@@ -1622,7 +1634,7 @@
                             class="green"> НА КУХНЮ ДО 12 МЕСЯЦЕВ</span></h2>
                     <p class="d-block f-20 fw-bold">Получите кухню своей мечты уже сегодня!</p>
                 </div>
-                <div class="col-4 d-flex">
+                <div class="col-8 col-md-4 d-flex">
                     <img alt="" src="./assets/img/sale-1.png">
                     <div class="green mf-bold d-flex justify-content-center align-items-center">
                         <div>
@@ -1632,7 +1644,7 @@
                     </div>
 
                 </div>
-                <div class="col-4 d-flex">
+                <div class="col-8 col-md-4 d-flex">
                     <img alt="" src="./assets/img/sale-2.png">
                     <div class="green mf-bold d-flex justify-content-center align-items-center">
                         <div>
@@ -1641,7 +1653,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 d-flex">
+                <div class="col-8 col-md-4 d-flex">
                     <img alt="" src="./assets/img/sale-3.png">
                     <div class="green mf-bold d-flex justify-content-center align-items-center">
                         <div>
@@ -1737,7 +1749,7 @@
 											<span>https://vk.cc/ch46Ue</span>
 										</a>
 									</div>
-									<div class="small-text text-end review-full-btn">
+									<div class="small-text review-text-end review-full-btn">
 										смотреть полностью
 									</div>
 								</div>
@@ -1793,7 +1805,7 @@
 											<span>https://vk.cc/ch46Ue</span>
 										</a>
 									</div>
-									<div class="small-text text-end review-full-btn">
+									<div class="small-text review-text-end review-full-btn">
 										смотреть полностью
 									</div>
 								</div>
@@ -1849,7 +1861,7 @@
 											<span>https://vk.cc/ch46Ue</span>
 										</a>
 									</div>
-									<div class="small-text text-end review-full-btn">
+									<div class="small-text review-text-end review-full-btn">
 										смотреть полностью
 									</div>
 								</div>
@@ -1905,7 +1917,7 @@
 											<span>https://vk.cc/ch46Ue</span>
 										</a>
 									</div>
-									<div class="small-text text-end review-full-btn">
+									<div class="small-text review-text-end review-full-btn">
 										смотреть полностью
 									</div>
 								</div>
@@ -1961,7 +1973,7 @@
 											<span>https://vk.cc/ch46Ue</span>
 										</a>
 									</div>
-									<div class="small-text text-end review-full-btn">
+									<div class="small-text review-text-end review-full-btn">
 										смотреть полностью
 									</div>
 								</div>
@@ -2279,23 +2291,23 @@
                 <h2 class="d-block f-24"> РАЗРАБОТАЕМ 3 ВАРИАНТА ДИЗАЙНА КУХНИ</h2>
                 <p class="d-block">С учетом ваших пожеланий в течение 12 часов - бесплатно!</p>
             </div>
-            <div class="row mb-4">
-                <div class=" col-3 employee-block mf-white text-center">
+            <div class="row mb-4 f-16">
+                <div class="col-6 col-md-3 employee-block mf-white text-center">
                     <img alt="" src="./assets/img/employee-1.png">
                     <div class="employee-name">Наталья Оржанцева</div>
                     <div class="fw-normal">Дизайнер<br> Стаж 22 года</div>
                 </div>
-                <div class=" col-3 employee-block mf-white text-center">
+                <div class="col-6 col-md-3 employee-block mf-white text-center">
                     <img alt="" src="./assets/img/employee-2.png">
                     <div class="employee-name">Евгения Мирошниченко</div>
                     <div class="fw-normal">Дизайнер<br> Стаж 24 года</div>
                 </div>
-                <div class=" col-3 employee-block mf-white text-center">
+                <div class="col-6 col-md-3 employee-block mf-white text-center">
                     <img alt="" src="./assets/img/employee-3.png">
                     <div class="employee-name">Татьяна Сёмина</div>
                     <div class="fw-normal">Дизайнер<br> Стаж 22 года</div>
                 </div>
-                <div class=" col-3 employee-block mf-white text-center">
+                <div class="col-6 col-md-3 employee-block mf-white text-center">
                     <img alt="" src="./assets/img/employee-4.png">
                     <div class="employee-name">Людмила Ванифатова</div>
                     <div class="fw-normal">Дизайнер<br> Стаж 17 года</div>
@@ -2696,24 +2708,96 @@
         <div class="row text-end justify-content-end w-100">
             <img alt="" class="cross"  id="cross" src="./assets/img/x.png">
         </div>
-        <div class="col-6 px-5 py-5 text-center">
-
-
-            <h1 class="mb-4 fw-bold">Установка кухни бесплатно</h1>
-            <div class="fs-5 mb-4">
-                при покупке от 3-х единиц встраиваемой техники
+        <div class="action-slider">
+            <div>
+                <div class="row">
+                    <div class="col-6 px-5 py-5 text-center">
+                        <h1 class="mb-4 fw-bold">Установка кухни бесплатно</h1>
+                        <div class="fs-5 mb-4">
+                            при покупке от 3-х единиц встраиваемой техники
+                        </div>
+                        <form action="" class="d-flex justify-content-center align-items-center flex-wrap">
+                            <input class="input-modal" name="Name" placeholder="Ваше имя" type="text">
+                            <input class="input-modal" name="Tel" placeholder="+7 (___) ___-__-__" type="tel">
+                            <div class="mf-bold mf-button">Воспользоваться предложением</div>
+                            <p class="text-center small-text">Нажимая кнопку, вы даете согласие на обработку персональных
+                                данных</p>
+                        </form>
+            
+                    </div>
+                    <div class="col-6">
+                        <img class="h-100" src="./assets/img/action-1.png" alt="">
+                    </div>
+                </div>
             </div>
-            <form action="" class="d-flex justify-content-center align-items-center flex-wrap">
-                <input class="input-modal" name="Name" placeholder="Ваше имя" type="text">
-                <input class="input-modal" name="Tel" placeholder="+7 (___) ___-__-__" type="tel">
-                <div class="mf-bold mf-button">Воспользоваться предложением</div>
-                <p class="text-center small-text">Нажимая кнопку, вы даете согласие на обработку персональных
-                    данных</p>
-            </form>
-
-        </div>
-        <div class="col-6">
-            <img class="h-100" src="./assets/img/action-1.png" alt="">
+            <div>
+                <div class="row">
+                    <div class="col-6 px-5 py-5 text-center">
+                        <h1 class="mb-4 fw-bold">Скидка 45% на кухни из экомембраны</h1>
+                        <div class="fs-5 mb-4">
+                            Количество материалов ограничено
+                        </div>
+                        <div class="mf-bold mf-button">Получить скидку 45%</div>
+                    </div>
+                    <div class="col-6">
+                        <img class="h-100" src="./assets/img/action-2.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-6 px-5 py-5 text-center">
+                        <h1 class="mb-4 fw-bold">Скидка 40% на кухню в корпусах Lamarty </h1>
+                        <div class="fs-5 mb-4">
+                            Акция распространяется на цвета корпусов: Кремовый Р, Вяз Швейцарский R, Дуб дымчатый R, Чёрный Р.
+                        </div>
+                        <div class="mf-bold mf-button">Получить скидку 40%</div>
+                    </div>
+                    <div class="col-6">
+                        <img class="h-100" src="./assets/img/action-3.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-6 px-5 py-5 text-center">
+                        <h1 class="mb-4 fw-bold">СВЧ-печь в подарок</h1>
+                        <div class="fs-5 mb-4">
+                            При покупке кухни стоимостью от 200 т.р. СВЧ-печь стоимостью до 20 000 р. в подарок 
+                        </div>
+                        <div class="mf-bold mf-button">Получить подарок</div>
+                    </div>
+                    <div class="col-6">
+                        <img class="h-100" src="./assets/img/action-4.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-6 px-5 py-5 text-center">
+                        <h1 class="mb-4 fw-bold">Беспроцентная рассрочка 0-0-24</h1>
+                        <div class="fs-5 mb-4">
+                            Рассрочка без переплат                        </div>
+                        <div class="mf-bold mf-button">Воспользоваться предложением</div>
+                    </div>
+                    <div class="col-6">
+                        <img class="h-100" src="./assets/img/action-6.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-6 px-5 py-5 text-center">
+                        <h1 class="mb-4 fw-bold">Кешбэк 15% </h1>
+                        <div class="fs-5 mb-4">
+                            на корпусную мебель                        </div>
+                        <div class="mf-bold mf-button">Получить кешбэк</div>
+                    </div>
+                    <div class="col-6">
+                        <img class="h-100" src="./assets/img/action-7.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal-4 row stage-item-3 justify-content-between bg-white ">
@@ -3960,7 +4044,7 @@
         <div class="col-2 ">
             <img alt="" src="./assets/img/calculator.png">
         </div>
-        <div class="col-10 fixed-block-text">
+        <div class="col-10 fixed-block-text f-16">
             Рассчитать 3 варианта дизайна кухни
         </div>
     </div>
@@ -3968,7 +4052,7 @@
         <div class="col-2 " >
             <img alt="" src="./assets/img/rulerpen.png">
         </div>
-        <div class="col-10 fixed-block-text">
+        <div class="col-10 fixed-block-text f-16">
             Вызвать замерщика на дом
         </div>
     </div>
@@ -3976,7 +4060,7 @@
         <div class="col-2" >
             <img alt="" src="./assets/img/coupon.png">
         </div>
-        <div class="col-10 fixed-block-text">
+        <div class="col-10 fixed-block-text f-16">
             Действующие акции и спец. предложения
         </div>
     </div>
@@ -3984,7 +4068,7 @@
         <div class="col-2" >
             <img alt="" src="./assets/img/map.png">
         </div>
-        <div class="col-10 fixed-block-text">
+        <div class="col-10 fixed-block-text f-16">
             Записаться на встречу в салоне
         </div>
     </div>
