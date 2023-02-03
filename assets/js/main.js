@@ -146,9 +146,10 @@ jQuery(document).ready(function () {
         $(".review-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: true,
+            // // autoplay: true,
+			
             autoplaySpeed: 10000,
-            adaptiveHeight: true,
+            adaptiveHeight: false,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
         });
@@ -485,3 +486,32 @@ switchCash.addEventListener('change', function(event){
     event.preventDefault();
     changeCheckedInput(switchSale, switchCredit, switchCash);
 });
+
+const toggleHidden = (index) => {
+	if (reviewWatchFullText[index].scrollHeight > reviewWatchFullText[index].offsetHeight) {
+		reviewSlider.style.height = 674 + reviewWatchFullText[index].scrollHeight - reviewWatchFullText[index].offsetHeight + 'px';
+		reviewWatchFullText[index].style.maxHeight = 'none';
+		return;
+	}
+};
+
+const appointHiddenReviewWatchFull = () => {
+	reviewWatchFullText.forEach((element, index) => element.style.maxHeight = 300 + 'px')
+	document.querySelector('.review-slider').style.height = 674 + "px";
+};
+
+const reviewWatchFullBtn = document.querySelectorAll('.review-full-btn');
+const reviewWatchFullText = document.querySelectorAll('.review-text');
+const reviewSlider = document.querySelector('.review-slider');
+
+reviewWatchFullBtn.forEach((element, index) => element.addEventListener("click", () => toggleHidden(index)));
+
+let reviewBtnNext = document.querySelectorAll('.review #next');
+let reviewBtnPrev = document.querySelectorAll('.review #prev');
+
+setTimeout(() => {
+	reviewBtnNext = document.querySelector('.review #next');
+	reviewBtnPrev = document.querySelector('.review #prev');
+	reviewBtnNext.addEventListener("click", () => appointHiddenReviewWatchFull());
+	reviewBtnPrev.addEventListener("click", () => appointHiddenReviewWatchFull());
+}, 1000);
