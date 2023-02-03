@@ -1231,6 +1231,7 @@ width: 45%!important;
     width: auto;
     height: 20px;
 }
+
 #Quiz-cross{
     width: auto;
     height: 30px;
@@ -1239,13 +1240,27 @@ width: 45%!important;
     cursor: pointer;
 }
 .modal-slider{
-    z-index: 4;
+    z-index: 9;
     display: none;
     position: absolute;
     background: #E2E2E2;
     padding: 20px;
     border-radius: 20px;
     width: 800px;
+}
+.modal-slider-design{
+    z-index: 9;
+    display: none;
+    position: absolute;
+    background: #E2E2E2;
+    padding: 20px;
+    border-radius: 20px;
+    width: 800px;
+}
+.design-slider div img{
+    width: auto;
+    height: 400px;
+    margin: 0 auto 0 auto;
 }
 .modal-mod-1{
 	z-index: 8;
@@ -1814,3 +1829,8 @@ width: 45%!important;
     text-align: center;
     text-decoration: none;
 }
+
+.inputDate{
+    text-align: center;
+}
+
