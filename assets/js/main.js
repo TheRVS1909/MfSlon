@@ -1196,6 +1196,13 @@ jQuery(document).ready(function () {
         $("#employee").next().removeClass("d-none");
         $("#employee").hide();
     });
+    $(".examples .catalog-select").on("click",function (){
+        let name = $(this).attr("data-example");
+        $(".examples  .catalog-select.active").removeClass("active");
+        $(".examples  .catalog-select[data-example="+name+"]").addClass("active");
+        $(".examples  .catalog-active").removeClass("catalog-active");
+        $("#"+name).addClass("catalog-active");
+     });
 
     $(".catalog-kitchen .catalog-select").on("click",function (){
        let name = $(this).attr("data-catalog");

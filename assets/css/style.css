@@ -695,6 +695,12 @@ width: 45%!important;
     margin-right: 0;
     padding-right: 80px;
 }
+.stage-3-img{
+    width: 100%;
+}
+.stage-4-item img{
+    width: 100%;
+}
 /*End*/
 .input-design{
     margin-bottom: 25px;
@@ -721,11 +727,11 @@ width: 45%!important;
     margin-right: 20px;
     height: auto;
     padding: 20px;
-    padding-right: inherit;
     background-color: white;
     border-radius: 10px;
 }
 .offer-card img {
+    width: 100%;
     margin-right: 10px;
     float: left;
     border-radius: 10px;
@@ -752,7 +758,6 @@ width: 45%!important;
 
 .stage-item{
     display: none;
-
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
@@ -810,6 +815,7 @@ width: 45%!important;
     background: white;
     padding: 30px;
     border-radius: 20px;
+    margin-top: 15px;
 }
 .text-img{
     position: relative;
@@ -1154,6 +1160,21 @@ width: 45%!important;
     background: white;
     padding: 15px 40px;
     border-radius: 20px;
+}
+.example-item{
+    display: none;
+}
+.example-active{
+    display: block!important;
+}
+.example-item{
+    padding: 0 10px 0 10px;
+}
+.example-item img{
+    width: 100%;
+}
+.ex-img{
+    width: 100%;
 }
 .employee-block img{
     width: 100%;
@@ -1839,6 +1860,9 @@ width: 45%!important;
     .hover-box{
         padding-top: 250px;
     }
+    .things{
+        font-size: 12px;
+    }
 }
 
 @media(max-width: 992px) {
@@ -1868,6 +1892,9 @@ width: 45%!important;
     }
     .kitchen{
         margin-bottom: 15px;
+    }
+    .employee-example-form{
+        margin-top: 20px;
     }
 }
 
@@ -1921,6 +1948,36 @@ width: 45%!important;
         right: -230px;
         width: 290px;
     }
+    .mini-info-green{
+        margin-top: 60px;
+    }
+    .mini-info-block, .mini-info-block .mf-list li{
+        font-size: 12px;
+    }
+    .employee-stage-elem{
+        margin-top: 70px;
+    }
+    .employee-stage-item{
+        padding: 0 20px 10px 20px;
+    }
+    .employee-stage{
+        font-size: 12px;
+    }
+    .designed-form-block{
+        font-size: 12px;
+    }
+    .stage-item .mf-list li{
+        font-size: 12px;
+    }
+    .stage-4-text-block{
+        padding: 10px 20px;
+    }
+    .thanc-you .material-list{
+        font-size: 12px;
+    }
+    .thanc-btn{
+        font-size: 10px;
+    }
 }
 
 @media(max-width: 576px) {
@@ -1941,5 +1998,48 @@ width: 45%!important;
     }
     .type-place{
         font-size: 10px;
+    }
+    .catalog-select{
+        padding: 10px 12px 8px;
+        border-radius: 10px 10px 0 0;
+    }
+    .catalog-item{
+        padding: 30px 33px;
+    }
+    .kitchen .b-green{
+        font-size: 14px;
+    }
+    .employee-example-form{
+        font-size: 12px;
+    }
+    .div-file-design label{
+        font-size: 12px;
+    }
+    .designed-form-block .form-design{
+        margin: 0  40px 25px 0;
+        padding-top:25px;
+        padding-left:40px;
+    }
+    .offer-card{
+        padding: 10px;
+    }
+    .stage-item{
+        padding: 25px;
+    }
+    .stage-item .mf-list li{
+        font-size: 10px;
+    }
+    .stage-item-2 .form-design{
+        margin: 0;
+        padding: 25px;
+    }
+    .stage-item-3 .form-design{
+        padding: 25px;
+        margin: 0;
+    }
+    .stage-4-goals>div:before{
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 40px;
     }
 }
