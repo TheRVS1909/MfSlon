@@ -377,6 +377,9 @@ width: 45%!important;
     border-radius: 0 0 20px 20px;
     padding: 14px 0;
 }
+.quiz-item-img{
+    width: 100%;
+}
 /* End Quiz */
 /* Kitchen Catalog Section */
 .catalog-kitchen{
@@ -997,6 +1000,9 @@ width: 45%!important;
 	position: relative;
 	height: 100%;
 }
+.review-slider .slick-track, .review-slider .slick-list{
+    height: 100%;
+}
 .review-block{
     display: flex;
     border-radius: 20px;
@@ -1042,22 +1048,12 @@ width: 45%!important;
 	justify-content: start;
 }
 
-.review-content .col-4{
-	position: relative;
-}
-
-.review-content .img-review {
-	position: absolute;
-	left: 0;
-	top: -32px;
-	width: 220px;
-	height: 220px;
+.img-container img{
+	width: 100%;
 	border-radius: 50%;
-	background-color: #ffffff;
-	z-index: 5;
 }
 
-.review-content .col-8{
+.review-content .name-rev{
 	margin-top: 33px;
 }
 .review-text {
@@ -1247,7 +1243,6 @@ width: 45%!important;
     right: 0;
     justify-content: center;
     justify-items: center;
-    align-items: center;
 }
 #cross{
     width: auto;
@@ -1268,7 +1263,7 @@ width: 45%!important;
     background: #E2E2E2;
     padding: 20px;
     border-radius: 20px;
-    width: 800px;
+    width: 760px;
 }
 .modal-slider-design{
     z-index: 9;
@@ -1277,7 +1272,7 @@ width: 45%!important;
     background: #E2E2E2;
     padding: 20px;
     border-radius: 20px;
-    width: 800px;
+    width: 760px;
 }
 .design-slider div img{
     width: auto;
@@ -1291,7 +1286,7 @@ width: 45%!important;
 	background: #ffffff;
 	padding: 35px;
 	border-radius: 20px;
-	width: 1390px;
+	max-width: 90vw;
 	height: 550px;
 }
 .modal-mod-2{
@@ -1301,7 +1296,7 @@ width: 45%!important;
 	background: #ffffff;
 	padding: 35px;
 	border-radius: 20px;
-	width: 1390px;
+	max-width: 90vw;
 	height: 745px;
 }
 .modal-mod-3{
@@ -1311,7 +1306,7 @@ width: 45%!important;
 	background: #ffffff;
 	padding: 35px;
 	border-radius: 20px;
-	width: 1390px;
+	max-width: 90vw;
 	height: 745px;
 }
 .message-slider div img{
@@ -1375,6 +1370,9 @@ width: 45%!important;
     padding: 20px;
     border-radius: 20px;
     max-width: 90vw;
+}
+.action-slider-it img{
+    vertical-align: center;
 }
 .modal-4 .form-design {
     margin-right: 0;
@@ -1896,6 +1894,12 @@ width: 45%!important;
     .employee-example-form{
         margin-top: 20px;
     }
+    .block-quiz .mf-list li, .Quiz .mf-list li{
+        font-size: 14px;
+    }
+    .img-block{
+        display: none !important;
+    }
 }
 
 @media(max-width: 768px) {
@@ -1978,6 +1982,21 @@ width: 45%!important;
     .thanc-btn{
         font-size: 10px;
     }
+    .modal-slider, .modal-slider-design{
+        width: 95%;
+    }
+    .modal-2 .mf-list li {
+        font-size: 12px;
+    }
+    .modal-4 .mf-list li {
+        font-size: 12px;
+    }
+    .review-footer {
+        flex-direction: column-reverse;
+    }
+    .small-text{
+        align-self: end;
+    }
 }
 
 @media(max-width: 576px) {
@@ -2041,5 +2060,23 @@ width: 45%!important;
         margin-right: 10px;
         margin-left: 10px;
         font-size: 40px;
+    }
+    .block-quiz .mf-list li, .Quiz .mf-list li{
+        font-size: 12px;
+    }
+    .item-name{
+        font-size: 12px;
+    }
+    .control{
+        font-size: 10px;
+    }
+    .quiz-item-img{
+        width: 20%;
+    }
+    .review-rating img{
+        width: 20px;
+    }
+    .review-text {
+        margin-right: 32px;
     }
 }
