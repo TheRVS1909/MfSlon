@@ -2137,11 +2137,11 @@ width: 45%!important;
   .custom-checkbox+label::before {
     content: '';
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 1.3em;
+    height: 1.3em;
     flex-shrink: 0;
     flex-grow: 0;
-    border: 1px solid #adb5bd;
+    border: 3px solid #969696;
     border-radius: 0.25em;
     margin-right: 0.5em;
     background-repeat: no-repeat;
@@ -2150,7 +2150,26 @@ width: 45%!important;
   }
 
   .custom-checkbox:checked+label::before {
-    /* border-color: #0b76ef;
-    background-color: #0b76ef; */
-    background-image: url("./assets/img/checkedCondition.svg");
+    background-image: url("../img/checkedCondition.svg");
+    background-size: 120%;
+  }
+
+  .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #969696;
+  }
+
+  .custom-checkbox:not(:disabled):active+label::before {
+    background-color: #ffffff;
+  }
+
+  .custom-checkbox:focus+label::before {
+    border-color: #969696;
+  }
+
+  .custom-checkbox:focus:not(:checked)+label::before {
+    border-color: #969696;
+  }
+
+  .custom-checkbox:disabled+label::before {
+    background-color: #ffffff;
   }
