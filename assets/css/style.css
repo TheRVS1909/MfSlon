@@ -969,11 +969,12 @@ width: 45%!important;
 }
 
 .stage-slider-mod-3 div img, .stage-slider-mod-2 div img, .stage-slider-mod-1 div img{
-	position: absolute;
+	/* position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    vertical-align: middle;
+    left: 0; */
+    width: auto;
+    height: 100%;
+    margin: auto;
 }
 /* End Stage Slider Section */
 /* Review Section*/
