@@ -1255,6 +1255,13 @@ jQuery(document).ready(function () {
         let name = $(this).attr("data-material");
         $("#type-material-"+name).removeClass("d-none");
         $("#type-material-"+name).addClass("d-flex");
+        $(".type-list.green").removeClass("green");
+        $("#type-material-"+name+" div:first-child").addClass("green");
+
+        $(".material").find(".material-list.d-flex").addClass("d-none");
+        $(".material").find(".material-list.d-flex").removeClass("d-flex");
+        $(`#material-list-${name == 1 ? 1 : (name == 2 ? 6 : 8)}`).addClass("d-flex");
+        $(`#material-list-${name == 1 ? 1 : (name == 2 ? 6 : 8)}`).removeClass("d-none");
     });
     $(".type-list").on("click",function (){
        let num = $(this).attr("data-material");
@@ -1435,7 +1442,7 @@ jQuery(document).ready(function () {
 	 	});
 	});
 
-    const createSlider = (src) => ($(`<div><img src=${src}></img></div>`));
+    const createSlider = (src) => ($(`<div class="stage-slide"><img src=${src}></img></div>`));
 
 
 	$(".order-project-btn").on("click",function (){ 
