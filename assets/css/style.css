@@ -2138,3 +2138,54 @@ width: 45%!important;
         font-size: 16px !important;
     }
 }
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+  .custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1.3em;
+    height: 1.3em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 3px solid #969696;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+
+  .custom-checkbox:checked+label::before {
+    background-image: url("../img/checkedCondition.svg");
+    background-size: 120%;
+  }
+
+  .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #969696;
+  }
+
+  .custom-checkbox:not(:disabled):active+label::before {
+    background-color: #ffffff;
+  }
+
+  .custom-checkbox:focus+label::before {
+    border-color: #969696;
+  }
+
+  .custom-checkbox:focus:not(:checked)+label::before {
+    border-color: #969696;
+  }
+
+  .custom-checkbox:disabled+label::before {
+    background-color: #ffffff;
+  }
