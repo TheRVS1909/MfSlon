@@ -1326,14 +1326,14 @@ width: 45%!important;
     border-radius: 20px;
     max-width: 500px;
 }
-.modal-form{
+.modal-form, .modal-form-visit{
     display: none;
     background: #E2E2E2;
     padding: 20px;
     border-radius: 20px;
     max-width: 500px;
 }
-.modal-form img{
+.modal-form img, .modal-form-visit img{
     width: auto;
     height: 30px;
 }
