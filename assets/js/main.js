@@ -1489,7 +1489,16 @@ jQuery(document).ready(function () {
         $("#quiz-2-img img").attr("src","./assets/quiz/"+DS+MW+RF+VT+".png");
     });
 
-
+    //AJAX
+    $(".visit-btn").on("click", function () {
+        $.post("url", {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Запись в солон',
+            Имя: $(this).parent().find("#ModalName").val(),
+            Телефон: $(this).parent().find("#ModalTel").val(),
+        })
+    });
 
 });
 
