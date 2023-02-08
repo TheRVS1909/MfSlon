@@ -1490,14 +1490,232 @@ jQuery(document).ready(function () {
     });
 
     //AJAX
+	const url = 'http://localhost/mfslon/mail.php';
     $(".visit-btn").on("click", function () {
-        $.post("url", {
+        $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
-            form_subject: 'Запись в солон',
+            form_subject: 'Запись в салон',
             Имя: $(this).parent().find("#ModalName").val(),
             Телефон: $(this).parent().find("#ModalTel").val(),
+			// date: $(this).parent.find("#ModalDate").val(),
         })
+    });
+
+	$(".3d-project-online").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Запись в салон',
+            Имя: $(this).parent().find("#ModalName").val(),
+            Телефон: $(this).parent().find("#ModalTel").val(),
+			// date: $(this).parent?.find("#ModalDate")?.val() ,
+        })
+    });
+
+	$(".order-measurement-second-step").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Заказать замер',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".order-measurement-application").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Заказать замер',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+			file: $(this).parent().find("#DesignFile2").val(),
+        })
+    });
+
+	$(".order-measurement").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Заказать замер',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".get-present").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Получить подарок',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".advantage-offer-installment").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Воспользоваться предложением рассрочки',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".advantage-offer-kitchen").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Воспользоваться предложением установки кухни',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".get-cashback").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Получить кэшбэк',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".get-discount").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Получить cкидку 45%',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".get-small-discount").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Получить cкидку 40%',
+            Имя: $(this).parent().find("#DesignName").val(),
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".make-appointment").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Записаться на встречу к дизайнеру',
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".calculate-price-mod-3").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Рассчитать стоимость - заказать проект',
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".calculate-price-mod-1").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Рассчитать стоимость - рассчитать по вашим размерам',
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".calculate-price-mod-2").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Рассчитать стоимость - посмотреть характеристики',
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".get-best-price").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Получить лучшую цену на кухню',
+            Телефон: $(this).parent().find("#DesignTel").val(),
+            Имя: $(this).parent().find("#DesignName").val(),
+			// file: $(this).parent().find("#DesignFile").val(),
+        })
+    });
+
+	$(".order-other-furniture").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Подобрать технику для кухни',
+            Телефон: $(this).parent().find("#ModalTel").val(),
+            Имя: $(this).parent().find("#ModalName").val(),
+        })
+    });
+
+	$(".get-consultation").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Получить консультацию',
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".make-appointment-step-3").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Записаться на встречу',
+            Телефон: $(this).parent().find("#DesignTel").val(),
+        })
+    });
+
+	$(".book-price-standard").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Забронировать стоимость стандарт',
+            Телефон: $(this).parent().find("#ExampleTel").val(),
+            Имя: $(this).parent().find("#ExampleName").val(),
+        })
+    });
+
+	$(".order-measurement-froze").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Заказать замер',
+            Телефон: $(this).parent().find("#ExampleTel").val(),
+            Имя: $(this).parent().find("#ExampleName").val(),
+        })
+    });
+
+	let quizPrice = {};
+
+	$("#quiz-next-section").on("click", function () {
+		quizPrice.kitchenShape =$(this).parent().parent().parent().find(".active").text();
+		// quizPrice = $(this).parent().parent().parent().find(".active").text();
+		console.log(quizPrice);
+
+		console.log($(this).parent().parent().parent().find(".quiz-2"))
+    });
+
+	$("#quiz-next").on("click", function () {
+		let selectionKitchenAppliances = $(this).parent().parent().parent().find(".tech");
+		// selectionKitchenAppliances.children().map(tech => tech.find(".control-group").checked());
+		let child = selectionKitchenAppliances.children();
+		for (tech of child) {
+			let children = tech.children();
+		};
     });
 
 });
