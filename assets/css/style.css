@@ -361,6 +361,15 @@ width: 45%!important;
     width: 100%;
     width: 100%;
 }
+#quiz-11 .item-form{
+    position: relative;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: none;
+    margin-top:40px;
+    margin-bottom: 20px;
+    height: fit-content;
+}
 .info-click-q{
     position: absolute;
     top: 5px;
@@ -376,6 +385,17 @@ width: 45%!important;
     text-align: center;
     border-radius: 0 0 20px 20px;
     padding: 14px 0;
+}
+#quiz-11 .item-name{
+    display: block;
+    width: 100%;
+    font-size: 32px;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 20px;
+    border: 3px solid #40AC46;
+    padding: 14px 0;
+    color: #000000;
 }
 .quiz-item-img{
     width: 100%;
