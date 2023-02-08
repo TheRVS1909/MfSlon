@@ -988,7 +988,7 @@ jQuery(document).ready(function () {
         $(".Quiz").toggle();
         $(".overlay").toggle();
         if($(".Quiz").data("open") == "close") {
-            step!=1?step:step=1;
+            (step > 2 ) ? step : step = 0;
             $(".Quiz").attr("data-open","open");
             $("body").css("overflow","hidden");
         }else{
@@ -1042,6 +1042,7 @@ jQuery(document).ready(function () {
     $("#Quiz-cross").on("click",function () {
             $(".Quiz").hide();
             $(".modal").hide();
+       		$("#quiz-"+(step)).css('display', 'none');
             $(".Quiz").attr("data-open","close")
             $("body").css("overflow","scroll");
             $(".overlay").toggle();
@@ -1303,14 +1304,15 @@ jQuery(document).ready(function () {
             $(".modal-info").css('display', 'flex');
         };
     });
+
     $("#quiz-next").on("click",function (){
         $("#quiz-"+step).hide();
         $("#quiz-"+(step+1)).css('display', 'flex');
         $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
-        $(".progress-bar").css("--myVar",((step)*8 - 5)+"%");
-        $(".progress-bar").find("span").text("Расчет пройден на "+ ((step)*8) +"%");
+        $(".progress-bar").css("--myVar",((step)*10 +"%"));
+        $(".progress-bar").find("span").text("Расчет пройден на " + (step > 9 ? 99 : ((step)*10)) +"%");
 
-        if(step == 1){
+        if ((step === 1) || (step === 2)){
             $("#quiz-back").show();
             $(".quiz-design-link").show();
         }
@@ -1323,12 +1325,9 @@ jQuery(document).ready(function () {
             $(".progress-bar").css("--myVar",(100 - 5)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
         }
-
         step++;
-
     });
     $("#quiz-next-section").on("click",function (){
-
         step=1
         $(".modal").toggle("flex");
         $(".Quiz").toggle();
@@ -1347,10 +1346,10 @@ jQuery(document).ready(function () {
         $("#quiz-"+(step+1)).css('display', 'flex');
 
         $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
-        $(".progress-bar").css("--myVar",((step)*8 - 5)+"%");
-        $(".progress-bar").find("span").text("Расчет пройден на "+ ((step)*8) +"%");
+        $(".progress-bar").css("--myVar",((step)*10)+"%");
+        $(".progress-bar").find("span").text("Расчет пройден на "+ ((step)*10) +"%");
         step=2;
-        if(step == 1){
+        if ((step === 1) || (step === 2)){
             $("#quiz-back").show();
             $(".quiz-design-link").show();
         }
@@ -1371,8 +1370,8 @@ jQuery(document).ready(function () {
         $("#step-name").html($("#quiz-"+(step-1)).find("#quiz-name").text());
         $("#quiz-"+step).hide();
         $("#quiz-"+(step-1)).css('display', 'flex');
-        $(".progress-bar").css("--myVar",((step-2)*8 - 5)+"%");
-        $(".progress-bar").find("span").text("Расчет пройден на "+ ((step-2)*8) +"%");
+        $(".progress-bar").css("--myVar",((step-2)*10)+"%");
+        $(".progress-bar").find("span").text("Расчет пройден на "+ ( step > 11 ? 99 : ((step-2)*10) )+"%");
 
         if(step == 2){
             $("#quiz-back").hide();
@@ -1699,24 +1698,121 @@ jQuery(document).ready(function () {
         })
     });
 
+	$(".quiz-btn").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Получить все бонусы',
+            Телефон: $(this).parent().find("#QuizTel").val(),
+            Имя: $(this).parent().find("#QuizName").val(),
+        })
+		
+		setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
+    });
+
 	let quizPrice = {};
 
 	$("#quiz-next-section").on("click", function () {
-		quizPrice.kitchenShape =$(this).parent().parent().parent().find(".active").text();
-		// quizPrice = $(this).parent().parent().parent().find(".active").text();
-		console.log(quizPrice);
-
-		console.log($(this).parent().parent().parent().find(".quiz-2"))
+		quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").text();
     });
 
 	$("#quiz-next").on("click", function () {
-		let selectionKitchenAppliances = $(this).parent().parent().parent().find(".tech");
-		// selectionKitchenAppliances.children().map(tech => tech.find(".control-group").checked());
-		let child = selectionKitchenAppliances.children();
-		for (tech of child) {
-			let children = tech.children();
+		if (step === 2) {
+			quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").first().text();
+			console.log(quizPrice);
 		};
-    });
+		if (step === 3) {
+			let child = $("#quiz-2").children();
+			for (tech of child) {
+				let children = $(tech).find(".control-group").children();
+				for (child of children) {
+					let checked = $(child).find('input').prop('checked');
+					if (checked) {
+						let property = $(child).find('input').parent().parent().parent().find('span:first-child').attr('data');
+						quizPrice[property] = $(child).find("input").next().text();
+					};
+				}
+			};
+			return;
+		};
+		if (step === 4) {
+			quizPrice.kitchenUnitLayout = $("#quiz-3").find(".active").text();
+			return;
+		};
+		if (step === 5) {
+			quizPrice.typeUpperCabinets = $("#quiz-4").find(".active").text();
+			return;
+		};
+		if (step === 6) {
+			quizPrice.fittingsBaseCabinets = $("#quiz-5").find(".active").text();
+			return;
+		};
+		if (step === 7) {
+			quizPrice.facadeMaterial = $("#quiz-6").find(".active").text();
+			let children = $("#quiz-6").find(".control-group").children();
+			for (child of children) {
+				let checked = $(child).find('input').prop('checked');
+				if (checked) {
+					quizPrice.facadeForm = $(child).find("input").next().text();
+				};
+			}
+			return;
+		};
+		if (step === 8) {
+			quizPrice.countertopMaterial = $("#quiz-7").find(".active").text();
+			return;
+		};
+		if (step === 9) {
+			quizPrice.skirting = $("#quiz-8").find(".active").text();
+			return;
+		};
+		if (step === 10) {
+			quizPrice.stage = $("#quiz-9").find(".active").text();
+			return;
+		};
+		if (step === 11) {
+			let checked = $("#quiz-10").find(".switch").children().find('input').prop('checked');
+			if (!checked) {
+				quizPrice.kitchenDimensions = 'Без размеров';
+				return;
+			};
+			quizPrice.kitchenDimensions_sideA = $("#quiz-10").find(".sideA").val();
+			quizPrice.kitchenDimensions_sideB = $("#quiz-10").find(".sideB").val();
+			quizPrice.kitchenDimensions_sideC = $("#quiz-10").find(".sideC").val();
+			return;
+		};
+		$("#quiz-next").css("display", "none");
+		$("#quiz-back").css("display", "none");
+		if (step === 12) {
+			quizPrice.budget = $("#quiz-11").find(".active").text();
+			return;
+		};
+		if (step === 13) {
+			let children = $("#quiz-12").find(".switch");
+			for (child of children) {
+				let checked = $(child).find('input').prop('checked');
+				if (checked) {
+					quizPrice.bonus = $(child).find("input").parent().next().text();
+					continue;
+				};
+			};
+			if (quizPrice.bonus !== undefined) {
+				quizPrice.bonus = 'Без бонуса';
+			};
+			$.post(url, {
+				city: 'Орел',
+				project_name: 'MFSlon',
+				form_subject: 'Расчет кухни в 3х вариантах',
+				Телефон: $(this).parent().find("#QuizTel").val(),
+				Имя: $(this).parent().find("#QuizName").val(),
+				// propertyKitchen: quizPrice,
+			});
+
+			return;
+		};
+	});
 
 });
 
@@ -1755,7 +1851,9 @@ let switchCash = document.getElementById('switch-cash');
 function changeCheckedInput(inp1, inp2, inp3) {
     inp1.checked = false;
     inp2.checked = false;
-    inp3.setAttribute("checked", "checked");
+	// inp1.removeAttribute("checked");
+	// inp2.removeAttribute("checked");
+    // inp3.setAttribute("checked", "checked");
 }
 
 switchSale.addEventListener('change', function(event){
