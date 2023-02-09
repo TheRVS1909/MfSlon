@@ -8,7 +8,7 @@ html , body {
 
 body{
     background-color: #FFFFFF;
-    font-family: Montserrat;
+    font-family: 'Montserrat', 'sans-serif';
     overflow-x: hidden;
     font-weight: 700;
    /* overflow: hidden;*/
@@ -1230,7 +1230,7 @@ width: 45%!important;
     margin: 42px 0 24px 40px;
 }
 .addresses_Text {
-    font-family: Montserrat;
+    font-family: 'Montserrat', 'sans-serif';
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -1595,6 +1595,14 @@ width: 45%!important;
      z-index: 5;
      transform: scale(0);
  }
+
+.a-tel{
+    text-decoration: none;
+    color: #40AC46;
+}
+footer .a-tel{
+    color: #ffffff;
+}
 @keyframes s-ripple {
     0% {
         opacity: 0;
@@ -2156,6 +2164,18 @@ width: 45%!important;
     }
     .action-content .f-20{
         font-size: 16px !important;
+    }
+}
+
+@media(min-width: 1440px) {
+    .background-slider{
+        overflow: hidden;
+    }
+    .background-slider img{
+        width: 100%;
+    }
+    .modal-2,.modal-3,.modal-4{
+        max-width: 1350px;
     }
 }
 
