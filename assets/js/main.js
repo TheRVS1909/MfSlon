@@ -1027,6 +1027,32 @@ jQuery(document).ready(function () {
        $("."+name).css("display","flex");
        $(".modal").css("display","flex");
        $(".overlay").toggle();
+        if (name == 'modal-3') {
+            if ( $(".modal-3 .draggable").height() == 0) {
+                if ($(document).width() > 1440) {
+                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 40);
+                }
+                if ($(document).width() > 992 && $(document).width() < 1440) {
+                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 40 - 0.5*(1500 - $(document).width()));
+                }
+                if ($(document).width() < 992 && $(document).width() > 768) {
+                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 240);
+                }
+                if ($(document).width() < 768 && $(document).width() > 600) {
+                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 440);
+                }
+                if ($(document).width() < 600 && $(document).width() > 500) {
+                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 380);
+                }
+                if ($(document).width() < 500) {
+                    $(".modal-3 .draggable").css('height', "680px");
+                }
+                $(".slide-cont").removeAttr('style');
+            }
+            if ($(".action-slider .slick-track").width() == 0) {
+                $(".action-slider .slick-track").css("width", "");
+            }
+        }
     });
 
     $(".open-modal-slider").on("click",function (){
@@ -1186,7 +1212,7 @@ jQuery(document).ready(function () {
             slidesToShow: 1,
             slidesToScroll: 1,
             adaptiveHeight: true,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 4000,
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
