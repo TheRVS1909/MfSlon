@@ -1489,7 +1489,7 @@ jQuery(document).ready(function () {
     });
 
     //AJAX
-	const url = 'http://localhost/mfslon/mail.php';
+	const url = 'http://mfslon.bitrix24.ru';
     $(".visit-btn").on("click", function () {
         $.post(url, {
             city: 'Орел',
@@ -1721,7 +1721,7 @@ jQuery(document).ready(function () {
 	$("#quiz-next").on("click", function () {
 		if (step === 2) {
 			quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").first().text();
-			console.log(quizPrice);
+			
 		};
 		if (step === 3) {
 			let child = $("#quiz-2").children();
