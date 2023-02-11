@@ -988,7 +988,7 @@ jQuery(document).ready(function () {
         $(".Quiz").toggle();
         $(".overlay").toggle();
         if($(".Quiz").data("open") == "close") {
-            (step > 2 ) ? step : step = 0;
+            (step > 2 ) ? step : step = 1;
             $(".Quiz").attr("data-open","open");
             $("body").css("overflow","hidden");
         }else{
@@ -1071,27 +1071,14 @@ jQuery(document).ready(function () {
        		$("#quiz-"+(step)).css('display', 'none');
             $(".Quiz").attr("data-open","close")
             $("body").css("overflow","scroll");
-            $(".overlay").toggle();
+            $(".overlay").css('display', 'none');
     });
-    // $(".cross").on("click",function (){
-    //     console.log($(this).parent().parent().parent());
-    //     // if($(this).parent().parent().parent().data("open") == "open"){
-    //     //     $(".Quiz").hide();
-    //     //     $(".modal").hide();
-    //     //     return;
-    //     // }
-    //     // $(this).parent().parent().parent().hide();
-    //     // if($(".Quiz").attr("data-open") == "close") {
-    //     //     $(".modal").hide();
-    //     //     $(".overlay").toggle();
-    //     // }
-
-
-    // });
 
     $('.cross').on("click", function (){
         if ($(this).parent().parent().data("info") && $(".Quiz").attr("data-open") == 'open') {
             $(".modal-info").hide();
+            $(".overlay").css('display', 'none');
+
         }else {
             $(`section.modal`).hide();
             $(this).parent().parent().hide();
@@ -1136,10 +1123,32 @@ jQuery(document).ready(function () {
     });
 
     $(".item-form").on("click",function (){
+        if ($(this).find(".active").length !== 0) {
+            if($(this).parent().parent().parent().parent().attr("data") == "bl-quiz") {
+                $(this).find(".active").removeClass("active");
+                $("#quiz-next-section").addClass("quiz-next-desable");
+                return
+            }
+            $(this).find(".active").removeClass("active");
+            $("#quiz-next").addClass("quiz-next-desable");
+            $("#quiz-back").addClass("quiz-next-desable");
+            return
+        }
+        $("#quiz-next").removeClass("quiz-next-desable");
+        $("#quiz-back").removeClass("quiz-next-desable");
+        $("#quiz-next-section").removeClass("quiz-next-desable");
         let old = $(this).parent().find(".active");
         old.removeClass("active");
         $(this).find(".item-name").addClass("active");
         let img = $(this).find("img").attr("src");
+        $(this).parent().parent().find("img.quiz-img").attr("src",img);
+    });
+
+    $("#quiz-6 .item-form, #quiz-7 .item-form, #quiz-8 .item-form").on("click",function (){
+        let old = $(this).parent().find(".active");
+        old.removeClass("active");
+        $(this).find(".item-name").addClass("active");
+        let img = $(this).find(".img-quiz").attr("src");
         $(this).parent().parent().find("img.quiz-img").attr("src",img);
     });
 
@@ -1305,33 +1314,85 @@ jQuery(document).ready(function () {
     for (let i = 1; i <= 5; i++) {
         $(`#btn-info-${i}`).on("click", function () {
             let text = $(this).next().html();
+            let width = $(this).next().attr("data-width");
             $("#info-input").html();
             $("#info-input").html(text);
             $(".modal").css("display","flex");
             $(".modal-info").css('display', 'flex');
+            $(".modal-info").css('max-width', width + "px");
+            $("#info-input").addClass("text-center");
+            $("#info-input").removeClass("text-start");
+            $(".overlay").toggle();
         });
     }
+    $(`#btn-info-4`).on("click", function () {
+        $("#info-input").addClass("text-start");
+        $("#info-input").removeClass("text-center");
+
+    });
     for (let i = 1; i <= 10; i++) {
         $(`#btn-info-q${i}`).on("click", function () {
             let text = $(this).next().html();
+            let width = $(this).next().attr("data-width");
             $("#info-input").html();
             $("#info-input").html(text);
             $(".modal").css("display","flex");
             $(".modal-info").css('display', 'flex');
+            $(".modal-info").css('max-width', width + "px");
+            $("#info-input").addClass("text-center");
+            $("#info-input").removeClass("text-start");
         });
     }
     //Quiz
-    $(`#quiz-next`).on("click", function () {
-        if ($("#quiz-"+(step+1)+" .info-text").html()) {
-            let text = $("#quiz-"+(step+1)+" .info-text").html();
+    $(`.quiz-design-link`).on("click", function () {
+        if ($("#quiz-"+(step)+" .info-text").html()) {
+            let text = $("#quiz-"+(step)+" .info-text").html();
             $("#info-input").html();
             $("#info-input").html(text);
             $(".modal").css("display","flex");
             $(".modal-info").css('display', 'flex');
+            $("#info-input").addClass("text-center");
+            $("#info-input").removeClass("text-start");
+            let width = $("#quiz-"+(step)+" .info-text").attr("data-width");
+            $(".modal-info").css('max-width', width + "px");
         };
     });
 
+    $(".size-block #sideA, .size-block #sideB, .size-block #sideC").on("change", function () {
+        if (
+            $(".size-block #sideA").val() !== '' &&
+            $(".size-block #sideB").val() !== '' &&
+            $(".size-block #sideC").val() !== ''
+            ) {
+                $("#quiz-next").removeClass("quiz-next-desable");
+                $("#quiz-back").removeClass("quiz-next-desable");
+        }else {
+            $("#quiz-next").addClass("quiz-next-desable");
+            $("#quiz-back").addClass("quiz-next-desable");
+        }
+        if ($("#quiz-10 .switch input").prop('checked')) {
+            $("#quiz-10 .switch input").prop('checked', false);
+        }
+    });
+
+    $("#quiz-10 .switch input").on("change", function () {
+        if ($("#quiz-10 .switch input").prop('checked')) {
+                $("#quiz-next").removeClass("quiz-next-desable");
+                $("#quiz-back").removeClass("quiz-next-desable");
+                $(".size-block #sideA").val('');
+                $(".size-block #sideB").val('');
+                $(".size-block #sideC").val('');
+        }else {
+            $("#quiz-next").addClass("quiz-next-desable");
+            $("#quiz-back").addClass("quiz-next-desable");
+        }
+    });
+
     $("#quiz-next").on("click",function (){
+        if ($("#quiz-next").parent().find(".quiz-next-desable").length !== 0) {
+            return;
+        }
+
         $("#quiz-"+step).hide();
         $("#quiz-"+(step+1)).css('display', 'flex');
         $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
@@ -1342,8 +1403,12 @@ jQuery(document).ready(function () {
             $("#quiz-back").show();
             $(".quiz-design-link").show();
         }
-        if(step == 6){
+        if(step == 5){
             $(".quiz-design-link").hide();
+        }
+        if(step == 9){
+            $("#quiz-next").addClass("quiz-next-desable");
+            $("#quiz-back").addClass("quiz-next-desable");
         }
         if(step == 12){
             $("#step-name").hide();
@@ -1354,12 +1419,13 @@ jQuery(document).ready(function () {
         step++;
     });
     $("#quiz-next-section").on("click",function (){
-        step=1
+        if ($("#quiz-next-section").parent().find(".quiz-next-desable").length !== 0) {
+            return;
+        }
         $(".modal").toggle("flex");
         $(".Quiz").toggle();
         $(".overlay").toggle();
         if($(".Quiz").data("open") == "close") {
-            step!=1?step:step=1;
             $(".Quiz").attr("data-open","open");
             $("body").css("overflow","hidden");
         }else{
@@ -1367,14 +1433,22 @@ jQuery(document).ready(function () {
             $("body").css("overflow","none");
         }
 
+        if (step == 1) {
+            $("#quiz-1").hide();
+            $("#quiz-2").css('display', 'flex');
+            step++;
+        }else {
+            $("#quiz-2").hide();
+            $("#quiz-"+(step)).css('display', 'flex');
+        }
+
         $(".modal-info").hide();
-        $("#quiz-"+step).hide();
-        $("#quiz-"+(step+1)).css('display', 'flex');
+        
 
         $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
         $(".progress-bar").css("--myVar",((step)*10)+"%");
         $(".progress-bar").find("span").text("Расчет пройден на "+ ((step)*10) +"%");
-        step=2;
+
         if ((step === 1) || (step === 2)){
             $("#quiz-back").show();
             $(".quiz-design-link").show();
@@ -1391,6 +1465,9 @@ jQuery(document).ready(function () {
     });
 
     $("#quiz-back").on("click",function (){
+        if ($("#quiz-back").parent().find(".quiz-next-desable").length !== 0) {
+            return;
+        }
 
         $(".modal-info").hide();
         $("#step-name").html($("#quiz-"+(step-1)).find("#quiz-name").text());
@@ -1741,10 +1818,16 @@ jQuery(document).ready(function () {
 	let quizPrice = {};
 
 	$("#quiz-next-section").on("click", function () {
+        if ($("#quiz-next-section").parent().find(".quiz-next-desable").length !== 0) {
+            return;
+        }
 		quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").text();
     });
 
 	$("#quiz-next").on("click", function () {
+        if ($("#quiz-next").parent().find(".quiz-next-desable").length !== 0) {
+            return;
+        }
 		if (step === 2) {
 			quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").first().text();
 			
