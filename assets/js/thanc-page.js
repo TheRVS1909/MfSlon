@@ -69,11 +69,13 @@ $(".menu .contacts").on("click",function (){
   });
 
    $(`#btn-info-1`).on("click", function () {
-      let text = $(this).next().html();
+        let width = $(this).next().attr("data-width");
+        let text = $(this).next().html();
       $("#info-input").html();
       $("#info-input").html(text);
       $(".modal").css("display","flex");
       $(".modal-info").css('display', 'flex');
+      $(".modal-info").css('max-width', width + "px");
    });
 
    $(".open-modal-design").on("click",function (){
