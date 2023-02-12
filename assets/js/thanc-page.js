@@ -3,6 +3,9 @@ jQuery(document).ready(function () {
    $("#menu-item").on("click",function (){
        $(".menu").toggle("slow");
    });
+   $(".main-logo").on("click",function (){
+    $(location).attr('href','index.html');
+});
    $(".menu .examples").on("click",function (){
         $(".menu").toggle("slow");
         $(location).attr('href','index.html#examples');
@@ -182,5 +185,26 @@ $(".menu .contacts").on("click",function (){
       })
    });
 
- 
+   $(function () {
+    $('[data-phone-pattern]').on('input blur focus', (e) => {
+        var el = e.target,
+            clearVal = $(el).data('phoneClear'),
+            pattern = $(el).data('phonePattern'),
+            matrix_def = "+7(___) ___-__-__",
+            matrix = pattern ? pattern : matrix_def,
+            i = 0,
+            def = matrix.replace(/\D/g, ""),
+            val = $(el).val().replace(/\D/g, "");
+        if (clearVal !== 'false' && e.type === 'blur') {
+            if (val.length < matrix.match(/([\_\d])/g).length) {
+                $(el).val('');
+                return;
+            }
+        }
+        if (def.length >= val.length) val = def;
+        $(el).val(matrix.replace(/./g, function (a) {
+            return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a;
+        }));
+    });
+});
 });

@@ -983,32 +983,32 @@ jQuery(document).ready(function () {
             $(".fixed-block").toggleClass("open-block");
         }
     });
-    $("#quiz-open").on("click",function (){
-        $(".modal").css("display","flex");
-        $(".Quiz").toggle();
-        $(".overlay").toggle();
-        if($(".Quiz").data("open") == "close") {
-            (step > 2 ) ? step : step = 1;
-            $(".Quiz").attr("data-open","open");
-            $("body").css("overflow","hidden");
-        }else{
-            $(".Quiz").attr("data-open","close");
-            $("body").css("overflow","none");
-        }
-    })
-    $(".quiz-open").on("click",function (){
-        $(".modal").toggle("flex");
-        $(".Quiz").toggle();
-        $(".overlay").toggle();
-        if($(".Quiz").data("open") == "close") {
-            step!=1?step:step=1;
-            $(".Quiz").attr("data-open","open");
-            $("body").css("overflow","hidden");
-        }else{
-            $(".Quiz").attr("data-open","close");
-            $("body").css("overflow","none");
-        }
-    })
+    // $("#quiz-open").on("click",function (){
+    //     $(".modal").css("display","flex");
+    //     $(".Quiz").toggle();
+    //     $(".overlay").toggle();
+    //     if($(".Quiz").data("open") == "close") {
+    //         (step > 2 ) ? step : step = 1;
+    //         $(".Quiz").attr("data-open","open");
+    //         $("body").css("overflow","hidden");
+    //     }else{
+    //         $(".Quiz").attr("data-open","close");
+    //         $("body").css("overflow","none");
+    //     }
+    // })
+    // $(".quiz-open").on("click",function (){
+    //     $(".modal").toggle("flex");
+    //     $(".Quiz").toggle();
+    //     $(".overlay").toggle();
+    //     if($(".Quiz").data("open") == "close") {
+    //         step!=1?step:step=1;
+    //         $(".Quiz").attr("data-open","open");
+    //         $("body").css("overflow","hidden");
+    //     }else{
+    //         $(".Quiz").attr("data-open","close");
+    //         $("body").css("overflow","none");
+    //     }
+    // })
 
     $(".open-modal").on("click",function (){
         $(".modal").css("display","flex");
@@ -1022,11 +1022,14 @@ jQuery(document).ready(function () {
         $(".overlay").toggle();
     })
 
-    $("#modal-2,#modal-3,#modal-4").on("click",function (){
+    $("#modal-1,#modal-2,#modal-3,#modal-4").on("click",function (){
+        $(".menu-modal").css("display","flex");
        let name = $(this).attr("id");
        $("."+name).css("display","flex");
-       $(".modal").css("display","flex");
+       $(".modal").css("display","block");
        $(".overlay").toggle();
+
+       $("#"+name+"-item").addClass('active');
         if (name == 'modal-3') {
             if ( $(".modal-3 .draggable").height() == 0) {
                 if ($(document).width() > 1440) {
@@ -1084,7 +1087,8 @@ jQuery(document).ready(function () {
             $(this).parent().parent().hide();
             $(".overlay").css('display', 'none');
         };
-        
+        $(".menu-modal").css('display', 'none');
+        $(".menu-modal>div.active").removeClass("active");
     });
 
     $(".cross-modal-slider").on("click", function (){
@@ -1129,6 +1133,11 @@ jQuery(document).ready(function () {
                 $("#quiz-next-section").addClass("quiz-next-desable");
                 return
             }
+            if($(this).parent().parent().parent().parent().attr("data") == "bl-quiz-modal") {
+                $(this).find(".active").removeClass("active");
+                $("#quiz-next-modal").addClass("quiz-next-desable");
+                return
+            }
             $(this).find(".active").removeClass("active");
             $("#quiz-next").addClass("quiz-next-desable");
             $("#quiz-back").addClass("quiz-next-desable");
@@ -1137,6 +1146,7 @@ jQuery(document).ready(function () {
         $("#quiz-next").removeClass("quiz-next-desable");
         $("#quiz-back").removeClass("quiz-next-desable");
         $("#quiz-next-section").removeClass("quiz-next-desable");
+        $("#quiz-next-modal").removeClass("quiz-next-desable");
         let old = $(this).parent().find(".active");
         old.removeClass("active");
         $(this).find(".item-name").addClass("active");
@@ -1192,7 +1202,7 @@ jQuery(document).ready(function () {
             prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
             nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: 10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
         });
-        $(".stage-slider").slick({
+        $(".stage-slider, .about-us-slider").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             adaptiveHeight: true,
@@ -1281,6 +1291,58 @@ jQuery(document).ready(function () {
        $(this).addClass("active");
         $(".stage-4-item[data-stage="+name+"]").addClass("active");
     });
+    $("#modal-1-item").on("click",function (){
+        let modal = $(".menu-modal>div.active").attr('data-open');
+        $(".menu-modal>div.active").removeClass("active");
+        $("."+modal).hide();
+        $(this).addClass("active");
+        $(".modal-1").css("display", "flex");
+    });
+    $("#modal-2-item").on("click",function (){
+        let modal = $(".menu-modal>div.active").attr('data-open');
+        $(".menu-modal>div.active").removeClass("active");
+        $("."+modal).hide();
+        $(this).addClass("active");
+        $(".modal-2").css("display", "flex");
+    });
+    $("#modal-3-item").on("click",function (){
+        let modal = $(".menu-modal>div.active").attr('data-open');
+        $(".menu-modal>div.active").removeClass("active");
+        $("."+modal).hide();
+        $(this).addClass("active");
+        $(".modal-3").css("display", "block");
+        if ( $(".modal-3 .draggable").height() == 0) {
+            if ($(document).width() > 1440) {
+                $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 40);
+            }
+            if ($(document).width() > 992 && $(document).width() < 1440) {
+                $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 40 - 0.5*(1500 - $(document).width()));
+            }
+            if ($(document).width() < 992 && $(document).width() > 768) {
+                $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 240);
+            }
+            if ($(document).width() < 768 && $(document).width() > 600) {
+                $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 440);
+            }
+            if ($(document).width() < 600 && $(document).width() > 500) {
+                $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 380);
+            }
+            if ($(document).width() < 500) {
+                $(".modal-3 .draggable").css('height', "680px");
+            }
+            $(".slide-cont").removeAttr('style');
+        }
+        if ($(".action-slider .slick-track").width() == 0) {
+            $(".action-slider .slick-track").css("width", "");
+        }
+    });
+    $("#modal-4-item").on("click",function (){
+        let modal = $(".menu-modal>div.active").attr('data-open');
+        $(".menu-modal>div.active").removeClass("active");
+        $("."+modal).hide();
+        $(this).addClass("active");
+        $(".modal-4").css("display", "flex");
+    });
 
     $(".type-place").on("click",function (){
         $(".type-place.active ").removeClass("active");
@@ -1311,7 +1373,7 @@ jQuery(document).ready(function () {
         $("#material-list-"+num).addClass("d-flex");
     });
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 6; i++) {
         $(`#btn-info-${i}`).on("click", function () {
             let text = $(this).next().html();
             let width = $(this).next().attr("data-width");
@@ -1422,6 +1484,59 @@ jQuery(document).ready(function () {
         if ($("#quiz-next-section").parent().find(".quiz-next-desable").length !== 0) {
             return;
         }
+        $(".modal").toggle("flex");
+        $(".Quiz").toggle();
+        $(".overlay").toggle();
+        if($(".Quiz").data("open") == "close") {
+            $(".Quiz").attr("data-open","open");
+            $("body").css("overflow","hidden");
+        }else{
+            $(".Quiz").attr("data-open","close");
+            $("body").css("overflow","none");
+        }
+
+        if (step == 1) {
+            $("#quiz-1").hide();
+            $("#quiz-2").css('display', 'flex');
+            step++;
+        }else {
+            $("#quiz-2").hide();
+            $("#quiz-"+(step)).css('display', 'flex');
+        }
+
+        $(".modal-info").hide();
+        
+
+        $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
+        $(".progress-bar").css("--myVar",((step)*10)+"%");
+        $(".progress-bar").find("span").text("Расчет пройден на "+ ((step)*10) +"%");
+
+        if ((step === 1) || (step === 2)){
+            $("#quiz-back").show();
+            $(".quiz-design-link").show();
+        }
+        if(step == 6){
+            $(".quiz-design-link").hide();
+        }
+        if(step == 12){
+            $("#step-name").hide();
+            $("#quiz-next").hide();
+            $(".progress-bar").css("--myVar",(100 - 5)+"%");
+            $(".progress-bar").find("span").text("Расчет пройден на 100%");
+        }
+    });
+
+    $("#quiz-next-modal").on("click",function (){
+        if ($("#quiz-next-modal").parent().find(".quiz-next-desable").length !== 0) {
+            return;
+        }
+
+        $(`section.modal`).hide();
+        $(".modal-1").hide();
+        $(".overlay").css('display', 'none');
+        $(".menu-modal").css('display', 'none');
+        $(".menu-modal>div.active").removeClass("active");
+
         $(".modal").toggle("flex");
         $(".Quiz").toggle();
         $(".overlay").toggle();
@@ -1824,6 +1939,13 @@ jQuery(document).ready(function () {
 		quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").text();
     });
 
+    $("#quiz-next-modal").on("click", function () {
+        if ($("#quiz-next-modal").parent().find(".quiz-next-desable").length !== 0) {
+            return;
+        }
+		quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").text();
+    });
+
 	$("#quiz-next").on("click", function () {
         if ($("#quiz-next").parent().find(".quiz-next-desable").length !== 0) {
             return;
@@ -1892,9 +2014,10 @@ jQuery(document).ready(function () {
 			quizPrice.kitchenDimensions_sideC = $("#quiz-10").find(".sideC").val();
 			return;
 		};
-		$("#quiz-next").css("display", "none");
-		$("#quiz-back").css("display", "none");
+		
 		if (step === 12) {
+            $("#quiz-next").css("display", "none");
+		    $("#quiz-back").css("display", "none");
 			quizPrice.budget = $("#quiz-11").find(".active").text();
 			return;
 		};
@@ -1923,6 +2046,28 @@ jQuery(document).ready(function () {
 		};
 	});
 
+    $(function () {
+        $('[data-phone-pattern]').on('input blur focus', (e) => {
+            var el = e.target,
+                clearVal = $(el).data('phoneClear'),
+                pattern = $(el).data('phonePattern'),
+                matrix_def = "+7(___) ___-__-__",
+                matrix = pattern ? pattern : matrix_def,
+                i = 0,
+                def = matrix.replace(/\D/g, ""),
+                val = $(el).val().replace(/\D/g, "");
+            if (clearVal !== 'false' && e.type === 'blur') {
+                if (val.length < matrix.match(/([\_\d])/g).length) {
+                    $(el).val('');
+                    return;
+                }
+            }
+            if (def.length >= val.length) val = def;
+            $(el).val(matrix.replace(/./g, function (a) {
+                return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a;
+            }));
+        });
+    });
 });
 
 // designed-form section, add files
@@ -2021,3 +2166,5 @@ inputDate.addEventListener('blur', function(event){
     event.preventDefault();
     this.type='text';
 });
+
+
