@@ -1288,8 +1288,10 @@ jQuery(document).ready(function () {
     $(".stage-4-goals>div").on("click",function (){
         let name = $(this).attr("id");
         $(".stage-4-goals>div.active,.stage-4-item.active").removeClass("active");
+        $(".dop-img.active").removeClass("active");
        $(this).addClass("active");
         $(".stage-4-item[data-stage="+name+"]").addClass("active");
+        $(".dop-img[data-stage="+name+"]").addClass("active");
     });
     $("#modal-1-item").on("click",function (){
         let modal = $(".menu-modal>div.active").attr('data-open');
@@ -1718,6 +1720,16 @@ jQuery(document).ready(function () {
 			// date: $(this).parent.find("#ModalDate").val(),
         })
     });
+
+    $(".call-me").on("click", function () {
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Перезвоните мне',
+            Телефон: $(this).parent().find("#ModalTel").val(),
+			// date: $(this).parent.find("#ModalDate").val(),
+        })
+    });    
 
 	$(".3d-project-online").on("click", function () {
         $.post(url, {
