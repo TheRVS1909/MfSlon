@@ -99,10 +99,26 @@ $(".menu .contacts").on("click",function (){
       });
    });
 
+   $("form .mf-button").addClass("button-desable");
+    $("form input").on("change",function (){
+        if (
+            ($(this).parent().find(".name-input") ? $(this).parent().find(".name-input").val() : true)  !== '' 
+            && 
+            $(this).parent().find(".tel-input").val().length  == 17
+            ) {
+                $(this).parent().find('.mf-button').removeClass('button-desable');
+            }else {
+                $(this).parent().find('.mf-button').addClass('button-desable')
+            }
+    });
+
 
    //AJAX
    const url = 'http://mfslon.bitrix24.ru';
    $(".3d-project-online").on("click", function () {
+    if ($(this).parent().find('.button-desable').length !== 0) {
+        return
+    }
       $.post(url, {
           city: 'Орел',
           project_name: 'MFSlon',
@@ -112,7 +128,11 @@ $(".menu .contacts").on("click",function (){
        // date: $(this).parent?.find("#ModalDate")?.val() ,
       })
   });
+
    $(".book-price-standard").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
       $.post(url, {
          city: 'Орел',
          project_name: 'MFSlon',
@@ -121,7 +141,11 @@ $(".menu .contacts").on("click",function (){
          Имя: $(this).parent().find("#ExampleName").val(),
       })
    });
+
    $(".order-measurement-froze").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
       $.post(url, {
           city: 'Орел',
           project_name: 'MFSlon',
@@ -130,7 +154,11 @@ $(".menu .contacts").on("click",function (){
           Имя: $(this).parent().find("#ExampleName").val(),
       })
    });
+
    $(".advantage-offer-kitchen").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
       $.post(url, {
           city: 'Орел',
           project_name: 'MFSlon',
@@ -139,7 +167,11 @@ $(".menu .contacts").on("click",function (){
           Телефон: $(this).parent().find("#DesignTel").val(),
       })
    });
+
    $(".get-discount").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
       $.post(url, {
           city: 'Орел',
           project_name: 'MFSlon',
@@ -148,7 +180,11 @@ $(".menu .contacts").on("click",function (){
           Телефон: $(this).parent().find("#DesignTel").val(),
       })
    });
+
    $(".get-small-discount").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
       $.post(url, {
           city: 'Орел',
           project_name: 'MFSlon',
@@ -157,7 +193,11 @@ $(".menu .contacts").on("click",function (){
           Телефон: $(this).parent().find("#DesignTel").val(),
       })
    });
+
    $(".get-present").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
       $.post(url, {
           city: 'Орел',
           project_name: 'MFSlon',
@@ -166,7 +206,11 @@ $(".menu .contacts").on("click",function (){
           Телефон: $(this).parent().find("#DesignTel").val(),
       })
    });
+
    $(".advantage-offer-installment").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
       $.post(url, {
           city: 'Орел',
           project_name: 'MFSlon',
@@ -175,7 +219,11 @@ $(".menu .contacts").on("click",function (){
           Телефон: $(this).parent().find("#DesignTel").val(),
       })
    });
+
    $(".get-cashback").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
       $.post(url, {
           city: 'Орел',
           project_name: 'MFSlon',
