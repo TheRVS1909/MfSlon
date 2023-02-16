@@ -983,25 +983,25 @@ jQuery(document).ready(function () {
             $(".fixed-block").toggleClass("open-block");
         }
     });
-    // $("#quiz-open").on("click",function (){
-    //     $(".modal").css("display","flex");
-    //     $(".Quiz").toggle();
-    //     $(".overlay").toggle();
-    //     if($(".Quiz").data("open") == "close") {
-    //         (step > 2 ) ? step : step = 1;
-    //         $(".Quiz").attr("data-open","open");
-    //         $("body").css("overflow","hidden");
-    //     }else{
-    //         $(".Quiz").attr("data-open","close");
-    //         $("body").css("overflow","none");
-    //     }
-    // })
+    $("#quiz-open").on("click",function (){
+        $("#quiz-"+step).hide();
+        $("#quiz-"+(step)).css('display', 'flex');
+        $(".modal").css("display","flex");
+        $(".Quiz").toggle();
+        $(".overlay").toggle();
+        if($(".Quiz").data("open") == "close") {
+            $(".Quiz").attr("data-open","open");
+            $("body").css("overflow","hidden");
+        }else{
+            $(".Quiz").attr("data-open","close");
+            $("body").css("overflow","none");
+        }
+    })
     // $(".quiz-open").on("click",function (){
     //     $(".modal").toggle("flex");
     //     $(".Quiz").toggle();
     //     $(".overlay").toggle();
     //     if($(".Quiz").data("open") == "close") {
-    //         step!=1?step:step=1;
     //         $(".Quiz").attr("data-open","open");
     //         $("body").css("overflow","hidden");
     //     }else{
@@ -1708,9 +1708,39 @@ jQuery(document).ready(function () {
         $("#quiz-2-img img").attr("src","./assets/quiz/"+DS+MW+RF+VT+".png");
     });
 
+    $(".input-number").on("keyup",function (e){
+        // check input using regex
+        var regex = RegExp(/^\d+$/);
+        const test_result = regex.test(e.target.value);
+
+        if(test_result || e.target.value.length == 0){
+            e.target.defaultValue = e.target.value;
+        }else{
+            e.target.value = e.target.defaultValue;
+        }
+    });
+
+    $("form .mf-button").addClass("button-desable");
+    $("form input").on("change",function (){
+        if (
+            ($(this).parent().find(".name-input") ? $(this).parent().find(".name-input").val() : true)  !== '' 
+            && 
+            $(this).parent().find(".tel-input").val().length  == 17
+            ) {
+                $(this).parent().find('.mf-button').removeClass('button-desable');
+            }else {
+                $(this).parent().find('.mf-button').addClass('button-desable')
+            }
+    });
+
     //AJAX
+
+
 	const url = 'http://mfslon.bitrix24.ru';
     $(".visit-btn").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1722,6 +1752,9 @@ jQuery(document).ready(function () {
     });
 
     $(".call-me").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1732,6 +1765,9 @@ jQuery(document).ready(function () {
     });    
 
 	$(".3d-project-online").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1743,6 +1779,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".order-measurement-second-step").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1753,6 +1792,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".order-measurement-application").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1764,6 +1806,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".order-measurement").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1774,6 +1819,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".get-present").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1784,6 +1832,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".advantage-offer-installment").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1794,6 +1845,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".advantage-offer-kitchen").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1804,6 +1858,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".get-cashback").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1814,6 +1871,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".get-discount").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1824,6 +1884,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".get-small-discount").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1834,6 +1897,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".make-appointment").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1843,6 +1909,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".calculate-price-mod-3").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1852,6 +1921,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".calculate-price-mod-1").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1861,6 +1933,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".calculate-price-mod-2").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1870,6 +1945,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".get-best-price").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1881,6 +1959,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".order-other-furniture").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1891,6 +1972,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".get-consultation").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1900,6 +1984,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".make-appointment-step-3").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1909,6 +1996,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".book-price-standard").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1919,6 +2009,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".order-measurement-froze").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
@@ -1929,6 +2022,9 @@ jQuery(document).ready(function () {
     });
 
 	$(".quiz-btn").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
         $.post(url, {
             city: 'Орел',
             project_name: 'MFSlon',
