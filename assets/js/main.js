@@ -970,6 +970,9 @@ jQuery(document).ready(function () {
     $(".menu li").on("click",function (){
         $(".menu").toggle("slow");
      });
+    $(".cookie-btn").on("click", function (){
+        $(".cookie").hide();
+    });
     $(".psevdo-before").on("click",function (){
         if($(".fixed-block").data("open") == "close") {
             $(".fixed-block").css("right", 0);
@@ -977,7 +980,7 @@ jQuery(document).ready(function () {
             $(".fixed-block").toggleClass("close-block");
             $(".fixed-block").toggleClass("open-block");
         } else {
-            $(".fixed-block").css("right", `${$(document).width() < 768 ? '-230px' : '-390px'}`);
+            $(".fixed-block").css("right", `${$(document).width() < 768 ? '-230px' : '-140px'}`);
             $(".fixed-block").data("open","close");
             $(".fixed-block").toggleClass("close-block");
             $(".fixed-block").toggleClass("open-block");
@@ -1066,7 +1069,12 @@ jQuery(document).ready(function () {
     $(".open-slider-design").on("click",function (){
         $(".modal-slider-design").css("display","flex");
         $(".modal").css("display","flex");
-     });
+    });
+
+    $(".overlay-modal").on("click",function () {
+            $(".modal-info").hide();
+            $(".overlay-modal").css('display', 'none');
+    });
 
     $("#Quiz-cross").on("click",function () {
             $(".Quiz").hide();
@@ -1081,6 +1089,7 @@ jQuery(document).ready(function () {
         if ($(this).parent().parent().data("info") && $(".Quiz").attr("data-open") == 'open') {
             $(".modal-info").hide();
             $(".overlay").css('display', 'none');
+            $(".overlay-modal").css('display', 'none');
 
         }else {
             $(`section.modal`).hide();
@@ -1242,20 +1251,20 @@ jQuery(document).ready(function () {
         $("#employee").next().removeClass("d-none");
         $("#employee").hide();
     });
-    $(".examples .catalog-select").on("click",function (){
-        let name = $(this).attr("data-example");
-        $(".examples  .catalog-select.active").removeClass("active");
-        $(".examples  .catalog-select[data-example="+name+"]").addClass("active");
-        $(".examples  .catalog-active").removeClass("catalog-active");
-        $("#"+name).addClass("catalog-active");
-     });
+    // $(".examples .catalog-select").on("click",function (){
+    //     let name = $(this).attr("data-example");
+    //     $(".examples  .catalog-select.active").removeClass("active");
+    //     $(".examples  .catalog-select[data-example="+name+"]").addClass("active");
+    //     $(".examples  .catalog-active").removeClass("catalog-active");
+    //     $("#"+name).addClass("catalog-active");
+    //  });
 
     $(".catalog-kitchen .catalog-select").on("click",function (){
        let name = $(this).attr("data-catalog");
        $(".catalog-kitchen .catalog-select.active").removeClass("active");
        $(".catalog-kitchen .catalog-select[data-catalog="+name+"]").addClass("active");
-       $(".catalog-kitchen .catalog-active").removeClass("catalog-active");
-       $("#"+name).addClass("catalog-active");
+       $(".catalog-kitchen .catalog-active-k").removeClass("catalog-active-k");
+       $("#"+name).addClass("catalog-active-k");
     });
     $(".thanc-you .price-select").on("click",function (){
         let name = $(this).attr("data-price");
@@ -1272,7 +1281,7 @@ jQuery(document).ready(function () {
         $(".catalog-kitchen ."+firstName+" .catalog-item-active").removeClass("catalog-item-active");
         $("."+firstName+" #"+name).addClass("catalog-item-active");
      });
-    $(" .catalog-select").on("click",function (){
+    $(".stage .catalog-select").on("click",function (){
         let name = $(this).attr("data-stage");
         $(".stage .catalog-select.active").removeClass("active");
         $(".stage .catalog-select[data-stage="+name+"]").addClass("active");
@@ -1285,13 +1294,18 @@ jQuery(document).ready(function () {
         $(".stage .catalog-active").removeClass("catalog-active");
         $("#project").addClass("catalog-active");
     });
+    if($(document).width() < 992) {
+        $(".dop-img[data-stage=goals-1]").addClass("active");
+    }
     $(".stage-4-goals>div").on("click",function (){
         let name = $(this).attr("id");
         $(".stage-4-goals>div.active,.stage-4-item.active").removeClass("active");
-        $(".dop-img.active").removeClass("active");
        $(this).addClass("active");
         $(".stage-4-item[data-stage="+name+"]").addClass("active");
-        $(".dop-img[data-stage="+name+"]").addClass("active");
+        if($(document).width() < 992) {
+            $(".dop-img.active").removeClass("active");
+            $(".dop-img[data-stage="+name+"]").addClass("active");
+        }
     });
     $("#modal-1-item").on("click",function (){
         let modal = $(".menu-modal>div.active").attr('data-open');
@@ -1405,6 +1419,7 @@ jQuery(document).ready(function () {
             $(".modal-info").css('max-width', width + "px");
             $("#info-input").addClass("text-center");
             $("#info-input").removeClass("text-start");
+            $(".overlay-modal").toggle();
         });
     }
     //Quiz
@@ -1419,6 +1434,7 @@ jQuery(document).ready(function () {
             $("#info-input").removeClass("text-start");
             let width = $("#quiz-"+(step)+" .info-text").attr("data-width");
             $(".modal-info").css('max-width', width + "px");
+            $(".overlay-modal").css("display", "block");
         };
     });
 
@@ -1459,9 +1475,8 @@ jQuery(document).ready(function () {
 
         $("#quiz-"+step).hide();
         $("#quiz-"+(step+1)).css('display', 'flex');
-        $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
-        $(".progress-bar").css("--myVar",((step)*10 +"%"));
-        $(".progress-bar").find("span").text("Расчет пройден на " + (step > 9 ? 99 : ((step)*10)) +"%");
+        $(".progress-bar").css("--myVar",((step == 10 ? 94 : (step)*10) +"%"));
+        $(".progress-bar").find("span").text("Расчет пройден на " + (step == 10 ? 99 : ((step)*10)) +"%");
 
         if ((step === 1) || (step === 2)){
             $("#quiz-back").show();
@@ -1474,8 +1489,11 @@ jQuery(document).ready(function () {
             $("#quiz-next").addClass("quiz-next-desable");
             $("#quiz-back").addClass("quiz-next-desable");
         }
-        if(step == 12){
-            $("#step-name").hide();
+        if(step == 8){
+            $("#quiz-next").addClass("quiz-next-desable");
+            $("#quiz-back").addClass("quiz-next-desable");
+        }
+        if(step == 11){
             $("#quiz-next").hide();
             $(".progress-bar").css("--myVar",(100 - 5)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
@@ -1509,9 +1527,8 @@ jQuery(document).ready(function () {
         $(".modal-info").hide();
         
 
-        $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
-        $(".progress-bar").css("--myVar",((step)*10)+"%");
-        $(".progress-bar").find("span").text("Расчет пройден на "+ ((step)*10) +"%");
+        $(".progress-bar").css("--myVar",((step - 1)*10)+"%");
+        $(".progress-bar").find("span").text("Расчет пройден на "+ ((step - 1)*10) +"%");
 
         if ((step === 1) || (step === 2)){
             $("#quiz-back").show();
@@ -1521,7 +1538,6 @@ jQuery(document).ready(function () {
             $(".quiz-design-link").hide();
         }
         if(step == 12){
-            $("#step-name").hide();
             $("#quiz-next").hide();
             $(".progress-bar").css("--myVar",(100 - 5)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
@@ -1562,7 +1578,6 @@ jQuery(document).ready(function () {
         $(".modal-info").hide();
         
 
-        $("#step-name").html($("#quiz-"+(step+1)).find("#quiz-name").text());
         $(".progress-bar").css("--myVar",((step)*10)+"%");
         $(".progress-bar").find("span").text("Расчет пройден на "+ ((step)*10) +"%");
 
@@ -1574,7 +1589,6 @@ jQuery(document).ready(function () {
             $(".quiz-design-link").hide();
         }
         if(step == 12){
-            $("#step-name").hide();
             $("#quiz-next").hide();
             $(".progress-bar").css("--myVar",(100 - 5)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
@@ -1587,7 +1601,6 @@ jQuery(document).ready(function () {
         }
 
         $(".modal-info").hide();
-        $("#step-name").html($("#quiz-"+(step-1)).find("#quiz-name").text());
         $("#quiz-"+step).hide();
         $("#quiz-"+(step-1)).css('display', 'flex');
         $(".progress-bar").css("--myVar",((step-2)*10)+"%");
@@ -1601,7 +1614,6 @@ jQuery(document).ready(function () {
             $(".quiz-design-link").show();
         }
         if(step == 12){
-            $("#step-name").show();
             $("#quiz-next").show();
         }
 
@@ -1624,15 +1636,15 @@ jQuery(document).ready(function () {
 			adaptiveHeight: true,
 			autoplay: true,
 			autoplaySpeed: 4000,
-			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
-			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
 	});
 
     const createPriceTable = (element) => ($(`
         <li class="row">
-            <div class="col-auto mf-bold">${element[0]}</div>
-            <div class="col text-end kitchen-size">${element[1]}</div>
+            <div class="col-auto fw-700">${element[0]}</div>
+            <div class="col text-end kitchen-size fw-700">${element[1]}</div>
         </li>`
     ));
 
@@ -1656,8 +1668,8 @@ jQuery(document).ready(function () {
 			adaptiveHeight: true,
 			autoplay: true,
 			autoplaySpeed: 4000,
-			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
-			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
 	});
 
@@ -1721,7 +1733,7 @@ jQuery(document).ready(function () {
     });
 
     $("form .mf-button").addClass("button-desable");
-    $("form input").on("change",function (){
+    $("form input").on("keyup",function (){
         if (
             ($(this).parent().find(".name-input") ? $(this).parent().find(".name-input").val() : true)  !== '' 
             && 
