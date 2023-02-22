@@ -986,7 +986,7 @@ jQuery(document).ready(function () {
             $(".fixed-block").toggleClass("open-block");
         }
     });
-    $("#quiz-open").on("click",function (){
+    $("#quiz-open, #quiz-open-2").on("click",function (){
         $("#quiz-"+step).hide();
         $("#quiz-"+(step)).css('display', 'flex');
         $(".modal").css("display","flex");
@@ -1139,7 +1139,7 @@ jQuery(document).ready(function () {
         if ($(this).find(".active").length !== 0) {
             if($(this).parent().parent().parent().parent().attr("data") == "bl-quiz") {
                 $(this).find(".active").removeClass("active");
-                $("#quiz-next-section").addClass("quiz-next-desable");
+                $(".quiz-next-section").addClass("quiz-next-desable");
                 return
             }
             if($(this).parent().parent().parent().parent().attr("data") == "bl-quiz-modal") {
@@ -1148,13 +1148,13 @@ jQuery(document).ready(function () {
                 return
             }
             $(this).find(".active").removeClass("active");
-            $("#quiz-next").addClass("quiz-next-desable");
-            $("#quiz-back").addClass("quiz-next-desable");
+            $(".quiz-next").addClass("quiz-next-desable");
+            $(".quiz-back").addClass("quiz-next-desable");
             return
         }
-        $("#quiz-next").removeClass("quiz-next-desable");
-        $("#quiz-back").removeClass("quiz-next-desable");
-        $("#quiz-next-section").removeClass("quiz-next-desable");
+        $(".quiz-next").removeClass("quiz-next-desable");
+        $(".quiz-back").removeClass("quiz-next-desable");
+        $(".quiz-next-section").removeClass("quiz-next-desable");
         $("#quiz-next-modal").removeClass("quiz-next-desable");
         let old = $(this).parent().find(".active");
         old.removeClass("active");
@@ -1265,6 +1265,11 @@ jQuery(document).ready(function () {
        $(".catalog-kitchen .catalog-select[data-catalog="+name+"]").addClass("active");
        $(".catalog-kitchen .catalog-active-k").removeClass("catalog-active-k");
        $("#"+name).addClass("catalog-active-k");
+    });
+    $(".catalog-select-all").on("click", function (){
+        $(this).hide();
+        $(".sel-provance").show();
+        $(".sel-loft").show();
     });
     $(".thanc-you .price-select").on("click",function (){
         let name = $(this).attr("data-price");
@@ -1444,11 +1449,11 @@ jQuery(document).ready(function () {
             $(".size-block #sideB").val() !== '' &&
             $(".size-block #sideC").val() !== ''
             ) {
-                $("#quiz-next").removeClass("quiz-next-desable");
-                $("#quiz-back").removeClass("quiz-next-desable");
+                $(".quiz-next").removeClass("quiz-next-desable");
+                $(".quiz-back").removeClass("quiz-next-desable");
         }else {
-            $("#quiz-next").addClass("quiz-next-desable");
-            $("#quiz-back").addClass("quiz-next-desable");
+            $(".quiz-next").addClass("quiz-next-desable");
+            $(".quiz-back").addClass("quiz-next-desable");
         }
         if ($("#quiz-10 .switch input").prop('checked')) {
             $("#quiz-10 .switch input").prop('checked', false);
@@ -1457,19 +1462,19 @@ jQuery(document).ready(function () {
 
     $("#quiz-10 .switch input").on("change", function () {
         if ($("#quiz-10 .switch input").prop('checked')) {
-                $("#quiz-next").removeClass("quiz-next-desable");
-                $("#quiz-back").removeClass("quiz-next-desable");
+                $(".quiz-next").removeClass("quiz-next-desable");
+                $(".quiz-back").removeClass("quiz-next-desable");
                 $(".size-block #sideA").val('');
                 $(".size-block #sideB").val('');
                 $(".size-block #sideC").val('');
         }else {
-            $("#quiz-next").addClass("quiz-next-desable");
-            $("#quiz-back").addClass("quiz-next-desable");
+            $(".quiz-next").addClass("quiz-next-desable");
+            $(".quiz-back").addClass("quiz-next-desable");
         }
     });
 
-    $("#quiz-next").on("click",function (){
-        if ($("#quiz-next").parent().find(".quiz-next-desable").length !== 0) {
+    $(".quiz-next").on("click",function (){
+        if ($(".quiz-next").parent().find(".quiz-next-desable").length !== 0) {
             return;
         }
 
@@ -1479,29 +1484,35 @@ jQuery(document).ready(function () {
         $(".progress-bar").find("span").text("Расчет пройден на " + (step == 10 ? 99 : ((step)*10)) +"%");
 
         if ((step === 1) || (step === 2)){
-            $("#quiz-back").show();
+            $(".quiz-back").show();
             $(".quiz-design-link").show();
         }
         if(step == 5){
             $(".quiz-design-link").hide();
         }
+        if(step == 8 && $(document).width() < 768 || step == 10 && $(document).width() < 768){
+            $(".btn-quiz").hide();
+        }else {
+            $(".btn-quiz").show();
+        }
         if(step == 9){
-            $("#quiz-next").addClass("quiz-next-desable");
-            $("#quiz-back").addClass("quiz-next-desable");
+            $(".quiz-next").addClass("quiz-next-desable");
+            $(".quiz-back").addClass("quiz-next-desable");
         }
         if(step == 8){
-            $("#quiz-next").addClass("quiz-next-desable");
-            $("#quiz-back").addClass("quiz-next-desable");
+            $(".quiz-next").addClass("quiz-next-desable");
+            $(".quiz-back").addClass("quiz-next-desable");
         }
         if(step == 11){
-            $("#quiz-next").hide();
-            $(".progress-bar").css("--myVar",(100 - 5)+"%");
+            $(".quiz-next").hide();
+            $(".progress-bar").css("--myVar",(90)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
+            $(".Quiz .progress-bar").hide();
         }
         step++;
     });
-    $("#quiz-next-section").on("click",function (){
-        if ($("#quiz-next-section").parent().find(".quiz-next-desable").length !== 0) {
+    $(".quiz-next-section").on("click",function (){
+        if ($(".quiz-next-section").parent().find(".quiz-next-desable").length !== 0) {
             return;
         }
         $(".modal").toggle("flex");
@@ -1531,15 +1542,15 @@ jQuery(document).ready(function () {
         $(".progress-bar").find("span").text("Расчет пройден на "+ ((step - 1)*10) +"%");
 
         if ((step === 1) || (step === 2)){
-            $("#quiz-back").show();
+            $(".quiz-back").show();
             $(".quiz-design-link").show();
         }
         if(step == 6){
             $(".quiz-design-link").hide();
         }
         if(step == 12){
-            $("#quiz-next").hide();
-            $(".progress-bar").css("--myVar",(100 - 5)+"%");
+            $(".quiz-next").hide();
+            $(".progress-bar").css("--myVar",(90)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
         }
     });
@@ -1582,21 +1593,21 @@ jQuery(document).ready(function () {
         $(".progress-bar").find("span").text("Расчет пройден на "+ ((step)*10) +"%");
 
         if ((step === 1) || (step === 2)){
-            $("#quiz-back").show();
+            $(".quiz-back").show();
             $(".quiz-design-link").show();
         }
         if(step == 6){
             $(".quiz-design-link").hide();
         }
         if(step == 12){
-            $("#quiz-next").hide();
+            $(".quiz-next").hide();
             $(".progress-bar").css("--myVar",(100 - 5)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
         }
     });
 
-    $("#quiz-back").on("click",function (){
-        if ($("#quiz-back").parent().find(".quiz-next-desable").length !== 0) {
+    $(".quiz-back").on("click",function (){
+        if ($(".quiz-back").parent().find(".quiz-next-desable").length !== 0) {
             return;
         }
 
@@ -1607,14 +1618,19 @@ jQuery(document).ready(function () {
         $(".progress-bar").find("span").text("Расчет пройден на "+ ( step > 11 ? 99 : ((step-2)*10) )+"%");
 
         if(step == 2){
-            $("#quiz-back").hide();
+            $(".quiz-back").hide();
             $(".quiz-design-link").hide();
         }
         if(step == 7){
             $(".quiz-design-link").show();
         }
+        if(step == 10 && $(document).width() < 768){
+            $(".btn-quiz").hide();
+        }else {
+            $(".btn-quiz").show();
+        }
         if(step == 12){
-            $("#quiz-next").show();
+            $(".quiz-next").show();
         }
 
         step--;
@@ -1708,7 +1724,7 @@ jQuery(document).ready(function () {
         $(this).find("input[type='radio']").prop('checked', true);
         let DS = $("#DS input[type='radio']:checked").parent().index()+1;
         if(DS != 1){
-            $("#MW").hide();
+            
             $("#MW input[type='radio']:checked").prop('checked', false);
             $("#MW:last-child input").prop('checked', true);
         } else{
@@ -2052,8 +2068,8 @@ jQuery(document).ready(function () {
 
 	let quizPrice = {};
 
-	$("#quiz-next-section").on("click", function () {
-        if ($("#quiz-next-section").parent().find(".quiz-next-desable").length !== 0) {
+	$(".quiz-next-section").on("click", function () {
+        if ($(".quiz-next-section").parent().find(".quiz-next-desable").length !== 0) {
             return;
         }
 		quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").text();
@@ -2066,8 +2082,8 @@ jQuery(document).ready(function () {
 		quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").text();
     });
 
-	$("#quiz-next").on("click", function () {
-        if ($("#quiz-next").parent().find(".quiz-next-desable").length !== 0) {
+	$(".quiz-next").on("click", function () {
+        if ($(".quiz-next").parent().find(".quiz-next-desable").length !== 0) {
             return;
         }
 		if (step === 2) {
@@ -2136,8 +2152,8 @@ jQuery(document).ready(function () {
 		};
 		
 		if (step === 12) {
-            $("#quiz-next").css("display", "none");
-		    $("#quiz-back").css("display", "none");
+            $(".quiz-next").css("display", "none");
+		    $(".quiz-back").css("display", "none");
 			quizPrice.budget = $("#quiz-11").find(".active").text();
 			return;
 		};
