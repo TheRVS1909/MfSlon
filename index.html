@@ -207,16 +207,16 @@
 
             </div>
             <div class="row">
-						<div class="progress-bar">
-							<span class="z-2 mf-bold f-16">Расчет пройден на 0%</span>
-						</div>
+                <div class="progress-bar">
+                    <span class="z-2 mf-bold f-16 ff-6 inter">Расчет пройден на 0%</span>
+                </div>
             </div>
-            <div class="row mt-5">
-						<div class="col-md-6 col-gl-5"></div>
-						<div class="col-12 col-md-6 col-gl-7 text-center"><span class="f-24">Выберите форму кухни</span></div>
+            <div class="row mt-5 d-none d-md-block">
+                <div class="col-md-6 col-gl-5"></div>
+                <div class="col-12 col-md-6 col-gl-7 text-center"><span class="f-24">Выберите форму кухни</span></div>
             </div>
             <div class="row justify-content-between">
-						<div class="col-11 col-md-6 col-lg-5 row bx-sh br-20 mt-40 quiz-1block margin-a">
+						<div class="col-10 col-md-6 col-lg-5 row bx-sh br-20 mt-40 quiz-1block margin-a">
 							<div class="row col-12 h-min mx-0 mt-5">
 									<div class="mini-icon col-4 text-center">
 										<div class="img-icon">
@@ -231,26 +231,37 @@
 							</div>
 							<div class="col-12 mb-5">
 									<ul class="mf-list f-16">
-										<li class="ff-8">
+										<li class="ff-8 mb-2 mt-2 inter">
 											расчет кухни по Вашим параметрам в 3-х ценовых вариантах
 										</li>
-										<li class="ff-8">
+										<li class="ff-8 mb-2 inter">
 											скидку до 45% на новую кухню
 										</li>
-										<li class="ff-8">
+										<li class="ff-8 mb-2 inter">
 											3D-проект кухни
 										</li>
-										<li class="ff-8">
+										<li class="ff-8 mb-2 inter">
 											кешбек 15% на корпусную мебель
 										</li>
-										<li class="ff-8">
+										<li class="ff-8 mb-2 inter">
 											каталог установленных кухонь
 										</li>
-										<li class="ff-8">инструкцию: “Советы дизайнера: Как сэкономить на покупке кухни до 40 000 руб
+										<li class="ff-8 mb-2 inter">инструкцию: “Советы дизайнера: Как сэкономить на покупке кухни до 40 000 руб
 										</li>
 									</ul>
 							</div>
 						</div>
+                        <div class="row mt-5 d-block d-md-none">
+                            <div class="col justify-content-end align-items-end d-flex">
+                                <div class="mf-button quiz-next-section" id="quiz-next-section">
+                                        Далее <img alt="" src="./assets/img/arrow-right.svg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5 d-none mobil-header-quiz">
+                            <div class="col-md-6 col-gl-5"></div>
+                            <div class="col-12 col-md-6 col-gl-7 text-center"><span class="f-24">Выберите форму кухни</span></div>
+                        </div>
 						<div class="col-md-6 col-gl-7 row">
 							<div class="col-5 item-form">
 									<img alt="" src="./assets/img/p.jpg">
@@ -271,8 +282,8 @@
 						</div>
             </div>
             <div class="row mt-5">
-						<div class="col justify-content-end align-items-end d-flex">
-							<div class="mf-button" id="quiz-next-section">
+						<div class="col  justify-content-center justify-content-md-end align-items-end d-flex">
+							<div class="mf-button quiz-next-section" id="quiz-next-section">
 									Далее <img alt="" src="./assets/img/arrow-right.svg">
 							</div>
 						</div>
@@ -317,12 +328,20 @@
                     <div class="col-12 text-center"><p class="mf-white px-5 fw-400">Хватит места в шкафах и на полках</p></div>
                 </div>
             </div>
-            <div class="row flex-nowrap px-3 px-lg-5 f-16 mt-5 catalog-select-parent">
+            <div class="row flex-nowrap px-3 px-lg-5 f-16 mt-5 catalog-select-parent d-none d-md-flex">
                 <div class="catalog-select active" data-catalog="minimalism">Минимализм</div>
                 <div class="catalog-select" data-catalog="classic">Классика</div>
                 <div class="catalog-select" data-catalog="neoclassic">Неоклассика</div>
                 <div class="catalog-select" data-catalog="loft">Лофт</div>
                 <div class="catalog-select" data-catalog="provance">Прованс</div>
+            </div>
+            <div class="row flex-nowrap px-3 px-lg-5 f-16 mt-5 catalog-select-parent d-flex d-md-none">
+                <div class="catalog-select active" data-catalog="minimalism">Минимализм</div>
+                <div class="catalog-select" data-catalog="classic">Классика</div>
+                <div class="catalog-select" data-catalog="neoclassic">Неоклассика</div>
+                <div class="catalog-select-all">Смотреть все</div>
+                <div class="catalog-select sel-loft" data-catalog="loft">Лофт</div>
+                <div class="catalog-select sel-provance" data-catalog="provance">Прованс</div>
             </div>
             <div class="row catalog-item catalog-active-k justify-content-center" id="minimalism">
                 <div class="row-lg-none col-12 col-sm-10 col-md-8 col-lg-4 minimalism-1 kitchen" data-name="minimalism-1">
@@ -980,6 +999,11 @@
             <div class="row mini-info-block mf-white justify-content-center">
                 <div class="col-12 text-center f-24 mb-5"><span class="b">ФИКСИРОВАННАЯ ЦЕНА <span class="b-green">БЕЗ СЮРПРИЗОВ И ДОПЛАТ</span></span>
                 </div>
+                <div class="col-md-6 col-sm-10 col-12 mini-info-green mb-3 mf-bold d-block d-md-none">
+                    Выбирая кухню, Вы можете столкнуться с компаниями, которые занижают цены для привлечения внимания.
+                    Подобные уловки приводят к «неожиданным» и неприятным сюрпризам – к примеру, в проект не заложена
+                    стоимость фурнитуры или монтаж кухни.
+                </div>
                 <div class="col-md-6 col-sm-10 col-12">
                     <span class="mf-bold">В прозрачную смету уже входит все:</span>
                     <ul class="mf-list mf-bold">
@@ -988,7 +1012,7 @@
                         <li>профессиональный монтаж мебели</li>
                     </ul>
                 </div>
-                <div class="col-md-6 col-sm-10 col-12 mini-info-green mf-bold">
+                <div class="col-md-6 col-sm-10 col-12 mini-info-green mf-bold d-none d-md-block">
                     Выбирая кухню, Вы можете столкнуться с компаниями, которые занижают цены для привлечения внимания.
                     Подобные уловки приводят к «неожиданным» и неприятным сюрпризам – к примеру, в проект не заложена
                     стоимость фурнитуры или монтаж кухни.
@@ -999,7 +1023,8 @@
                             <a href="#calculate-price">Рассчитать цену вашей кухни</a>
                         </div>
                         <div class="price-btn-info">
-                            <img src="./assets/img/rulet.png" alt="">
+                            <img class="d-none d-md-block" src="./assets/img/rulet.png" alt="">
+                            <img class="d-block d-md-none" src="./assets/img/rulet-2.png" alt="">
                             <p class="f-14">Замер и 3D-проект<br/>кухни бесплатно</p>
                         </div>
                     </div>
@@ -1007,19 +1032,24 @@
             </div>
         </div>
     </section>
+    <div class="design-header row col-12 col-lg-6 mf-bold px-3 justify-content-center d-flex text-center mf-black mf-bold margin-a d-flex d-sm-none">
+        <h2 class="d-block f-32"><span class="green">НАСЛАЖДАЙТЕСЬ</span>КОМФОРТОМ<br/>
+            <span class="green">КАЖДЫЙ ДЕНЬ</span></h2>
+        <p class="d-block f-20 mb-3">Ваша кухня будет функциональна на <span class="green">100%</span></p>
+    </div>
     <section class="info-2 mf-white">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-6"></div>
                 <div class="col-11 col-lg-8 col-xl-6 hover-box">
-                    <div class="row">
+                    <div class="row d-none d-sm-flex">
                         <div class="col-7 f-32 mf-bold mf-border-r">НАСЛАЖДАЙТЕСЬ КОМФОРТОМ КАЖДЫЙ ДЕНЬ</div>
                         <div class="col-5 mf-bold d-flex justify-content-center align-items-center">
                             <div class="h-min">Ваша кухня будет<br/>
                                 функциональна на <span class="green">100%</span></div>
                         </div>
                     </div>
-                    <div class="row mt-5">
+                    <div class="row mt-5 hover-block">
                         <div class="col-6 info-2-block">
                             <img alt="" src="./assets/img/info-1.jpg">
                             <div class="info-2-item-text mf-bold">Современная фурнитура Blum</div>
@@ -1050,12 +1080,18 @@
             </div>
         </div>
     </section>
+    <section class="d-block d-sm-none background">
+
+    </section>
     <section class="designed-form">
         <div class="container">
             <div class="design-header row col-12 col-lg-6 mf-bold px-3 justify-content-center d-flex text-center mf-black mf-bold margin-a">
                 <h2 class="d-block f-32"><span class="green">ПОНРАВИЛОСЬ ФОТО КУХНИ</span> В ИНТЕРНЕТ ИЛИ УЖЕ ЕСТЬ <span
                         class="green">ДИЗАЙН-ПРОЕКТ?</span></h2>
                 <p class="d-block f-20 mb-3">Подсчитаем примерную стоимость по картинке</p>
+            </div>
+            <div class="dop-bg d-block d-sm-none">
+
             </div>
             <div class="row designed-form-block justify-content-center">
                 <div class="col-lg-6"></div>
@@ -1071,7 +1107,7 @@
                         </div>
                         <input class="input-design tel-input" id="DesignTel" placeholder="+7 (___) ___-__-__" type="tel" data-phone-pattern data-phone-pattern = '+7 (___) ___-__-__'  data-phone-clear = 'false'>
                         <div class="mf-bold mf-button get-best-price">Получить лучшyю цену на кухню</div>
-                        <p class="mf-white text-center low-text mt-3">Нажимая кнопку, вы даете согласие на <br/>обработку
+                        <p class=" text-center low-text mt-3">Нажимая кнопку, вы даете согласие на <br/>обработку
                             персональных данных</p>
                     </form>
 
@@ -1097,7 +1133,7 @@
                 <div class="col-3 offer-card row-mb-20">
                     <img alt="" src="./assets/img/offer_card_2.png">
                     <div>
-                        <span class="offer-name">Кухонные мойки</span><br>
+                        <span class="offer-name">Мойки</span><br>
                         <span class="offer-price"> от 5 000 руб.</span>
                     </div>
                 </div>
@@ -1143,6 +1179,10 @@
                 <p class="d-block f-16">с 21 дилерским салоном в крупнейших городах ЦФО</p>
             </div>
             <div class="row">
+                <div class="col-12 text-end ff-10 f-16 d-block d-md-none">
+                    Это семейное дело, поэтому
+                    <br><span class="green">мы дорожим репутацией и каждым клиентом</span>
+                </div>
                 <div class="col-10 col-md-5 about-us-slider mt-3 mb-5 margin-a">
                     <div>
                         <img class="margin-a" alt="" src="./assets/img/about-us-slid-1.png">
@@ -1155,17 +1195,18 @@
                 <div class="col-6 video d-none">
                     <video src=""></video>
                 </div>
-                <div class="col-12 text-start ff-10 f-16">
+                <div class="col-12 text-start ff-10 f-16 d-none d-md-block">
                     Это семейное дело, поэтому
                     <br><span class="green">мы дорожим репутацией и каждым клиентом</span>
                 </div>
-                <div class="col-12 text-start ff-8 f-16">
+                <div class="col-12 text-center text-md-start ff-8 f-16 about-text">
                     Наша репутация - это самое ценное, что у нас есть! Наша семья – это наши партнеры и наши клиенты,
                     которыми мы гордимся! Наша команда - это люди с повышенным чувством ответственности,
                     увлеченные своим делом перфекционисты. Наша мотивация – это счастливая улыбка наших клиентов.
                 </div>
-                <div class="col-12 ff-10">
-                    Руководитель мебельной фабрики Слон <img class="boss" alt="" src="./assets/img/signature.png">
+                <div class="col-12 ff-10 d-flex justify-content-between">
+                    <span class="align-self-center">Руководитель <br class="d-sm-none"/>мебельной фабрики Слон</span> 
+                    <img class="boss" alt="" src="./assets/img/signature.png">
                 </div>
                 <div class="row line mt-5">
                 </div>
@@ -1246,10 +1287,10 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="mf-bold mf-button quiz-open">Узнать стоимость кухни</div>
+                        <div class="mf-bold mf-button quiz-open" id="quiz-open-2">Узнать стоимость кухни</div>
                     </div>
                 </div>
-                <div class="col-12 col-md-10 col-xl-6 stage-bg mf-black">
+                <div class="col-12 col-md-10 col-xl-6 stage-bg mf-black stage-1-2">
                     <div class="mf-bold text-center mb-5 f-24 ff-10">Получить консультацию</div>
                     <div class="row">
                         <div class="col-6">
@@ -1303,7 +1344,7 @@
             <div class="row stage-item stage-item-2 justify-content-between h-100 f-16" id="froze">
                 <div class="col-12 text-center mf-white f-24 mb-4 ff-10">Второй шаг - <span class="green">замер</span></div>
                 <div class="col-11 col-md-8 col-lg-6 ff-8 mf-white">
-                    <img class="stage-item-2-img w-100 my-2 d-none" src="./assets/img/stage-item-2.png" alt="">
+                    <img class="stage-item-2-img w-100 my-2 d-none" src="./assets/img/modal-1-2.png" alt="">
                     <div class="f-20 fw-400 mb-5 mt-2 inter"><p>Для продолжения ремонта нужен проект кухни? Вызовите специалиста на замер и он поможет с
                         расположением розеток и выводами для подключения техники.</p></div>
                     <ul class="mf-list h-auto">
@@ -1339,7 +1380,7 @@
                         <li class="w-50 mb-4 ff-8">Материал, форму и цвет фасада</li>
                         <li class="w-50 mb-4 ff-8">Цвет столешницы и фартука</li>
                     </ul>
-                    <div class="fw-normal ff-8 inter"><p>На основании выбранных материалов мы сделаем визуализацию,
+                    <div class="fw-normal ff-8 inter text-center text-sm-start"><p>На основании выбранных материалов мы сделаем визуализацию,
                         чтобы Вы смогли максимально подробно увидеть вашу будущую кухню.</p></div>
                     <div class="text-center mf-bold mb-2 ff-8">Примеры визуализации дизайн-проекта</div>
                     <div class="stage-slider">
@@ -1374,7 +1415,7 @@
                 </div>
                 <div class="col-11 col-md-8 col-lg-5 text-end">
                     <img class="stage-3-img" src="./assets/img/stage-3.png" alt="">
-                    <p class="text-end fw-normal my-4 inter ff-8">После утверждения дизайн-проекта, стоимости,
+                    <p class="text-center text-sm-end fw-normal my-4 inter ff-8">После утверждения дизайн-проекта, стоимости,
                         условий оплаты и сроков изготовления - заключаем договор</p>
                     <form action="#" class="form-design d-flex flex-wrap justify-content-center bg-gray br-20">
                         <div class="text-center w-100 mb-3">Записаться на встречу к дизайнеру</div>
@@ -1384,9 +1425,9 @@
                             персональных данных</p>
                     </form>
                 </div>
-                <div class="col-12 fw-normal text-center inter">
+                <!-- <div class="col-12 fw-normal text-center inter">
                     Если Вы не готовы вызвать замерщика или обсуждать проект удаленно, то встреча в офисе будет для вас первым шагом - знакомством.
-                </div>
+                </div> -->
             </div>
             <div class="row stage-item stage-item-4 justify-content-between h-100 bx-sh" id="production">
                 <div class="col-12 text-center mf-black f-24 mb-4 ff-10">Четвертый шаг - <span class="green">производство</span></div>
@@ -1515,7 +1556,7 @@
             <div class="row stage-item stage-item-5 justify-content-center justify-content-lg-between bx-sh mb-3" id="demo">
                 <div class="col-12 text-center mf-black f-24 mb-4 ff-10">Шестой шаг - <span class="green">демонстрация</span></div>
                 <div class="col-12 col-md-10 col-lg-7  mf-black">
-                    <div class="fw-normal mb-3 ff-8">
+                    <div class="fw-normal mb-3 ff-8 inter fw-500">
                         По завершении установки гарнитура сотрудник отдела качества приедет к Вам убедиться в том, что монтажники всё выполнили качественно:
                     </div>
                     <div class="st-it-5-img col-12 col-md-10 col-lg-5 d-none justify-content-center flex-row flex-wrap align-content-start">
@@ -1531,16 +1572,16 @@
                         <li class="mb-3 ff-10">Отсутствуют покоробленность и трещины на всех деталях и элементах кухни</li>
                         </ul>
                     <div class="fw-normal mf-border p-4">
-                        <p class="mb-4 ff-8">Если вас всё устроит - перейдём к заключительному шагу – подпишем акт выполненных работ, и вы внесёте оставшуюся по договору сумму</p>
-                        <p class="mb-4 ff-8">После этого начнут действовать наши гарантийные обязательства - <br/>5 ЛЕТ БЕСПЛАТНОГО ОБСЛУЖИВАНИЯ.</p>
-                        <p class="mb-4 ff-8">Мы дорожим своей репутацией, поэтому, если наступит гарантийный случай, незамедлительно приедем для устранения возникших вопросов</p>
+                        <p class="mb-4 ff-8 inter">Если вас всё устроит - перейдём к заключительному шагу – подпишем акт выполненных работ, и вы внесёте оставшуюся по договору сумму</p>
+                        <p class="mb-4 ff-8 inter">После этого начнут действовать наши гарантийные обязательства - <br/>5 ЛЕТ БЕСПЛАТНОГО ОБСЛУЖИВАНИЯ.</p>
+                        <p class="mb-4 ff-8 inter">Мы дорожим своей репутацией, поэтому, если наступит гарантийный случай, незамедлительно приедем для устранения возникших вопросов</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-10 col-lg-5 d-flex justify-content-center flex-row flex-wrap align-content-start">
                     <div class="bx-sh br-20 mb-5 d-none d-md-block">
                         <img src="./assets/img/demo-1.png" alt="" class="w-100 br-20">
                     </div>
-                    <div class="mf-button bx-sh restart">
+                    <div class="mf-button bx-sh restart mt-2">
                         Начать с первого шага
                     </div>
                 </div>
@@ -1550,7 +1591,7 @@
     <section class="material">
         <div class="container">
             <div class="row mf-bold justify-content-center d-flex text-center mf-black mf-bold">
-                <h2 class="d-block f-24 ff-14"><span class="green">МАТЕРИАЛЫ, КОТОРЫЕ ВЫБИРАЮТ</span> ЧАЩЕ ВСЕГО</h2>
+                <h2 class="d-block f-24 ff-14"><span class="green">МАТЕРИАЛЫ, КОТОРЫЕ ВЫБИРАЮТ<br class="d-block d-sm-none"/></span> ЧАЩЕ ВСЕГО</h2>
             </div>
             <div class="row mt-5 material-btn">
                 <div class="type-place active first-place" data-material="1">Фасады </div>
@@ -1585,7 +1626,7 @@
                     <img alt="" src="./assets/img/ldsp.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">ЛДСП</h2>
+                    <h2 class="f-24 text-center text-md-start">ЛДСП</h2>
                     <ul class="material-list f-16">
                         <li>Выгодная стоимость – одно из главных достоинств таких плит.</li>
                         <li>Устойчивость к переменам температуры и воздействию влаги.</li>
@@ -1598,7 +1639,7 @@
                     <img alt="" src="./assets/img/material-2.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">Пластик + ДСП</h2>
+                    <h2 class="f-24 text-center text-md-start">Пластик + ДСП</h2>
                     <ul class="material-list f-16">
                         <li>Выдерживает большие нагрузки благодаря высокой прочности</li>
                         <li>Влагостойкость, что очень важно для кухни</li>
@@ -1612,7 +1653,7 @@
                     <img alt="" src="./assets/img/material-3.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">Экомембрана + МДФ</h2>
+                    <h2 class="f-24 text-center text-md-start">Экомембрана + МДФ</h2>
                     <ul class="material-list f-16">
                         <li>Высокая стойкость к механическим воздействиям</li>
                         <li>Широкий выбор цветовой гаммы и фактур</li>
@@ -1626,7 +1667,7 @@
                     <img alt="" src="./assets/img/material-4.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">Эмаль + МДФ</h2>
+                    <h2 class="f-24 text-center text-md-start">Эмаль + МДФ</h2>
                     <ul class="material-list f-16">
                         <li>Привлекательный внешний вид за счет возможности сделать глянцевые, матовые, перламутровые поверхности или с эффектом металлик</li>
                         <li>Эмаль устойчива к внешним воздействиям и долго сохраняет внешний вид</li>
@@ -1639,7 +1680,7 @@
                     <img alt="" src="./assets/img/material-5.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">Массив дерева</h2>
+                    <h2 class="f-24 text-center text-md-start">Массив дерева</h2>
                     <ul class="material-list f-16">
                         <li>Экологически чистый и натуральный материал</li>
                         <li>Высокий срок эксплуатации - более 40 лет, Выдерживает большинство повреждений благодаря своей природной прочности</li>
@@ -1653,7 +1694,7 @@
                     <img alt="" src="./assets/img/material-6.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">Искусственный камень</h2>
+                    <h2 class="f-24 text-center text-md-start">Искусственный камень</h2>
                     <ul class="material-list f-16">
                         <li>Столешница выглядит презентабельно и дорого</li>
                         <li>Искусственный камень не имеет пор и не склонен к появлению плесени и грибка, легко моется и очищается от загрязнений</li>
@@ -1667,7 +1708,7 @@
                     <img alt="" src="./assets/img/material-7.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">Пластик + ДСП</h2>
+                    <h2 class="f-24 text-center text-md-start">Пластик + ДСП</h2>
                     <ul class="material-list f-16">
                         <li>Устойчивость к повреждениям механического характера и истиранию</li>
                         <li>Большой диапазон цветов и оттенков, что дает возможность воплощать разные стилистические решения.</li>
@@ -1681,7 +1722,7 @@
                     <img alt="" src="./assets/img/material-8.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">ДСП + пластик HPL</h2>
+                    <h2 class="f-24 text-center text-md-start">ДСП + пластик HPL</h2>
                     <ul class="material-list f-16">
                         <li>Панели из этих материалов наиболее доступны по цене</li>
                         <li>Стеновые панели просты в монтаже и уходе, очень стильно смотрятся в интерьере кухни и могут стать изюминкой дизайна</li>
@@ -1693,7 +1734,7 @@
                     <img alt="" src="./assets/img/material-9.png">
                 </div>
                 <div class="col-10 col-sm-12 col-md-8 material-info">
-                    <h2 class="f-24">ДСП и ДВП, ЛДСП</h2>
+                    <h2 class="f-24 text-center text-md-start">ДСП и ДВП, ЛДСП</h2>
                     <ul class="material-list f-16">
                         <li>Панели достаточно прочные, идентичны по декору и структуре со столешницей или могут быть контрастные</li>
                         <li>Фартук из МДФ и пластика выполняют свою основную функцию - надежную защиту стен от брызг, одновременно притягивают к себе взгляд как элемент дизайна.</li>
@@ -1730,8 +1771,8 @@
                     <div class="green mf-bold d-flex justify-content-center align-items-center">
                         <div>
                             <span class="f-20 ff-10">КРЕДИТ</span><br>
-                            <span class="mf-white f-16 ff-8 mt-2">от 5% от 3 лет<br/>
-                        (подробности у менеджера)</span>
+                            <span class="mf-white f-16 ff-8 mt-2 credit-span">от 5% от 3 лет<br/>
+                        (подробности у<br/> менеджера)</span>
                         </div>
                     </div>
                 </div>
@@ -1770,7 +1811,7 @@
     </div>
     <section id="reviews" class="review">
         <div class="container">
-            <div class="row col-11 col-md-7 margin-a mf-bold justify-content-center d-flex text-center mf-black mf-bold ff-14" style="margin-bottom: 50px;">
+            <div class="row col-12 col-md-7 margin-a mf-bold justify-content-center d-flex header-rev text-center mf-black mf-bold ff-14" style="margin-bottom: 50px;">
                 <h2 class="d-block px-5 f-24 ff-14">О КАЧЕСТВЕ НАШИХ КУХОНЬ ГОВОРЯТ ОТЗЫВЫ
                     НАШИХ <span class="green">БЛАГОДАРНЫХ КЛИЕНТОВ</span></h2>
             </div>
@@ -1786,7 +1827,7 @@
 									<div class="col-4 img-container">
                                         <img class="" alt="" src="./assets/img/review-img-1.png">
 									</div>
-									<div class="col-8 justify-content-start d-flex flex-wrap align-items-center name-rev">
+									<div class="col-8 justify-content-start d-flex flex-wrap align-items-start align-items-sm-center name-rev">
 										<div class="row name-review f-24">
 											Николай Загородних
 										</div>
@@ -1840,7 +1881,7 @@
 									<div class="col-4 img-container">
 										<img alt="" src="./assets/img/standart-img-review.png">
 									</div>
-									<div class="col-8 justify-content-start d-flex flex-wrap align-items-center name-rev">
+									<div class="col-8 justify-content-start d-flex flex-wrap align-items-start align-items-sm-center name-rev">
 										<div class="name-review f-24">
 											Сомов Степан
 										</div>
@@ -1883,7 +1924,7 @@
 									<div class="col-4 img-container">
 										<img alt="" src="./assets/img/avatar-2.png">
 									</div>
-									<div class="col-8 justify-content-start d-flex flex-wrap align-items-center name-rev">
+									<div class="col-8 justify-content-start d-flex flex-wrap align-items-start align-items-sm-center name-rev">
 										<div class="name-review f-24">
 											Татьяна Артёмова
 										</div>
@@ -1926,7 +1967,7 @@
 									<div class="col-4 img-container">
 										<img alt="" src="./assets/img/standart-img-review.png">
 									</div>
-									<div class="col-8 justify-content-start d-flex flex-wrap align-items-center name-rev">
+									<div class="col-8 justify-content-start d-flex flex-wrap align-items-start align-items-sm-center name-rev">
 										<div class="name-review f-24">
 											Гольцов Руслан
 										</div>
@@ -1972,7 +2013,7 @@
 									<div class="col-4 img-container">
 										<img alt="" src="./assets/img/standart-img-review.png">
 									</div>
-									<div class="col-8 justify-content-start d-flex flex-wrap align-items-center name-rev">
+									<div class="col-8 justify-content-start d-flex flex-wrap align-items-start align-items-sm-center name-rev">
 										<div class="name-review f-24">
 											Мельников Александр
 										</div>
@@ -2015,7 +2056,7 @@
 									<div class="col-4 img-container">
 										<img alt="" src="./assets/img/avatar-4.png">
 									</div>
-									<div class="col-8 justify-content-start d-flex flex-wrap align-items-center name-rev">
+									<div class="col-8 justify-content-start d-flex flex-wrap align-items-start align-items-sm-center name-rev">
 										<div class="name-review f-24">
 											Елена Никуткина
 										</div>
@@ -2062,7 +2103,7 @@
 									<div class="col-4 img-container">
 										<img alt="" src="./assets/img/standart-img-review.png">
 									</div>
-									<div class="col-8 justify-content-start d-flex flex-wrap align-items-center name-rev">
+									<div class="col-8 justify-content-start d-flex flex-wrap align-items-start align-items-sm-center name-rev">
 										<div class="name-review f-24">
 											Алисова Татьяна
 										</div>
@@ -2100,8 +2141,8 @@
     <section class="empolyee">
         <div class="container">
             <div class="row mf-bold justify-content-center d-flex text-center mf-white mf-bold">
-                <h2 class="d-block f-24 ff-14"> РАЗРАБОТАЕМ 3 ВАРИАНТА ДИЗАЙНА КУХНИ</h2>
-                <p class="d-block ff-11">С учетом ваших пожеланий в течение 12 часов - бесплатно!</p>
+                <h2 class="d-block f-24 ff-14"> РАЗРАБОТАЕМ 3 ВАРИАНТА<br class="d-sm-none"/> ДИЗАЙНА КУХНИ</h2>
+                <p class="d-block ff-11">С учетом ваших пожеланий <br class="d-sm-none"/>в течение 12 часов - бесплатно!</p>
             </div>
             <div class="row mb-4 f-16">
                 <div class="col-6 col-md-3 employee-block mf-white text-center">
@@ -2258,12 +2299,13 @@
         </div>
     </div>
     <div class="container-fluid footer mf-white">
-        <div class="row footer-icon">
+        <div class="row footer-icon d-flex justify-content-around">
             <div class="col footer-icon-1"><img alt="" src="./assets/img/footer.png"></div>
             <div class="col f-20 fw-normal d-none d-sm-block"><span class="mf-bold">ОГРНИП</span> 3185 7490 0042 070</div>
             <div class="col f-20 fw-normal  d-none d-sm-block"><img alt="" src="./assets/img/Phone.svg"><a class="a-tel" href="tel:+7 (962) 477-57-27">+7 (962) 477-57-27</a></div>
             <div class="col-auto footer-icon-2"><a target="_blank" href="https://vk.com/mf_slon"><img alt="" src="./assets/img/vk-footer.svg"></a></div>
             <div class="col footer-icon-3"><img alt="" src="./assets/img/visa.png"></div>
+            <div class="col footer-icon-4 d-sm-none"><a class="a-tel" href="tel:+7 (962) 477-57-27"><img alt="" src="./assets/img/tel-icon.png"></a></div>
         </div>
     </div>
 </footer>
@@ -2283,17 +2325,17 @@
         </div>
         <div class="container"  id="calculate-price">
             <div class="row mf-bold justify-content-center d-flex text-center">
-                <h2 class="d-block text-center fw-bold mb-5 f-32 ff-14">
+                <span class="d-block text-center fw-bold mb-5 f-32 ff-14">
                     РАССЧИТАЙТЕ <span class="green">СТОИМОСТЬ ВАШЕЙ КУХНИ</span> В З-х ВАРИАНТАХ<br>
-                    стандарт, комфорт и премиум</h2>
+                    <span class="ff-10 mt-3">стандарт, комфорт и премиум</span></h2>
 
             </div>
             <div class="row">
 						<div class="progress-bar">
-							<span class="z-2 mf-bold f-16">Расчет пройден на 0%</span>
+							<span class="z-2 mf-bold f-16 ff-6 inter">Расчет пройден на 0%</span>
 						</div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-5 d-none d-md-block">
 						<div class="col-md-6 col-gl-5"></div>
 						<div class="col-12 col-md-6 col-gl-7 text-center"><span class="mf-bold f-24 ff-12">Выберите форму кухни</span></div>
             </div>
@@ -2312,26 +2354,37 @@
                             </div>
                     </div>
                     <div class="col-12 mb-5 mod-1-list">
-                            <ul class="mf-list f-16">
-                                <li class="f-16 ff-8 pb-2">
+                            <ul class="mf-list f-16 mt-2">
+                                <li class="f-16 ff-8 pb-2 inter">
                                     расчет кухни по Вашим параметрам в 3-х ценовых вариантах
                                 </li>
-                                <li class="f-16 ff-8 pb-2">
+                                <li class="f-16 ff-8 pb-2 inter">
                                     скидку до 45% на новую кухню
                                 </li>
-                                <li class="f-16 ff-8 pb-2">
+                                <li class="f-16 ff-8 pb-2 inter">
                                     3D-проект кухни
                                 </li>
-                                <li class="f-16 ff-8 pb-2">
+                                <li class="f-16 ff-8 pb-2 inter">
                                     кешбек 15% на корпусную мебель
                                 </li>
-                                <li class="f-16 ff-8 pb-2">
+                                <li class="f-16 ff-8 pb-2 inter">
                                     каталог установленных кухонь
                                 </li>
-                                <li class="f-16 ff-8 pb-2">инструкцию: “Советы дизайнера: Как сэкономить на покупке кухни до 40 000 руб
+                                <li class="f-16 ff-8 pb-2 inter">инструкцию: “Советы дизайнера: Как сэкономить на покупке кухни до 40 000 руб
                                 </li>
                             </ul>
                     </div>
+                </div>
+                <div class="row mt-5 d-block d-md-none">
+                    <div class="col justify-content-end align-items-end d-flex">
+                        <div class="mf-button quiz-next-section" id="quiz-next-section">
+                                Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-md-6 col-gl-5"></div>
+                    <div class="col-12 col-md-6 col-gl-7 text-center"><span class="f-24">Выберите форму кухни</span></div>
                 </div>
                 <div class="col-lg-6 col-xl-7 row">
                     <div class="col-5 item-form">
@@ -2353,8 +2406,8 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col justify-content-end align-items-end d-flex">
-                    <div class="mf-button" id="quiz-next-modal">
+                <div class="col justify-content-center justify-content-md-end align-items-end d-flex">
+                    <div class="mf-button quiz-next-modal" id="quiz-next-modal">
                             Далее <img alt="" src="./assets/img/arrow-right.svg">
                     </div>
                 </div>
@@ -2366,10 +2419,10 @@
             <img alt="" class="cross" id="cross" src="./assets/img/x.png">
         </div>
         <div class="col-11 col-sm-8 margin-a stage-item-2-img d-none">
-            <img class=" w-100 my-2" src="./assets/img/stage-item-2.png" alt="">
+            <img class=" w-100 my-2" src="./assets/img/modal-1-2.png" alt="">
         </div>
             <div class="col-12 col-sm-8 col-md-6  mf-white f-16 ff-8">
-                <div class=" fw-400"><p>Для продолжения ремонта нужен проект кухни? Вызовите специалиста на замер и он поможет с
+                <div class="inter fw-500"><p>Для продолжения ремонта нужен проект кухни? Вызовите специалиста на замер и он поможет с
                     расположением розеток и выводами для подключения техники.</p></div>
                 <ul class="mf-list h-auto mt-3">
                     <li class="ff-8 mb-3">Произведет замер</li>
@@ -2397,7 +2450,7 @@
             <img alt="" class="cross"  id="cross" src="./assets/img/x.png">
         </div>
         <div class="action-slider">
-            <div class="slide-cont">
+            <!-- <div class="slide-cont">
                 <div class="row action-slider-it">
                     <div class="col-12 col-md-8 col-lg-6 px-5 py-5 text-center action-content">
                         <h1 class="mb-4 fw-bold ff-14">Установка кухни бесплатно</h1>
@@ -2417,7 +2470,7 @@
                         <img class="w-100" src="./assets/img/action-1.png" alt="">
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="slide-cont">
                 <div class="row action-slider-it">
                     <div class="col-12 col-md-8 col-lg-6 px-5 py-5 text-center action-content">
@@ -2433,8 +2486,11 @@
                                 данных</p>
                         </form>
                     </div>
-                    <div class="col-12 col-md-8 col-lg-6 align-self-center">
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-none d-md-block">
                         <img class="w-100" src="./assets/img/action-2.png" alt="">
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-block d-md-none">
+                        <img class="w-100" src="./assets/img/action-mobile.png" alt="">
                     </div>
                 </div>
             </div>
@@ -2442,7 +2498,7 @@
                 <div class="row action-slider-it">
                     <div class="col-12 col-md-8 col-lg-6 px-5 py-5 text-center action-content">
                         <h1 class="mb-4 fw-bold ff-14">Скидка 40% на кухню в корпусах Lamarty </h1>
-                        <div class="fs-5 mb-4 f-20nff-10">
+                        <div class="fs-5 mb-4 f-20 ff-10">
                             Акция распространяется на цвета корпусов: Кремовый Р, Вяз Швейцарский R, Дуб дымчатый R, Чёрный Р.
                         </div>
                         <form action="" class="d-flex justify-content-center align-items-center flex-wrap">
@@ -2453,8 +2509,11 @@
                                 данных</p>
                         </form>
                     </div>
-                    <div class="col-12 col-md-8 col-lg-6 align-self-center">
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-none d-md-block">
                         <img class="w-100" src="./assets/img/action-3.png" alt="">
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-block d-md-none">
+                        <img class="w-100" src="./assets/img/action-mobile2.png" alt="">
                     </div>
                 </div>
             </div>
@@ -2473,8 +2532,11 @@
                                 данных</p>
                         </form>
                     </div>
-                    <div class="col-12 col-md-8 col-lg-6 align-self-center">
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-none d-md-block">
                         <img class="w-100" src="./assets/img/action-5.png" alt="">
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-block d-md-none">
+                        <img class="w-100" src="./assets/img/action-mobile3.png" alt="">
                     </div>
                 </div>
             </div>
@@ -2493,8 +2555,11 @@
                                 данных</p>
                         </form>
                     </div>
-                    <div class="col-12 col-md-8 col-lg-6 align-self-center">
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-none d-md-block">
                         <img class="w-100" src="./assets/img/action-4.png" alt="">
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-block d-md-none">
+                        <img class="w-100" src="./assets/img/action-mobile4.png" alt="">
                     </div>
                 </div>
             </div>
@@ -2513,8 +2578,11 @@
                                 данных</p>
                         </form>
                     </div>
-                    <div class="col-12 col-md-8 col-lg-6 align-self-center">
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-none d-md-block">
                         <img class="w-100" src="./assets/img/action-6.png" alt="">
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-6 align-self-center d-block d-md-none">
+                        <img class="w-100" src="./assets/img/action-mobile5.png" alt="">
                     </div>
                 </div>
             </div>
@@ -2568,7 +2636,7 @@
         <div class="col-12 col-md-8 col-lg-6 text-end mt-5">
             <img class="w-100 d-none d-md-block" src="./assets/img/stage-3.png" alt="">
             <form action="#" class="form-design d-flex flex-wrap justify-content-center bg-gray br-20 mt-3">
-                <div class="text-center w-100 mb-3">Записаться на встречу к дизайнеру</div>
+                <div class="text-center w-100 mb-3 d-none d-md-block">Записаться на встречу к дизайнеру</div>
                 <input class="input-design bx-sh tel-input" id="DesignTel" placeholder="+7 (___) ___-__-__" type="tel" data-phone-pattern data-phone-pattern = '+7 (___) ___-__-__'  data-phone-clear = 'false'>
                 <div class="mf-bold mf-button make-appointment">Записаться на встречу</div>
                 <p class="text-center small-text mt-3">Нажимая кнопку, вы даете согласие на обработку
@@ -2740,17 +2808,17 @@
             <div class="row mf-bold justify-content-center d-flex text-center mb-4">
                 <h2 class="d-block f-32 ff-14">
                     РАССЧИТАЙТЕ <span class="green">СТОИМОСТЬ ВАШЕЙ КУХНИ</span> В З-х ВАРИАНТАХ<br/>
-                    стандарт, комфорт и премиум
+                    <span class="ff-10 mt-3">стандарт, комфорт и премиум</span>
                 </h2>
             </div>
             <div class="row">
                 <div class="progress-bar">
-                    <span class="z-2 mf-bold">Расчет пройден на 0%</span>
+                    <span class="z-2 mf-bold f-16 ff-6 inter">Расчет пройден на 0%</span>
                 </div>
             </div>
 
             <div class="row justify-content-between" id="quiz-1">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class=" col-md-6 col-lg-5"></div>
                     <div class="col-12 col-md-6 col-lg-7 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите форму кухни</span></div>
                 </div>
@@ -2789,6 +2857,23 @@
                         </ul>
                     </div>
                 </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class=" col-md-6 col-lg-5"></div>
+                    <div class="col-12 col-md-6 col-lg-7 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите форму кухни</span></div>
+                </div>
                 <div class="col-md-6 col-lg-7 row">
                     <div class="col-5 item-form">
                         <img alt="" src="./assets/img/p.jpg">
@@ -2812,12 +2897,29 @@
                 </div>
             </div>
             <div class="row justify-content-between" id="quiz-2">
-                <div class="row mt-5 quiz-2-name">
+                <div class="row mt-5 quiz-2-name d-none d-md-block">
                     <div class="col-md-6"></div>
                     <div class="col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите технику для кухни</span></div>
                 </div>
                 <div class="col-md-6" id="quiz-2-img">
                     <img alt="" class="w-100" src="./assets/quiz/Stage-2.png">
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите технику для кухни</span></div>
                 </div>
                 <div class="col-md-6 row tech">
                     <div class="col-6 d-flex flex-wrap mt-2">
@@ -2919,12 +3021,29 @@
                 </div>
             </div>
             <div class="row justify-content-start" id="quiz-3">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class="col-12 col-md-6"></div>
                     <div class="col-12 col-md-6 f-24 text-center mb-4 px-5"><span class="ff-12 px-3 text-center" id="step-name">Выберите планировку кухонного гарнитура</span></div>
                 </div>
-                <div class="col-12 col-md-6 quiz-shadow">
+                <div class="col-11 col-md-6 margin-a quiz-shadow">
                     <img alt="" class="w-100 quiz-img" src="./assets/quiz/corner-2.jpg">
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-12 col-md-6"></div>
+                    <div class="col-12 col-md-6 f-24 text-center mb-4 px-5"><span class="ff-12 px-3 text-center" id="step-name">Выберите планировку кухонного гарнитура</span></div>
                 </div>
                 <div class="col-12 col-md-6 row f-16">
                     <div class="col-5 item-form">
@@ -2957,12 +3076,29 @@
                 </div>
             </div>
             <div class="row justify-content-start" id="quiz-4">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class="col-12 col-md-6"></div>
                     <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите вид верхних шкафов</span></div>
                 </div>
-                <div class="col-12 col-md-6 quiz-shadow">
+                <div class="col-11 col-md-6 margin-a quiz-shadow">
                     <img alt="" class="w-100 quiz-img" src="./assets/quiz/standart.jpg">
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-12 col-md-6"></div>
+                    <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите вид верхних шкафов</span></div>
                 </div>
                 <div class="col-12 col-md-6 row f-16">
                     <div class="col-5 item-form">
@@ -3029,12 +3165,29 @@
                 </div>
             </div>
             <div class="row justify-content-start" id="quiz-5">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class="col-12 col-md-6"></div>
                     <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите фурнитуру для нижних шкафов</span></div>
                 </div>
                 <div class="col-12 col-md-6">
                     <img alt="" class="w-100 quiz-img" src="./assets/quiz/5.png">
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-12 col-md-6"></div>
+                    <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите фурнитуру для нижних шкафов</span></div>
                 </div>
                 <div class="col-12 col-md-6 row f-16">
                     <div class="col-5 item-form">
@@ -3071,12 +3224,29 @@
                 </div>
             </div>
             <div class="row justify-content-start" id="quiz-6">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class="col-12 col-md-6"></div>
                     <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите материал фасада</span></div>
                 </div>
                 <div class="col-12 col-md-6">
                     <img alt="" class="w-100 quiz-img" src="./assets/quiz/6.png">
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-12 col-md-6"></div>
+                    <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите материал фасада</span></div>
                 </div>
                 <div class="col-12 col-md-6 row f-16">
                     <div class="col-3 offset-1 item-form">
@@ -3167,12 +3337,29 @@
                 </div>
             </div>
             <div class="row justify-content-start" id="quiz-7">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class="col-12 col-md-6"></div>
                     <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите материал столешницы</span></div>
                 </div>
                 <div class="col-12 col-md-6">
                     <img alt="" class="w-100 quiz-img" src="./assets/quiz/7.png">
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-12 col-md-6"></div>
+                    <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите материал столешницы</span></div>
                 </div>
                 <div class="col-12 col-md-6 row f-16">
                     <div class="col-5 item-form">
@@ -3214,12 +3401,29 @@
                 </div>
             </div>
             <div class="row justify-content-start" id="quiz-8">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class="col-12 col-md-6"></div>
                     <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите фартук</span></div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-3">
                     <img alt="" class="w-100 quiz-img without-apron" src="./assets/quiz/8.png">
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-12 col-md-6"></div>
+                    <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Выберите фартук</span></div>
                 </div>
                 <div class="col-12 col-md-6 row f-16">
                     <div class="col-5 item-form">
@@ -3247,7 +3451,7 @@
                 </div>
             </div>
             <div class="row justify-content-between" id="quiz-9">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class="col-12 col-md-7 f-24 text-center mb-4 margin-a"><span class="ff-12" id="step-name">На каком вы сейчас этапе?</span></div>
                 </div>
                 <div class="col-12 col-lg-7 row f-14 quiz-9-img justify-content-center margin-a">
@@ -3271,30 +3475,64 @@
                         
                     </div>
                 </div>
+                <div class="row col-12 text-center justify-content-center mt-3 f-16 ff-6 fw-700">
+                    Чтобы сделать выбор, просто кликните<br/>
+                    на картинку, для отмены кликните повторно.
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
             </div>
 			
 
             <div class="row justify-content-between" id="quiz-10">
-                <div class="row mt-5">
+                <div class="row mt-5 d-none d-md-block">
                     <div class="col-12 col-md-6"></div>
                     <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Укажите размеры вашей кухни</span></div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 mt-3">
                     <img alt="" class="w-100 quiz-img" src="./assets/quiz/step.jpg">
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 d-none mobil-header-quiz">
+                    <div class="col-12 col-md-6"></div>
+                    <div class="col-12 col-md-6 f-24 text-center mb-4"><span class="ff-12" id="step-name">Укажите размеры вашей кухни</span></div>
                 </div>
                 <div class="col-12 col-md-6 row f-16">
                     <div class="col-12 mt-2 text-start d-flex justify-content-center align-content-center flex-wrap size-block">
-                        <label for="sideA">
+                        <label for="sideA fw-400 inter">
                             Сторона А
                             <input class="input-number" id="sideA" placeholder="" type="text">
                             см
                         </label>
-                        <label for="sideB">
+                        <label for="sideB fw-400 inter">
                             Сторона B
                             <input class="input-number" id="sideB" placeholder="" type="text">
                             см
                         </label>
-                        <label for="sideC">
+                        <label for="sideC fw-400 inter">
                             Сторона C
                             <input class="input-number" id="sideC" placeholder="" type="text">
                             см
@@ -3309,7 +3547,7 @@
                                         <div class="switch-click"></div>
                                     </label>
                                 </div>
-                                <span class="mx-1">
+                                <span class="mx-1 fw-600">
                                 У меня нет точных размеров и мне нужен бесплатный замер
                             </span>
                             </div>
@@ -3318,8 +3556,8 @@
                 </div>
             </div>
 			<div class="row justify-content-center" id="quiz-11">
-                <div class="row mt-5">
-                    <div class="col-12 f-24 text-center mb-4"><span class="ff-12" id="step-name">Укажите планируемый бюджет и мы рассчитаем <br/>кухню с учетом ваших предпочтений</span></div>
+                <div class="row mt-5 d-none d-md-block">
+                    <div class="col-12 f-24 text-center mb-4"><span class="ff-12 fw-700" id="step-name">Укажите планируемый бюджет и мы рассчитаем <br/>кухню с учетом ваших предпочтений</span></div>
                 </div>
                 <div class="col-12 col-md-7 row f-16 price">
                     <div class="col-5 item-form">
@@ -3336,6 +3574,19 @@
                     <div class="col-5 item-form">
                         <span class="mf-bold mf-white item-name f-16">От 600 т.р.</span>
                         
+                    </div>
+                </div>
+                <div class="row mt-2 quiz-fuuter d-block d-md-none mobile-btn">
+                    <div class="col justify-content-between d-flex">
+                        <div class="mf-button mf-button-back quiz-back" id="quiz-back">
+                            <img alt="" src="./assets/img/arrow-left.svg"> Назад
+                        </div>
+                        <div class="row text-center mt-3 mb-3 quiz-fuuter">
+                            <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
+                        </div>
+                        <div class="mf-button quiz-next" id="quiz-next">
+                            Далее <img alt="" src="./assets/img/arrow-right.svg">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3388,7 +3639,7 @@
             <div class="row" id="quiz-12">
                 <div class="col-12 col-md-7 col-lg-8 row justify-content-center">
                     <p class="w-100 text-center f-24 mf-white">Спасибо за ответы!</p>
-                    <p class="w-100 text-center mf-white f-14 ff-10 quiz-12-bonus">Вы сократили время работы наших дизайнеров по подготовке
+                    <p class="w-100 text-center mf-white f-14 ff-10 fw-600 inter quiz-12-bonus">Вы сократили время работы наших дизайнеров по подготовке
                         расчета кухни для Вас и в благодарность
                         мы дарим Вам бонус на выбор:</p>
                     <div class="row">
@@ -3401,8 +3652,8 @@
                                     <div class="switch-click"></div>
                                 </label>
                             </div>
-                            <span class="mf-bold w-100 f-16 ff-8">Скидка на кухню до 45%</span>
-                            <div class="small-text mb-2 info-span">Размер скидки зависит от стоимости кухни, условий оплаты и
+                            <span class="fw-700 w-100 f-16 ff-8 ">Скидка на кухню до 45%</span>
+                            <div class="small-text mb-2 info-span inter fw-400">Размер скидки зависит от стоимости кухни, условий оплаты и
                                 расчитывается менеджером в салоне
                             </div>
                             <div class="switch">
@@ -3413,8 +3664,8 @@
                                     <div class="switch-click"></div>
                                 </label>
                             </div>
-                            <span class="mf-bold w-100 f-16 ff-8">Беспроцентная рассрочка от 6 до 12 месяцев</span>
-                            <div class="small-text mb-2 info-span">Срок рассрочки зависит от первоначального размера платежа, при этом
+                            <span class="fw-700 w-100 f-16 ff-8 ">Беспроцентная рассрочка от 6 до 12 месяцев</span>
+                            <div class="small-text mb-2 info-span inter fw-400">Срок рассрочки зависит от первоначального размера платежа, при этом
                                 за Вами остается минимальная скидка на кухню, которую рассчитает Вам менеджер в салоне
                             </div>
                             <div class="switch">
@@ -3425,13 +3676,13 @@
                                     <div class="switch-click"></div>
                                 </label>
                             </div>
-                            <span class="mf-bold w-100 f-16 ff-8">Кешбэк 15% на корпусную мебель</span>
-                            <div class="small-text mb-2 info-span">15% от суммы заказа на кухню или корпусную мебель в виде кешбэка,
+                            <span class="fw-700 w-100 f-16 ff-8">Кешбэк 15% на корпусную мебель</span>
+                            <div class="small-text mb-2 info-span inter fw-400">15% от суммы заказа на кухню или корпусную мебель в виде кешбэка,
                                 которым можно оплатить до 40% от стоимости заказа только на корпусную мебель
                             </div>
                         </div>
                     </div>
-                    <p class="w-100 text-center mf-white my-2 f-14 ff-10">
+                    <p class="w-100 text-center mf-white my-2 f-14 ff-10 inter free">
                         Введите номер телефона, чтобы мы могли связаться с Вами и отправить расчет.
                         <br/>
                         Это абсолютно бесплатно!
@@ -3440,11 +3691,11 @@
                         <div class="col-12 bg-white br-20 p-3 f-16 ff-10 quiz-12-block">
                             <span class="">После отправки заявки <span class="green">Вы получите:</span></span>
                             <ul class="material-list py-4 f-16">
-                                <li><span class="green">расчет кухни по вашим параметрам</span> в 3-х ценовых вариантах</li>
-                                <li><span class="green">бесплатный 3D-проект</span> Вашей кухни</li>
-                                <li>инструкцию <span class="green">«Советы дизайнера: Как сэкономить на покупке кухни до 40 000 руб»</span></li>
-                                <li>информацию о том, как воспользоваться бесплатной доставкой готовой кухни</li>
-                                <li>подробный перечень действующих акций, включая<span class="green"> бесплатную сборку кухни</span></li>
+                                <li class="fw-600"><span class="green">расчет кухни по вашим параметрам</span> в 3-х ценовых вариантах</li>
+                                <li class="fw-600"><span class="green">бесплатный 3D-проект</span> Вашей кухни</li>
+                                <li class="fw-600">инструкцию <span class="green">«Советы дизайнера: Как сэкономить на покупке кухни до 40 000 руб»</span></li>
+                                <li class="fw-600">информацию о том, как воспользоваться бесплатной доставкой готовой кухни</li>
+                                <li class="fw-600">подробный перечень действующих акций, включая<span class="green"> бесплатную сборку кухни</span></li>
                             </ul>
                             <form action="#" class="form-design d-flex flex-wrap justify-content-center">
                                 <input class="input-design name-input mb-2" id="QuizName" placeholder="Имя" type="text">
@@ -3460,17 +3711,17 @@
                     <img class="w-100" src="./assets/img/phone.png" alt="">
                 </div>
             </div>
+  
 
-
-            <div class="row text-end mt-3 mb-3 quiz-fuuter">
+            <div class="row text-end mt-3 mb-3 quiz-fuuter d-none d-md-block">
                 <a class="quiz-design-link my-2 f-11 ff-8" href="#" style="display: none">Посмотреть инструкцию</a>
             </div>
             <div class="row mt-2 quiz-fuuter">
-                <div class="col offset-4 offset-sm-6 offset-md-8 justify-content-end align-items-end d-flex">
-                    <div class="mf-button mf-button-back" id="quiz-back">
+                <div class="col offset-4 offset-sm-6 offset-md-8 justify-content-center justify-content-md-end align-items-end btn-quiz">
+                    <div class="mf-button mf-button-back quiz-back d-none d-md-block" id="quiz-back">
                         <img alt="" src="./assets/img/arrow-left.svg"> Назад
                     </div>
-                    <div class="mf-button " id="quiz-next">
+                    <div class="mf-button quiz-next" id="quiz-next">
                         Далее <img alt="" src="./assets/img/arrow-right.svg">
                     </div>
                 </div>
@@ -3484,13 +3735,14 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-5">
-                <span class="title-mod"></span>
+                <span class="title-mod d-none d-md-block"></span>
                 <div style="margin-top: 24px;">
                     <div class="stage-slider-mod-1">
                         
                     </div>
                 </div>
             </div>
+            <span class="title-mod col-12 d-md-none"></span>
             <div class="col-md-10 col-lg-7">
                 <div class="row checkbox-mod-1">
                     <span class="mt-3 ff-12">Встроенная техника:</span>
@@ -3516,9 +3768,24 @@
                             <label class="ff-11" for="refrigerator">Холодильник</label>
                         </div>
                     </div>
+                    <div class="col-md-12 col-lg-5 col-xl-4 d-sm-none mobile-size">
+                        <div class="">
+                            <img src="./assets/img/count-mod-2.png" alt="">
+                            <label for="sideA" >
+                                А)
+                                <input class="input-number" id="sideA" placeholder="" type="text">
+                                см
+                            </label>
+                            <label for="sideB">
+                                B)
+                                <input class="input-number" id="sideB" placeholder="" type="text">
+                                см
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 col-lg-5 col-xl-4">
+                    <div class="col-md-12 col-lg-5 col-xl-4 d-none d-sm-block">
                         <div class="">
                             <img src="./assets/img/count-mod-2.png" alt="">
                             <label for="sideA" >
@@ -3537,7 +3804,7 @@
                         <div>
                             <div>
                                 <span class="ff-12">Рассчитайте стоимость по Вашим размерам</span>
-                            </div><br/><br/>
+                            </div><br class="d-none d-sm-block"/><br class="d-none d-sm-block"/>
                             <ol >
                                 <li class="ff-10 fw-400">Введите размеры</li>
                                 <li class="ff-10 fw-400">Введите телефон</li>
@@ -3548,8 +3815,10 @@
                             <form action="" class="justify-content-center justify-content-md-between d-flex flex-wrap mod-1-form">
                                 <input class="input-design tel-input mb-3" id="DesignTel" placeholder="+7 (___) ___-__-__" type="tel" data-phone-pattern data-phone-pattern = '+7 (___) ___-__-__'  data-phone-clear = 'false'>
                                 <div class="mf-bold mf-button calculate-price-mod-1">Рассчитать стоимость</div>
+                                <p class="f-10 ff-6 mt-2 text-center sm-text">Нажимая кнопку, вы даете согласие на обработку	персональных данных</p>
+
                             </form>
-                            <p class="f-10 ff-6 mt-2 text-center sm-text">Нажимая кнопку, вы даете согласие на обработку	персональных данных</p>
+                            <p class="text-center f-14 ff-6 inter fw-400 mt-2">Акция действует до 28.02.2023 при выборе техники на каталогтехники.рф. Не является публичной офертой. </p>
                         </div>
                     </div>
                 </div>
@@ -3562,12 +3831,13 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-xl-4">
-                <span class="title-mod" ></span>
+                <span class="title-mod d-none d-md-inline" ></span>
                 <div class="d-none mod-2-slider mt-2 mb-2">
                     <div class="stage-slider-mod-2">
                         
                     </div>
                 </div>
+                <span class="title-mod col-12 d-md-none"></span>
                 <div class="price-block mt-3">
                     <div class="price-table">
                             <ul>
@@ -3616,8 +3886,9 @@
                     <form action="" class="justify-content-center justify-content-md-between d-flex flex-wrap">
                         <input class="input-design tel-input mb-3" id="DesignTel" placeholder="+7 (___) ___-__-__" type="tel" data-phone-pattern data-phone-pattern = '+7 (___) ___-__-__'  data-phone-clear = 'false'>
                         <div class="mf-bold mf-button calculate-price-mod-2">Рассчитать стоимость</div>
+                        <p class="f-10 ff-6 mt-2 text-center sm-text">Нажимая кнопку, вы даете согласие на обработку	персональных данных</p>
                     </form>
-                    <p class="f-10 ff-6 mt-2 text-center sm-text">Нажимая кнопку, вы даете согласие на обработку	персональных данных</p>
+                    <p class="text-center f-14 ff-6 inter fw-400 mt-2">Акция действует до 28.02.2023 при выборе техники на каталогтехники.рф. Не является публичной офертой. </p>
                 </div>
             </div>
 		</div>
@@ -3628,12 +3899,13 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-12 col-md-9 col-lg-8 mf-black">
-                <span class="title-mod col-12"></span>
+                <span class="title-mod col-12 d-none d-md-inline"></span>
                 <div class="col-11 col-md-9 ml-5 align-self-center">
                     <div class="stage-slider-mod-3">
                         
                     </div>
                 </div>
+                <span class="title-mod col-12 d-md-none"></span>
                 <div class="row mt-5 justify-content-center">
                     <div class="col-7 col-sm-3 mr-3 mod-3-designer">
                         <div class="row-9">
@@ -3644,7 +3916,7 @@
                                 Дизайнер. Стаж 22 года
                         </div>
                     </div>
-                    <div class="col-11 col-sm-9 f-16">
+                    <div class="col-11 col-sm-9 f-16 mod-3-info">
                         <div>
                             <span class="fw-700 ff-12">Понравилась модель из каталога и нужен похожий проект?</span> <br/><br/>
                             <span class="ff-10 fw-400">Оставьте заявку на проектирование и мы свяжемся в удобное для вас время</span>
@@ -3668,7 +3940,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-8 col-lg-4 text-end examples-img f-16" >
-                <div class="text-center"><span>Примеры переписки</span></div>
+                <div class="text-center mb-2"><span>Примеры переписки</span></div>
                 <div class="row">
                     <div class="col-3 open-modal-slider">
                         <img alt="" class="bx-sh br-20" src="./assets/img/mes-sl.png">
@@ -3705,15 +3977,15 @@
                 </div>
                 <div class="text-center"><span>Примеры проектов</span></div>
                 <div class="row" style="margin-top: 22px;">
-                    <div class="col-4 open-slider-design">
+                    <div class="col-4 open-slider-design text-center">
                         <img alt="" class="bx-sh br-20" src="./assets/img/project-mod-3.png">
                         <a class="mf-link" href="#">Смотреть</a>
                     </div>
-                    <div class="col-4 open-slider-design" >
+                    <div class="col-4 open-slider-design text-center" >
                         <img alt="" class="bx-sh br-20" src="./assets/img/des-sl.png" >
                         <a class="mf-link" href="#">Смотреть</a>
                     </div>
-                    <div class="col-4 open-slider-design">
+                    <div class="col-4 open-slider-design text-center">
                         <img alt="" class="bx-sh br-20" src="./assets/img/des-sl2.png">
                         <a class="mf-link" href="#">Смотреть</a>
                     </div>
@@ -3722,8 +3994,10 @@
                     <form action="" class="justify-content-center d-flex flex-wrap">
                         <input class="input-design tel-input" id="DesignTel" placeholder="+7 919 000 0000" type="tel" data-phone-pattern data-phone-pattern = '+7 (___) ___-__-__'  data-phone-clear = 'false'>
                         <div class="mf-bold mf-button calculate-price-mod-3">Рассчитать стоимость</div>
+                        <p class="f-10 ff-6 mt-2 text-center sm-text">Нажимая кнопку, вы даете согласие на обработку	персональных данных</p>
                     </form>
-                    <p class="f-10 ff-6 mt-2 text-center sm-text">Нажимая кнопку, вы даете согласие на обработку	персональных данных</p>
+                    <p class="text-center f-14 ff-6 inter fw-400 mt-2">Акция действует до 28.02.2023 при выборе техники на каталогтехники.рф. Не является публичной офертой. </p>
+
                 </div>
             </div>
         </div>

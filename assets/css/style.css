@@ -545,14 +545,14 @@ width: 45%!important;
 .catalog-active, .catalog-active-k{
     display: flex!important;
 }
-.catalog-select{
+.catalog-select, .catalog-select-all{
     width: fit-content;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) -100%, rgba(0, 0, 0, 0) 100%), #969696;
     color:white;
     padding: 12px 22px 8px 22px;
     border-radius: 20px 20px 0 0;
 }
-.catalog-select:hover,.catalog-item-select:hover{
+.catalog-select:hover,.catalog-item-select:hover, .catalog-select-all:hover{
     cursor: pointer;
 }
 
@@ -1221,6 +1221,14 @@ width: 45%!important;
     top: 5px;
     left: -20px;
 }
+#quiz-12 .material-list li{
+    position: relative;
+}
+#quiz-12 .material-list>li::before{
+    position: absolute;
+    top: 5px;
+    left: -20px;
+}
 .mat-list-black{
     text-align: left;
 }
@@ -1769,6 +1777,7 @@ width: 45%!important;
     right: 0;
     display: flex;
     flex-direction: column;
+    z-index: 3;
 }
 
 .messenger a{
@@ -1837,6 +1846,9 @@ width: 45%!important;
     height: 100%;
     overflow-y: scroll;
     z-index: 3;
+}
+.btn-quiz{
+    display: flex;
 }
 #quiz-name{
     display: none;
@@ -2468,12 +2480,12 @@ footer .a-tel{
         padding-right: 12px;
     }
     .switch-click {
-        width: 15px;
-        height: 15px;
+        width: 16px;
+        height: 16px;
         margin: -2.5px;
         border: 2px solid #40AC46;
         border-radius: 25px;
-        top: 0;
+        top: 1px;
         bottom: 0;
         right: 11px;
     }
@@ -2484,7 +2496,9 @@ footer .a-tel{
         padding-left: 40px;
     }
     .quiz-12-block{
-        padding-left: 15px;
+        padding-left: 35px !important;
+        padding-right: 35px !important;
+        padding-bottom: 0 !important;
     }
     .catalog-img div{
         margin: 0 10px;
@@ -2686,8 +2700,8 @@ footer .a-tel{
         display: none;
     }
     .price-btn div img{
-        top: 0;
-        left: 10px;
+        top: 40px;
+        left: -20px;
         width: 60px;
         height: auto;
     }
@@ -2736,6 +2750,112 @@ footer .a-tel{
         z-index: 4;
         background-color: #ffffff;
     }
+    .mobil-header-quiz{
+        display: block !important;
+    }
+    .quiz-fuuter{
+        margin: 15px 0 0 0 !important;
+        padding: 0 !important;
+    }
+    .quiz-fuuter div.quiz-fuuter{
+        margin: 0 0 0 0 !important;
+        padding: 0 !important;
+    }
+    .btn-quiz{
+        margin: 0 !important;
+    }
+    .quiz-next{
+        font-size: 8px !important;
+        width: 60px !important;
+        height: 25px;
+        padding: 6px !important;
+    }
+    .quiz-next img{
+        width: 10px;
+        height: auto;
+    }
+    .quiz-back{
+        font-size: 8px !important;
+        width: 60px !important;
+        height: 25px;
+        padding: 6px !important;
+    }
+    .quiz-back img{
+        width: 10px;
+        height: auto;
+    }
+    .item-form{
+        margin-top: 20px !important;
+    }
+    .quiz-1block{
+        margin-top: 15px !important;
+    }
+    .block-quiz .name-icon, .modal-1 .name-icon{
+        width: max-content;
+        border-radius: 10px;
+        padding: 5px;
+        margin-left: -5px;
+    }
+    .block-quiz .text-icon, .modal-1 .text-icon{
+        border-radius: 0 0 10px 10px;
+    }
+    .modal-1 .mf-button{
+        width: fit-content;
+    }
+    .modal-1 .mobil-header-quiz{
+        margin-top: 15px !important;
+    }
+    .progress-bar{
+        padding: 2px 0;
+    }
+    .progress-bar:before{
+        height: 5px;
+        left: 15px;
+    }
+    #quiz-10 .switch{
+        margin-left: -30px;
+    }
+    .modal-3 form input{
+        margin-bottom: 15px !important;
+        font-size: 10px;
+    }
+    .modal-3 form{
+        background-color: #D9D9D9;
+        border-radius: 10px;
+        padding: 25px 40px 0px 40px;
+    }
+    .sel-provance, .sel-loft{
+        display: none;
+    }
+    .mini-info-img .things{
+        display: grid;
+        grid-template-areas: 
+            "img span"
+            "img p" ;
+        grid-template-columns: 1fr, 4fr;
+        grid-template-rows: 2;
+        margin-bottom: 15px;
+    }
+    .mini-info-img .things img{
+        grid-area: img;
+    }
+    .mini-info-img .things span{
+        grid-area: span;
+    }
+    .mini-info-img .things p{
+        grid-area: p;
+    }
+    .mini-info-img .things img{
+        margin-right: 10px;
+    }
+    .sale-list{
+        background-image: url("../img/bg-sale-block.png");
+    }
+    .title-mod{
+        display: inline-block;
+        margin: 15px auto 15px auto !important;
+        text-align: center;
+    }
 }
 
 @media(max-width: 576px) {
@@ -2778,7 +2898,7 @@ footer .a-tel{
     .type-place{
         font-size: 10px;
     }
-    .catalog-kitchen .catalog-select{
+    .catalog-kitchen .catalog-select, .catalog-kitchen .catalog-select-all{
         padding: 10px 5px 8px 5px;
         border-radius: 10px 10px 0 0;
         font-size: 8px !important;
@@ -3065,6 +3185,14 @@ footer .a-tel{
         height: auto;
         width: 39.5vw;
     }
+    .footer-icon-4 img{
+        height: auto;
+        width: 8vw;
+    }
+    .footer{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
     .div-file-design label{
         font-size: 12px;
     }
@@ -3288,7 +3416,7 @@ footer .a-tel{
         height: auto;
     }
     .item-name{
-        font-size: 10px !important;
+        font-size: 8px !important;
     }
     .cross-modal{
         margin: 0;
@@ -3374,29 +3502,303 @@ footer .a-tel{
         margin-right: 20px;
         margin-left: 20px;
     }
-    #quiz-8 .pb-4{
-        padding-bottom: 0;
+    #quiz-8 .quiz-list.pb-4{
+        padding-bottom: 0 !important;
     }
     .catalog-img div{
-        padding: 0 20px !important;
+        padding: 0 5px !important;
     }
     .fixed-block{
         top:60%;
     }
     .messenger{
-        top: calc(60% + 140px);
+        top: calc(60% + 80px);
     }
-    .block-quiz .mt-5{
+    .block-quiz .mt-5, .modal-1 .mt-5{
         margin-top: 15px !important;
     }
     .block .mt-40{
         margin-top: 15px !important;
+    }
+    .modal-1 .mb-5{
+        margin-bottom: 15px !important;
     }
     .menu .form-design{
         padding: 20px 80px;
     }
     .menu .low-text{
         color: #969696;
+    }
+    #quiz-8 .quiz-select .mb-4{
+        padding-bottom: 0 !important;
+    }
+    .block-quiz .mf-list li{
+        font-weight: 500;
+    }
+    .free{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #quiz-12 .material-list.py-4{
+        padding-bottom: 0 !important;
+    }
+    .modal-2 .form-design.mt-5{
+        margin-top: 15px !important;
+    }
+    .modal-2 .form-design{
+        padding: 25px 40px 0 40px;
+    }
+    .modal-4 li.mb-4{
+        margin-bottom: 15px !important;
+    }
+    .modal-4 p{
+        margin: 0 !important;
+    }
+    .modal-4 .mt-5{
+        margin-top: 15px !important;
+    }
+    .modal-4 input{
+        margin-bottom: 15px !important;
+        font-size: 10px;
+    }
+    .modal-4 .mf-button{
+        margin-bottom: 5px;
+    }
+    .catalog-kitchen{
+        padding: 25px 0 !important;
+    }
+    .catalog-img{
+        margin-top: 0 !important;
+    }
+    .catalog-select-parent{
+        margin-top: 20px !important;
+    }
+    .mini-info-block .mb-5{
+        margin-bottom: 15px !important;
+    }
+    .mini-info-block .mini-info-green{
+        margin-top: 10px !important;
+    }
+    .mini-info{
+        padding: 25px 0;
+    }
+    .info-2{
+        position: relative;
+        height: 180px;
+    }
+    .hover-box{
+        position: absolute;
+        top: 50px;
+        left: calc(50vw - 160px);
+        max-width: 320px;
+    }
+    .background{
+        background-image: url("../img/background.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 210px;
+    }
+    .designed-form-block{
+        background-image: url("../img/bg-form.png");
+        background-position: -40px -70px;
+        background-color: #ffffff;
+        border-radius: 0;
+    }
+    .dop-bg{
+        margin: 0 -15px 0 -15px;
+        background-image: url("../img/form-img.png");
+        height: 165px;
+    }
+    .designed-form .low-text{
+        color: #969696;
+    }
+    .designed-form{
+        padding: 15px 0;
+    }
+    #sale{
+        padding: 20px 0;
+    }
+    #sale .mb-p{
+        margin-bottom: 20px !important;
+    }
+    #sale .mb-4{
+        margin-bottom: 0 !important;
+    }
+    .about-us{
+        padding: 27px 0 0 0;
+    }
+    .about-text{
+        padding: 0 40px 15px 40px;
+    }
+    .about-us .mb-5{
+        margin-bottom: 15px !important;
+    }
+    .stage-buttons-mobile{
+        margin-top: 15px !important;
+    }
+    .stage-buttons-mobile div{
+        border-radius: 7px 7px 0 0;
+    }
+    .stage-item-1 .mt-5{
+        margin-top: 15px !important;
+    }
+    .stage-item-1 .mb-5{
+        margin-bottom: 15px !important;
+    }
+    .stage-1-2{
+        padding: 20px 30px 0 30px;
+    }
+    .stage-item-2 p{
+        margin-bottom: 0 !important;
+    }
+    .stage-item-2 .mb-4, .stage-item-2 .mb-5{
+        margin-bottom: 15px !important;
+    }
+    .stage .form-design{
+        padding: 15px 25px 15px 25px;
+    }
+    .stage .form-design input{
+        margin-bottom: 15px !important;
+    }
+    .stage-item-5 .mb-4{
+        margin-bottom: 12px !important;
+    }
+    .stage-item-5 .float-end{
+        margin-left: 25px !important;
+    }
+    .stage-item-5 .mb-3{
+        margin-bottom: 8px !important;
+    }
+    .stage-item-5 .mf-border{
+        padding: 15px !important;
+    }
+    .stage{
+        padding-bottom: 0 !important;
+    }
+    .material {
+        padding: 20px 0;
+    }
+    .material-btn{
+        margin-top: 12px !important;
+    }
+    .type-place{
+        position: relative;
+        padding-right: 33px;
+    }
+    .type-place.active:after{
+        position: absolute;
+        top: 12px;
+        right: 5px;
+    }
+    #installment-plan{
+        margin-top: 45px;
+    }
+    .credit-span{
+        display: inline-block;
+    }
+    .slider-section{
+        padding: 0;
+    }
+    .slider-section .mb-5{
+        margin-bottom: 15px;
+    }
+    .slider-section .mt-5{
+        margin-top: 15px;
+    }
+    .slider img{
+        height: 200px;
+        width: auto;
+    }
+    .header-rev{
+        margin-bottom: 15px !important;
+    }
+    .img-container{
+        position: relative;
+    }
+    .img-container img{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: -15px;
+        left: 0;
+    }
+    #reviews{
+        padding-bottom: 0px;
+    }
+    .empolyee{
+        padding: 25px 0;
+    }
+    .empolyee .my-5{
+        margin-bottom: 0 !important;
+    }
+    .employee-stage{
+        margin-top: 0 !important;
+    }
+    .empolyee p.pb-4{
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    .employee-stage-item div{
+        padding-bottom: 0;
+    }
+    .employee-stage-item{
+        padding: 0 10px 10px 10px;
+    }
+    .mod-3-designer img{
+        width: 102px !important;
+        height: auto;
+    }
+    .mod-3-designer .text-img{
+        margin: 0 !important;
+        margin-left: 8px !important;
+    }
+    .modal-mod-3 .mt-5{
+        margin-top: 0 !important;
+    }
+    .mod-3-info{
+        padding: 0 !important;
+    }
+    .modal-mod-3 form, .modal-mod-1 form, .modal-mod-2 form{
+        background-color: #D9D9D9;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .modal-mod-1{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .checkbox-mod-1{
+        display: flex;
+    }
+    .checkbox-mod-1 div{
+        width: fit-content;
+    }
+    .mobile-size{
+        width: 150px !important;
+    }
+    .mobile-size img{
+        width: 120px;
+        height: auto;
+    }
+    .mobile-size input{
+        width: 50px !important;
+        height: 20px !important;
+        margin-bottom: 20px;
+    }
+    .modal-mod-1 .mt-5, .modal-mod-2 .mt-5{
+        margin-top: 0 !important;
+    }
+    .modal-mod-1 form input, .modal-mod-2 form input{
+        height: 35px;
+        font-size: 10px;
+        margin-bottom: 15px !important;
+    }
+    .modal-mod-1 form, .modal-mod-2 form{
+        padding: 15px;
+    }
+    .price-table li{
+        padding: 5px 0;
+        font-size: 8px !important;
     }
 }
 
