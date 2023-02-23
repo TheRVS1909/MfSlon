@@ -44,13 +44,13 @@ $(".menu .contacts").on("click",function (){
                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 240);
                }
                if ($(document).width() < 768 && $(document).width() > 600) {
-                   $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 440);
+                   $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 340);
                }
                if ($(document).width() < 600 && $(document).width() > 500) {
-                   $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 380);
+                   $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 280);
                }
                if ($(document).width() < 500) {
-                   $(".modal-3 .draggable").css('height', "680px");
+                   $(".modal-3 .draggable").css('height', "540px");
                }
                $(".slide-cont").removeAttr('style');
            }
