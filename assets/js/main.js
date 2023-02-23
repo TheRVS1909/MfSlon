@@ -1045,13 +1045,13 @@ jQuery(document).ready(function () {
                     $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 240);
                 }
                 if ($(document).width() < 768 && $(document).width() > 600) {
-                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 440);
+                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 340);
                 }
                 if ($(document).width() < 600 && $(document).width() > 500) {
-                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 380);
+                    $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 280);
                 }
                 if ($(document).width() < 500) {
-                    $(".modal-3 .draggable").css('height', "680px");
+                    $(".modal-3 .draggable").css('height', "560px");
                 }
                 $(".slide-cont").removeAttr('style');
             }
@@ -1076,6 +1076,12 @@ jQuery(document).ready(function () {
             $(".overlay-modal").css('display', 'none');
     });
 
+    $(".overlay-modal-info").on("click", function () {
+        $(".modal-info").hide();
+        $(".modal").hide();
+        $(".overlay-modal-info").css('display', 'none');
+    });
+
     $("#Quiz-cross").on("click",function () {
             $(".Quiz").hide();
             $(".modal").hide();
@@ -1095,6 +1101,7 @@ jQuery(document).ready(function () {
             $(`section.modal`).hide();
             $(this).parent().parent().hide();
             $(".overlay").css('display', 'none');
+            $(".overlay-modal-info").css('display', 'none');
         };
         $(".menu-modal").css('display', 'none');
         $(".menu-modal>div.active").removeClass("active");
@@ -1405,7 +1412,7 @@ jQuery(document).ready(function () {
             $(".modal-info").css('max-width', width + "px");
             $("#info-input").addClass("text-center");
             $("#info-input").removeClass("text-start");
-            $(".overlay").toggle();
+            $(".overlay-modal-info").toggle();
         });
     }
     $(`#btn-info-4`).on("click", function () {
@@ -1739,6 +1746,18 @@ jQuery(document).ready(function () {
     $(".input-number").on("keyup",function (e){
         // check input using regex
         var regex = RegExp(/^\d+$/);
+        const test_result = regex.test(e.target.value);
+
+        if(test_result || e.target.value.length == 0){
+            e.target.defaultValue = e.target.value;
+        }else{
+            e.target.value = e.target.defaultValue;
+        }
+    });
+
+    $(".name-input").on("keyup",function (e){
+        // check input using regex
+        var regex = RegExp(/^[а-яА-я]+$/);
         const test_result = regex.test(e.target.value);
 
         if(test_result || e.target.value.length == 0){
