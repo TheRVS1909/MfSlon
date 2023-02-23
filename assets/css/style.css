@@ -25,7 +25,7 @@ body{
     z-index: 6;
     opacity: 0.5;
 }
-.overlay-modal{
+.overlay-modal, .overlay-modal-info{
     display: none;
     position: fixed;
     left: 0;
@@ -55,7 +55,7 @@ body{
     color:#40AC46;
     font-weight: 600;
 }
-.cookie-btn:hover{
+.cookie-btn:hover, .info-click, a, .click{
 cursor: pointer;
 }
 .margin-a{

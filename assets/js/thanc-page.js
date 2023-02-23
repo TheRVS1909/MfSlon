@@ -67,9 +67,16 @@ $(".menu .contacts").on("click",function (){
           $(`section.modal`).hide();
           $(this).parent().parent().hide();
           $(".overlay").css('display', 'none');
+          $(".overlay-modal-info").css('display', 'none');
       };
       
   });
+
+  $(".overlay-modal-info").on("click", function () {
+    $(".modal-info").hide();
+    $(".modal").hide();
+    $(".overlay-modal-info").css('display', 'none');
+    });
 
    $(`#btn-info-1`).on("click", function () {
         let width = $(this).next().attr("data-width");
@@ -79,6 +86,7 @@ $(".menu .contacts").on("click",function (){
       $(".modal").css("display","flex");
       $(".modal-info").css('display', 'flex');
       $(".modal-info").css('max-width', width + "px");
+      $(".overlay-modal-info").toggle();
    });
 
    $(".open-modal-design").on("click",function (){
@@ -100,7 +108,7 @@ $(".menu .contacts").on("click",function (){
    });
 
    $("form .mf-button").addClass("button-desable");
-    $("form input").on("change",function (){
+    $("form input").on("keyup",function (){
         if (
             ($(this).parent().find(".name-input") ? $(this).parent().find(".name-input").val() : true)  !== '' 
             && 
@@ -232,6 +240,30 @@ $(".menu .contacts").on("click",function (){
           Телефон: $(this).parent().find("#DesignTel").val(),
       })
    });
+
+   $(".input-number").on("keyup",function (e){
+        // check input using regex
+        var regex = RegExp(/^\d+$/);
+        const test_result = regex.test(e.target.value);
+
+        if(test_result || e.target.value.length == 0){
+            e.target.defaultValue = e.target.value;
+        }else{
+            e.target.value = e.target.defaultValue;
+        }
+    });
+
+    $(".name-input").on("keyup",function (e){
+        // check input using regex
+        var regex = RegExp(/^[а-яА-я]+$/);
+        const test_result = regex.test(e.target.value);
+
+        if(test_result || e.target.value.length == 0){
+            e.target.defaultValue = e.target.value;
+        }else{
+            e.target.value = e.target.defaultValue;
+        }
+    });
 
    $(function () {
     $('[data-phone-pattern]').on('input blur focus', (e) => {
