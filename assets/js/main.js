@@ -1562,7 +1562,7 @@ jQuery(document).ready(function () {
         }
     });
 
-    $("#quiz-next-modal").on("click",function (){
+    $(".quiz-next-modal").on("click",function (){
         if ($("#quiz-next-modal").parent().find(".quiz-next-desable").length !== 0) {
             return;
         }
