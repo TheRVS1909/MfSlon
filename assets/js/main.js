@@ -1023,7 +1023,49 @@ jQuery(document).ready(function () {
         $(".modal").css("display","flex");
         $(".modal-design").toggle();
         $(".overlay").toggle();
-    })
+    });
+
+	setTimeout(() => {
+		$("#modal-3").click();
+	}, 30000);
+
+	class Timer {
+		constructor(callback, delay) {
+		  this.callback = callback
+		  this.remainingTime = delay
+		  this.startTime
+		  this.timerId
+		}
+
+		clear() {
+			clearTimeout(this.timerId);
+		};
+	  
+		pause() {
+		  clearTimeout(this.timerId)
+		  this.remainingTime -= new Date() - this.startTime
+		}
+	  
+		resume() {
+		  this.startTime = new Date()
+		  clearTimeout(this.timerId)
+		  this.timerId = setTimeout(this.callback, this.remainingTime)
+		}
+	  
+		start() {
+		  this.timerId = setTimeout(this.callback, this.remainingTime)
+		}
+	  }
+
+	const timeoutOpenModalStock = new Timer(function() {
+		$("#modal-3").click();
+	}, 120000);	
+
+	let allInput = $(':input');
+	allInput.map(() => {
+		this.addEventListener('focus', () => timeoutOpenModalStock.pause());
+		this.addEventListener('blur', () => timeoutOpenModalStock.resume());
+	});
 
     $("#modal-1,#modal-2,#modal-3,#modal-4").on("click",function (){
         $(".menu-modal").css("display","flex");
@@ -1107,7 +1149,7 @@ jQuery(document).ready(function () {
             $(".overlay").css('display', 'none');
             $(".overlay-modal").css('display', 'none');
 
-        }else {
+        } else {
             $(`section.modal`).hide();
             $(this).parent().parent().hide();
             $(".overlay").css('display', 'none');
@@ -1115,12 +1157,13 @@ jQuery(document).ready(function () {
         };
         $(".menu-modal").css('display', 'none');
         $(".menu-modal>div.active").removeClass("active");
+		timeoutOpenModalStock.start();
     });
 
     $(".cross-modal-slider").on("click", function (){
         if ($(".modal-mod-3").css("display") == "flex") {
             $(".modal-slider").hide();
-        }else {
+        } else {
             $(`section.modal`).hide();
             $(this).parent().parent().hide();
             $(".overlay").css('display', 'none');
@@ -1734,7 +1777,6 @@ jQuery(document).ready(function () {
 
     const createSlider = (src) => ($(`<div class="stage-slide"><img src=${src}></img></div>`));
 
-
 	$(".order-project-btn").on("click",function (){ 
         let name = $(this).parent().parent().parent().parent().attr("data-name");
 		$(".modal-mod-3").css("display","flex");
@@ -1818,7 +1860,6 @@ jQuery(document).ready(function () {
 
     //AJAX
 
-
 	const url = 'http://mfslon.bitrix24.ru';
     $(".visit-btn").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
@@ -1832,6 +1873,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#ModalTel").val(),
 			// date: $(this).parent.find("#ModalDate").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
     $(".call-me").on("click", function () {
@@ -1845,6 +1887,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#ModalTel").val(),
 			// date: $(this).parent.find("#ModalDate").val(),
         })
+		timeoutOpenModalStock.clear();
     });    
 
 	$(".3d-project-online").on("click", function () {
@@ -1859,6 +1902,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#ModalTel").val(),
 			// date: $(this).parent?.find("#ModalDate")?.val() ,
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".order-measurement-second-step").on("click", function () {
@@ -1872,6 +1916,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".order-measurement-application").on("click", function () {
@@ -1886,6 +1931,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
 			file: $(this).parent().find("#DesignFile2").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".order-measurement").on("click", function () {
@@ -1899,6 +1945,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".get-present").on("click", function () {
@@ -1912,6 +1959,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".advantage-offer-installment").on("click", function () {
@@ -1925,6 +1973,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".advantage-offer-kitchen").on("click", function () {
@@ -1938,6 +1987,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".get-cashback").on("click", function () {
@@ -1951,6 +2001,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".get-discount").on("click", function () {
@@ -1964,6 +2015,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".get-small-discount").on("click", function () {
@@ -1977,6 +2029,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".make-appointment").on("click", function () {
@@ -1989,6 +2042,7 @@ jQuery(document).ready(function () {
             form_subject: 'Записаться на встречу к дизайнеру',
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".calculate-price-mod-3").on("click", function () {
@@ -2001,6 +2055,7 @@ jQuery(document).ready(function () {
             form_subject: 'Рассчитать стоимость - заказать проект',
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".calculate-price-mod-1").on("click", function () {
@@ -2013,6 +2068,7 @@ jQuery(document).ready(function () {
             form_subject: 'Рассчитать стоимость - рассчитать по вашим размерам',
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".calculate-price-mod-2").on("click", function () {
@@ -2025,6 +2081,7 @@ jQuery(document).ready(function () {
             form_subject: 'Рассчитать стоимость - посмотреть характеристики',
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".get-best-price").on("click", function () {
@@ -2039,6 +2096,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#DesignName").val(),
 			// file: $(this).parent().find("#DesignFile").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".order-other-furniture").on("click", function () {
@@ -2052,6 +2110,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#ModalTel").val(),
             Имя: $(this).parent().find("#ModalName").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".get-consultation").on("click", function () {
@@ -2064,6 +2123,7 @@ jQuery(document).ready(function () {
             form_subject: 'Получить консультацию',
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".make-appointment-step-3").on("click", function () {
@@ -2076,6 +2136,7 @@ jQuery(document).ready(function () {
             form_subject: 'Записаться на встречу',
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".book-price-standard").on("click", function () {
@@ -2089,6 +2150,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#ExampleTel").val(),
             Имя: $(this).parent().find("#ExampleName").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".order-measurement-froze").on("click", function () {
@@ -2102,6 +2164,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#ExampleTel").val(),
             Имя: $(this).parent().find("#ExampleName").val(),
         })
+		timeoutOpenModalStock.clear();
     });
 
 	$(".quiz-btn").on("click", function () {
@@ -2115,6 +2178,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#QuizTel").val(),
             Имя: $(this).parent().find("#QuizName").val(),
         })
+		timeoutOpenModalStock.clear();
 		
 		setTimeout(function(){
 			$(location).attr('href','thank-page.html');
@@ -2232,6 +2296,7 @@ jQuery(document).ready(function () {
 				Имя: $(this).parent().find("#QuizName").val(),
 				// propertyKitchen: quizPrice,
 			});
+			timeoutOpenModalStock.clear();
 
 			return;
 		};
