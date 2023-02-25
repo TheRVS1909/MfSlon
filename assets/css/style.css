@@ -71,6 +71,9 @@ cursor: pointer;
 .low-text{
     font-size: 12px;
 }
+.stage-item-2 ,.low-text{
+    color: #969696 !important;
+}
 .small-text{
     font-size: 8px;
     color:#969696;
@@ -793,7 +796,7 @@ width: 45%!important;
 }
 .mod-3-form .mf-button, .mod-3-form input, .mod-1-form .mf-button, .mod-1-form input, .mod-2-form .mf-button, .mod-2-form input{
     width: 48% !important;
-    margin: 0 !important;
+    margin: 0 0 15px 0 !important;
 }
 .mod-1-form .mf-button, .mod-2-form .mf-button{
     padding-left: 0;
@@ -807,7 +810,7 @@ width: 45%!important;
 .mod-2-block{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: start;
 }
 .sm-text{
     font-family: Inter;
@@ -914,6 +917,9 @@ width: 45%!important;
 .info-2-block:hover .info-2-item-text{
     top:30%;
 }
+.mini-info-img {
+    margin: 20px 0 20px 0;
+}
 /*End Info 2 Section*/
 
 /* Designed form Section*/
@@ -925,6 +931,10 @@ width: 45%!important;
     border-radius: 20px;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 40px;
+}
+.designed-form-block form .low-text{
+    color: #ffffff;
 }
 .form-design{
     margin: 0  80px 50px 0;
@@ -945,6 +955,11 @@ width: 45%!important;
     height: 36px;
     border-radius: 10px!important;
     margin-right: 5px;
+}
+.modal-2 .mf-button{
+    height: 38px;
+    padding-top: 8px;
+    padding-bottom: 10px;
 }
 .order-measurement{
     width: fit-content !important;
@@ -1133,7 +1148,7 @@ width: 45%!important;
 /*End Stage Section*/
 /*Material Section*/
 .material{
-    padding: 76px 0;
+    padding: 20px 0 76px 0;
 }
 .type-place{
     display: flex;
@@ -1276,6 +1291,7 @@ width: 45%!important;
 .slider-section{
     padding: 76px 0;
 }
+
 .slider img{
     position: relative;
     height: auto;
@@ -1314,6 +1330,9 @@ width: 45%!important;
     width: auto;
     height: 100%;
     margin: auto;
+}
+.footer-icon-4{
+    padding-right: 0 !important;
 }
 /* End Stage Slider Section */
 /* Review Section*/
@@ -1874,6 +1893,9 @@ width: 45%!important;
     background: #E2E2E2!important;
     border: none!important;
 }
+.quiz-back {
+    display: block;
+}
 .button-desable{
     background: #E2E2E2!important;
     border: 1px solid #969696;
@@ -2314,7 +2336,7 @@ footer .a-tel{
 .download-btn:hover, .download-btn:active{
     color: #ffffff;
 }
-.inputDate{
+.inputDate1, .inputDate2{
     text-align: center;
 }
 
@@ -2457,11 +2479,14 @@ footer .a-tel{
     .info-span{
         font-style: 6px;
     }
+    #quiz-12 ,.switch{
+
+    }
     .switch {
-        width: 25px;
+        width: 30px;
     }
     .switch-label {
-        border-radius: 25px;
+        border-radius: 35px;
     }
     .switch-inner {
         width: 200%;
@@ -2469,25 +2494,25 @@ footer .a-tel{
     }
     .switch-inner:before, .switch-inner:after {
         width: 50%;
-        height: 12.5px;
+        height: 15px;
         padding: 0;
-        line-height: 12.5px;
+        line-height: 15px;
     }
     .switch-inner:before {
-        padding-left: 12px;
+        padding-left: 15px;
     }
     .switch-inner:after {
-        padding-right: 12px;
+        padding-right: 15px;
     }
     .switch-click {
-        width: 16px;
-        height: 16px;
-        margin: -2.5px;
+        width: 20px;
+        height: 20px;
+        margin: -3px;
         border: 2px solid #40AC46;
         border-radius: 25px;
         top: 1px;
         bottom: 0;
-        right: 11px;
+        right: 15px;
     }
     #quiz-12 .switch{
         margin-right: 5px;
@@ -2512,6 +2537,34 @@ footer .a-tel{
 }
 
 @media(max-width: 768px) {
+    .quiz-back{
+        display: none;
+    }
+    form input{
+        font-size: 10px;
+        margin-bottom: 15px !important;
+    }
+    .mini-info-img {
+        margin: 10px 0 10px 0;
+    }
+    .designed-form-block{
+        margin-top: 10px;
+    }
+    header .mt-4{
+        margin-top: 5px !important;
+    }
+    header .mb-5{
+        margin-bottom: 5px !important;
+    }
+    .designed-form .low-text{
+        color: #969696 !important;
+    }
+    .addFileLabel1{
+        height: 35px !important;
+    }
+    .designed-form input{
+        box-shadow: 0px 4px 4px 0px #00000040;
+    }
     .f-32{
         font-size: 20px;
     }
@@ -2754,7 +2807,7 @@ footer .a-tel{
         display: block !important;
     }
     .quiz-fuuter{
-        margin: 15px 0 0 0 !important;
+        margin: 15px 0 25px 0 !important;
         padding: 0 !important;
     }
     .quiz-fuuter div.quiz-fuuter{
@@ -2859,6 +2912,10 @@ footer .a-tel{
 }
 
 @media(max-width: 576px) {
+    .span-display{
+        display: inline-block;
+        width: 150px !important;
+    }
     .f-32{
         font-size: 14px;
     }
@@ -3170,6 +3227,7 @@ footer .a-tel{
     .footer-icon-1 img{
         height: auto;
         width: 21.33vw;
+        padding-left: 10px;
     }
     .footer-icon-2 img{
         height: auto;
@@ -3187,7 +3245,10 @@ footer .a-tel{
     }
     .footer-icon-4 img{
         height: auto;
-        width: 8vw;
+        width: 8vw !important;
+    }
+    .footer-icon-4{
+        width: 30px !important;
     }
     .footer{
         padding-left: 0 !important;
@@ -3351,20 +3412,20 @@ footer .a-tel{
         padding: 8px;
     }
     .fixed-block img{
-        height: 16px;
+        height: 20px;
         width: auto;
     }
     .fixed-block{
         padding: 10px;
     }
     .fixed-block:before{
-        width: 10px;
-        height: 10px;
-        left: -10px;
+        width: 15px;
+        height: 15px;
+        left: -15px;
     }
     .fixed-block{
         right: -230px;
-        width: 265px;
+        width: 270px;
         border-radius: 10px 0 0 10px;
     }
     .fixed-block .row{
@@ -3506,13 +3567,15 @@ footer .a-tel{
         padding-bottom: 0 !important;
     }
     .catalog-img div{
-        padding: 0 5px !important;
+        padding: 0 15px !important;
     }
     .fixed-block{
-        top:60%;
+        top: inherit;
+        bottom: 30%;
     }
     .messenger{
-        top: calc(60% + 80px);
+        top: inherit;
+        bottom: 30%;
     }
     .block-quiz .mt-5, .modal-1 .mt-5{
         margin-top: 15px !important;
@@ -3541,6 +3604,9 @@ footer .a-tel{
     }
     #quiz-12 .material-list.py-4{
         padding-bottom: 0 !important;
+    }
+    #quiz-12 .small-text{
+        font-size: 8px !important;
     }
     .modal-2 .form-design.mt-5{
         margin-top: 15px !important;
@@ -3600,17 +3666,18 @@ footer .a-tel{
     }
     .designed-form-block{
         background-image: url("../img/bg-form.png");
-        background-position: -40px -70px;
+        background-size: contain;
+        background-position: -35px -50px;
         background-color: #ffffff;
         border-radius: 0;
     }
     .dop-bg{
-        margin: 0 -15px 0 -15px;
+        margin: ;
         background-image: url("../img/form-img.png");
         height: 165px;
     }
     .designed-form .low-text{
-        color: #969696;
+        color: #969696 !important;
     }
     .designed-form{
         padding: 15px 0;
@@ -3800,6 +3867,21 @@ footer .a-tel{
         padding: 5px 0;
         font-size: 8px !important;
     }
+    .modal-2 .mt-5{
+        margin-top: 15px !important;
+    }
+}
+
+@media(max-width: 440px) {
+    .catalog-img div{
+        padding: 0 10px !important;
+    }
+}
+
+@media(max-width: 380px) {
+    .catalog-img div{
+        padding: 0 5px !important;
+    }
 }
 
 @media(min-width: 1440px) {
@@ -3878,4 +3960,9 @@ footer .a-tel{
 
   .custom-checkbox:disabled+label::before {
     background-color: #ffffff;
+  }
+
+  .q7-1, .q7-2 {
+    transition-property: height;
+    transition-duration: 1ms;
   }

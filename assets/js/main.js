@@ -1064,11 +1064,21 @@ jQuery(document).ready(function () {
     $(".open-modal-slider").on("click",function (){
         $(".modal-slider").css("display","flex");
         $(".modal").css("display","flex");
+        if ( $(".modal-slider .draggable").height() == 0) {
+            $(".modal-slider .draggable").css("height", '400');
+            $(".modal-slider .slick-slide").css("width", '');
+            $(".modal-slider .slick-track").css("width", '');
+        }
     });
 
     $(".open-slider-design").on("click",function (){
         $(".modal-slider-design").css("display","flex");
         $(".modal").css("display","flex");
+        if ( $(".modal-slider-design .draggable").height() == 0) {
+            $(".modal-slider-design .draggable").css("height", '400');
+            $(".modal-slider-design .slick-slide").css("width", '');
+            $(".modal-slider-design .slick-track").css("width", '');
+        }
     });
 
     $(".overlay-modal").on("click",function () {
@@ -1151,7 +1161,7 @@ jQuery(document).ready(function () {
             }
             if($(this).parent().parent().parent().parent().attr("data") == "bl-quiz-modal") {
                 $(this).find(".active").removeClass("active");
-                $("#quiz-next-modal").addClass("quiz-next-desable");
+                $(".quiz-next-modal").addClass("quiz-next-desable");
                 return
             }
             $(this).find(".active").removeClass("active");
@@ -1162,7 +1172,7 @@ jQuery(document).ready(function () {
         $(".quiz-next").removeClass("quiz-next-desable");
         $(".quiz-back").removeClass("quiz-next-desable");
         $(".quiz-next-section").removeClass("quiz-next-desable");
-        $("#quiz-next-modal").removeClass("quiz-next-desable");
+        $(".quiz-next-modal").removeClass("quiz-next-desable");
         let old = $(this).parent().find(".active");
         old.removeClass("active");
         $(this).find(".item-name").addClass("active");
@@ -1494,7 +1504,7 @@ jQuery(document).ready(function () {
             $(".quiz-back").show();
             $(".quiz-design-link").show();
         }
-        if(step == 5){
+        if(step == 4){
             $(".quiz-design-link").hide();
         }
         if(step == 8 && $(document).width() < 768 || step == 10 && $(document).width() < 768){
@@ -1503,15 +1513,31 @@ jQuery(document).ready(function () {
             $(".btn-quiz").show();
         }
         if(step == 9){
-            $(".quiz-next").addClass("quiz-next-desable");
-            $(".quiz-back").addClass("quiz-next-desable");
+            if(!$("#quiz-10 .switch input").prop('checked') &&
+            !(
+                $(".size-block #sideA").val() !== '' &&
+                $(".size-block #sideB").val() !== '' &&
+                $(".size-block #sideC").val() !== ''
+            )) {
+                $(".quiz-next").addClass("quiz-next-desable");
+                $(".quiz-back").addClass("quiz-next-desable");
+            }
         }
         if(step == 8){
-            $(".quiz-next").addClass("quiz-next-desable");
-            $(".quiz-back").addClass("quiz-next-desable");
+            if($("#quiz-9").find(".active").length == 0) {
+                $(".quiz-next").addClass("quiz-next-desable");
+                $(".quiz-back").addClass("quiz-next-desable");
+            }
+        }
+        if(step == 10){
+            if($("#quiz-11").find(".active").length == 0) {
+                $(".quiz-next").addClass("quiz-next-desable");
+                $(".quiz-back").addClass("quiz-next-desable");
+            }
         }
         if(step == 11){
             $(".quiz-next").hide();
+            $(".quiz-back").hide();
             $(".progress-bar").css("--myVar",(90)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
             $(".Quiz .progress-bar").hide();
@@ -1616,6 +1642,16 @@ jQuery(document).ready(function () {
     $(".quiz-back").on("click",function (){
         if ($(".quiz-back").parent().find(".quiz-next-desable").length !== 0) {
             return;
+        }
+
+        if (step == 1){
+            $(".Quiz").hide();
+            $(".modal").hide();
+       		$("#quiz-"+(step)).css('display', 'none');
+            $(".Quiz").attr("data-open","close")
+            $("body").css("overflow","scroll");
+            $(".overlay").css('display', 'none');
+            return
         }
 
         $(".modal-info").hide();
@@ -2223,6 +2259,22 @@ jQuery(document).ready(function () {
             }));
         });
     });
+
+    let resizeObserver = new ResizeObserver(() => {
+
+        const height1 = $(".q7-1").height();
+        const height2 = $(".q7-2").height();
+
+        if (!height1 && !height2) return;
+
+        if (height1 < height2) {
+            $(".q7-1").css('height', height2);
+        } else {
+            $(".q7-2").css('height', height1);
+        }
+    });
+
+    resizeObserver.observe($(".q7-2")[0]);
 });
 
 // designed-form section, add files
@@ -2310,16 +2362,26 @@ reviewWatchFullBtn.forEach((element, index) => element.addEventListener("click",
 // 	reviewBtnNext.addEventListener("click", () => appointHiddenReviewWatchFull());
 // 	reviewBtnPrev.addEventListener("click", () => appointHiddenReviewWatchFull());
 // }, 1000);
-let inputDate = document.querySelector('.inputDate');
+let inputDate1 = document.querySelector('.inputDate1');
 
-inputDate.addEventListener('focus', function(event){
+inputDate1.addEventListener('focus', function(event){
     event.preventDefault();
     this.type='date'
 });
 
-inputDate.addEventListener('blur', function(event){
+inputDate1.addEventListener('blur', function(event){
     event.preventDefault();
     this.type='text';
 });
 
+let inputDate2 = document.querySelector('.inputDate2');
 
+inputDate2.addEventListener('focus', function(event){
+    event.preventDefault();
+    this.type='date'
+});
+
+inputDate2.addEventListener('blur', function(event){
+    event.preventDefault();
+    this.type='text';
+});
