@@ -8,7 +8,7 @@ jQuery(document).ready(function () {
 });
    $(".menu .examples").on("click",function (){
         $(".menu").toggle("slow");
-        $(location).attr('href','index.html#examples');
+        $(location).attr('href','index.html#catalog-kitchen');
    });
    $(".menu .sale").on("click",function (){
       $(".menu").toggle("slow");
@@ -16,7 +16,7 @@ jQuery(document).ready(function () {
  });
  $(".menu .installment-plan").on("click",function (){
    $(".menu").toggle("slow");
-   $(location).attr('href','index.html#installment-plan');
+   $(location).attr('href','index.html#for-installment-plan');
 });
 $(".menu .reviews").on("click",function (){
    $(".menu").toggle("slow");

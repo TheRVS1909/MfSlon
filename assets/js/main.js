@@ -502,7 +502,6 @@ const catalog = {
         },
         src:
             [
-                './assets/img/catalog/68М/1.jpeg',
                 './assets/img/catalog/68М/DSC04191.jpg',
                 './assets/img/catalog/68М/DSC04205.jpg',
                 './assets/img/catalog/68М/DSC04213.jpg',
@@ -999,6 +998,8 @@ jQuery(document).ready(function () {
             $(".Quiz").attr("data-open","close");
             $("body").css("overflow","none");
         }
+        timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
     })
     // $(".quiz-open").on("click",function (){
     //     $(".modal").toggle("flex");
@@ -1017,24 +1018,33 @@ jQuery(document).ready(function () {
         $(".modal").css("display","flex");
         $(".modal-form").toggle();
         $(".overlay").toggle();
+        timeoutOpenModalStock.pause()
+    })
+
+    $(".open-modal-furniture").on("click",function (){
+        $(".modal").css("display","flex");
+        $(".modal-form-furniture").toggle();
+        $(".overlay").toggle();
+        timeoutOpenModalStock.pause()
     })
 
     $(".open-modal-design").on("click",function (){
         $(".modal").css("display","flex");
         $(".modal-design").toggle();
-        $(".overlay").toggle();
+        timeoutOpenModalStock.pause()
     });
 
-	setTimeout(() => {
-		$("#modal-3").click();
-	}, 30000);
+	// setTimeout(() => {
+	// 	$("#modal-1").click();
+	// }, 10000);
 
 	class Timer {
 		constructor(callback, delay) {
-		  this.callback = callback
-		  this.remainingTime = delay
-		  this.startTime
-		  this.timerId
+		  this.callback = callback;
+		  this.remainingTime = delay;
+		  this.startTime;
+		  this.timerId;
+          this.delay = delay;
 		}
 
 		clear() {
@@ -1042,30 +1052,35 @@ jQuery(document).ready(function () {
 		};
 	  
 		pause() {
-		  clearTimeout(this.timerId)
-		  this.remainingTime -= new Date() - this.startTime
+		  clearTimeout(this.timerId);
+		  this.remainingTime -= new Date() - this.startTime;
 		}
 	  
 		resume() {
-		  this.startTime = new Date()
-		  clearTimeout(this.timerId)
-		  this.timerId = setTimeout(this.callback, this.remainingTime)
+		  this.startTime = new Date();
+		  clearTimeout(this.timerId);
+		  this.timerId = setTimeout(this.callback, this.delay);
 		}
 	  
 		start() {
-		  this.timerId = setTimeout(this.callback, this.remainingTime)
+            this.startTime = new Date();
+		  this.timerId = setTimeout(this.callback, this.delay);
 		}
 	  }
 
 	const timeoutOpenModalStock = new Timer(function() {
-		$("#modal-3").click();
-	}, 120000);	
+		$("#modal-1").click();
+	}, 30000);	
+
+    timeoutOpenModalStock.start()
+
+    let stopTimer;
 
 	let allInput = $(':input');
-	allInput.map(() => {
-		this.addEventListener('focus', () => timeoutOpenModalStock.pause());
-		this.addEventListener('blur', () => timeoutOpenModalStock.resume());
-	});
+	for(el of allInput) {
+		$(el).on('focus', function () {timeoutOpenModalStock.pause(); console.log('rabotaet')});
+		$(el).on('blur', function () {timeoutOpenModalStock.resume()});
+	};
 
     $("#modal-1,#modal-2,#modal-3,#modal-4").on("click",function (){
         $(".menu-modal").css("display","flex");
@@ -1073,6 +1088,7 @@ jQuery(document).ready(function () {
        $("."+name).css("display","flex");
        $(".modal").css("display","block");
        $(".overlay").toggle();
+       timeoutOpenModalStock.pause()
 
        $("#"+name+"-item").addClass('active');
         if (name == 'modal-3') {
@@ -1103,19 +1119,29 @@ jQuery(document).ready(function () {
         }
     });
 
+    $("#modal-1").on("click", function () {
+        timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+    })
+
     $(".open-modal-slider").on("click",function (){
         $(".modal-slider").css("display","flex");
         $(".modal").css("display","flex");
+        $(".overlay-modal-slider").toggle();
         if ( $(".modal-slider .draggable").height() == 0) {
             $(".modal-slider .draggable").css("height", '400');
             $(".modal-slider .slick-slide").css("width", '');
             $(".modal-slider .slick-track").css("width", '');
+        }
+        if ($(".modal-mod-3").css("display") !== "flex") {
+            timeoutOpenModalStock.pause();
         }
     });
 
     $(".open-slider-design").on("click",function (){
         $(".modal-slider-design").css("display","flex");
         $(".modal").css("display","flex");
+        $(".overlay-modal-slider").toggle();
         if ( $(".modal-slider-design .draggable").height() == 0) {
             $(".modal-slider-design .draggable").css("height", '400');
             $(".modal-slider-design .slick-slide").css("width", '');
@@ -1126,6 +1152,20 @@ jQuery(document).ready(function () {
     $(".overlay-modal").on("click",function () {
             $(".modal-info").hide();
             $(".overlay-modal").css('display', 'none');
+    });
+
+    $(".overlay-modal-slider").on("click",function () {
+        if ($(".modal-mod-3").css("display") == "flex") {
+            $(".modal-slider-design").hide();
+            $(".modal-slider").hide();
+            $(".overlay-modal-slider").css('display', 'none');
+        } else {
+            $(`section.modal`).hide();
+            $(".modal-slider-design").hide();
+            $(".modal-slider").hide();
+            $(".overlay-modal-slider").css('display', 'none');
+            timeoutOpenModalStock.resume();
+        };
     });
 
     $(".overlay-modal-info").on("click", function () {
@@ -1157,21 +1197,26 @@ jQuery(document).ready(function () {
         };
         $(".menu-modal").css('display', 'none');
         $(".menu-modal>div.active").removeClass("active");
-		timeoutOpenModalStock.start();
+		if (stopTimer !== 'stop') {
+            timeoutOpenModalStock.start();
+        }
     });
 
     $(".cross-modal-slider").on("click", function (){
         if ($(".modal-mod-3").css("display") == "flex") {
             $(".modal-slider").hide();
+            $(".overlay-modal-slider").css('display', 'none');
         } else {
             $(`section.modal`).hide();
             $(this).parent().parent().hide();
-            $(".overlay").css('display', 'none');
+            $(".overlay-modal-slider").css('display', 'none');
+            timeoutOpenModalStock.resume();
         };
     });
 
     $(".cross-slider-design").on("click", function (){
         $(".modal-slider-design").hide();
+        $(".overlay-modal-slider").css('display', 'none');
     });
 
     $(".cross-mod").on("click", function (){
@@ -1466,6 +1511,7 @@ jQuery(document).ready(function () {
             $("#info-input").addClass("text-center");
             $("#info-input").removeClass("text-start");
             $(".overlay-modal-info").toggle();
+            timeoutOpenModalStock.pause()
         });
     }
     $(`#btn-info-4`).on("click", function () {
@@ -1629,6 +1675,8 @@ jQuery(document).ready(function () {
             $(".progress-bar").css("--myVar",(90)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
         }
+        timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
     });
 
     $(".quiz-next-modal").on("click",function (){
@@ -1741,6 +1789,7 @@ jQuery(document).ready(function () {
 			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
 			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
+         timeoutOpenModalStock.pause()
 	});
 
     const createPriceTable = (element) => ($(`
@@ -1773,6 +1822,7 @@ jQuery(document).ready(function () {
 			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
 			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
+         timeoutOpenModalStock.pause()
 	});
 
     const createSlider = (src) => ($(`<div class="stage-slide"><img src=${src}></img></div>`));
@@ -1795,6 +1845,7 @@ jQuery(document).ready(function () {
 			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
 			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
+         timeoutOpenModalStock.pause()
     });
 
     $(".quiz-design-link").on("click",function (){
@@ -1874,6 +1925,10 @@ jQuery(document).ready(function () {
 			// date: $(this).parent.find("#ModalDate").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
     $(".call-me").on("click", function () {
@@ -1888,6 +1943,10 @@ jQuery(document).ready(function () {
 			// date: $(this).parent.find("#ModalDate").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });    
 
 	$(".3d-project-online").on("click", function () {
@@ -1903,6 +1962,10 @@ jQuery(document).ready(function () {
 			// date: $(this).parent?.find("#ModalDate")?.val() ,
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".order-measurement-second-step").on("click", function () {
@@ -1917,6 +1980,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".order-measurement-application").on("click", function () {
@@ -1932,6 +1999,10 @@ jQuery(document).ready(function () {
 			file: $(this).parent().find("#DesignFile2").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".order-measurement").on("click", function () {
@@ -1946,6 +2017,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".get-present").on("click", function () {
@@ -1960,6 +2035,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".advantage-offer-installment").on("click", function () {
@@ -1974,6 +2053,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".advantage-offer-kitchen").on("click", function () {
@@ -1988,6 +2071,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".get-cashback").on("click", function () {
@@ -2002,6 +2089,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".get-discount").on("click", function () {
@@ -2016,6 +2107,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".get-small-discount").on("click", function () {
@@ -2030,6 +2125,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".make-appointment").on("click", function () {
@@ -2043,6 +2142,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".calculate-price-mod-3").on("click", function () {
@@ -2056,6 +2159,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".calculate-price-mod-1").on("click", function () {
@@ -2069,6 +2176,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".calculate-price-mod-2").on("click", function () {
@@ -2082,6 +2193,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".get-best-price").on("click", function () {
@@ -2097,9 +2212,13 @@ jQuery(document).ready(function () {
 			// file: $(this).parent().find("#DesignFile").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
-	$(".order-other-furniture").on("click", function () {
+	$(".piick-up-equipment").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
@@ -2111,6 +2230,28 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#ModalName").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
+    });
+
+	$(".order-other-furniture").on("click", function () {
+        if ($(this).parent().find('.button-desable').length !== 0) {
+            return
+        }
+        $.post(url, {
+            city: 'Орел',
+            project_name: 'MFSlon',
+            form_subject: 'Заказать другую мебель',
+            Телефон: $(this).parent().find("#ModalTel").val(),
+            Имя: $(this).parent().find("#ModalName").val(),
+        })
+		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".get-consultation").on("click", function () {
@@ -2124,6 +2265,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".make-appointment-step-3").on("click", function () {
@@ -2137,6 +2282,10 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".book-price-standard").on("click", function () {
@@ -2151,6 +2300,10 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#ExampleName").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".order-measurement-froze").on("click", function () {
@@ -2165,6 +2318,10 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#ExampleName").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
+        setTimeout(function(){
+			$(location).attr('href','thank-page.html');
+		  }, 1000 );
     });
 
 	$(".quiz-btn").on("click", function () {
@@ -2179,6 +2336,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#QuizName").val(),
         })
 		timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
 		
 		setTimeout(function(){
 			$(location).attr('href','thank-page.html');
@@ -2297,6 +2455,7 @@ jQuery(document).ready(function () {
 				// propertyKitchen: quizPrice,
 			});
 			timeoutOpenModalStock.clear();
+            stopTimer = 'stop';
 
 			return;
 		};
@@ -2400,13 +2559,21 @@ switchCash.addEventListener('change', function(event){
 $(".review-slider").on("beforeChange", () => appointHiddenReviewWatchFull());
 
 const toggleHidden = (index) => {
-	if (reviewWatchFullText[index].scrollHeight > reviewWatchFullText[index].offsetHeight) {
-		reviewSlider.style.height = 674 + reviewWatchFullText[index].scrollHeight - reviewWatchFullText[index].offsetHeight + 'px';
-		reviewWatchFullText[index].style.maxHeight = 'none';
-		return;
-	}
+    if (window.innerWidth > 768) {
+        if (reviewWatchFullText[index].scrollHeight > reviewWatchFullText[index].offsetHeight) {
+            reviewSlider.style.height = 674 + reviewWatchFullText[index].scrollHeight - reviewWatchFullText[index].offsetHeight + 'px';
+            reviewWatchFullText[index].style.maxHeight = 'none';
+            return;
+        }
+    } else {
+        console.log(reviewWatchFullText[index].scrollHeight, reviewWatchFullText[index].offsetHeight)
+        if (reviewWatchFullText[index].scrollHeight > reviewWatchFullText[index].offsetHeight) {
+            reviewWatchFullText[index].style.height = reviewWatchFullText[index].scrollHeight + 'px!important';
+            reviewWatchFullText[index].style.maxHeight = 'none';
+            return;
+        }
+    }
 };
-
 const appointHiddenReviewWatchFull = () => {
 	reviewWatchFullText.forEach((element, index) => element.style.maxHeight = 300 + 'px')
 	document.querySelector('.review-slider').style.height = 674 + "px";
