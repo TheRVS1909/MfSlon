@@ -25,7 +25,7 @@ body{
     z-index: 6;
     opacity: 0.5;
 }
-.overlay-modal, .overlay-modal-info{
+.overlay-modal, .overlay-modal-info, .overlay-modal-slider{
     display: none;
     position: fixed;
     left: 0;
@@ -120,13 +120,13 @@ cursor: pointer;
 .price-btn-info{
     position: absolute;
     top: -15px;
-    right: -280px;
+    right: -250px;
     background-color: #ffffff;
     border-radius: 10px;
     z-index: 1;
 }
 .price-btn-info p{
-    padding: 18px 18px 18px 180px;
+    padding: 18px 18px 18px 150px;
     margin: 0;
     color: #000000;
 }
@@ -936,6 +936,9 @@ width: 45%!important;
 .designed-form-block form .low-text{
     color: #ffffff;
 }
+.designed-form .low-text{
+    color: #ffffff !important;
+}
 .form-design{
     margin: 0  80px 50px 0;
     padding-top:50px;
@@ -1195,6 +1198,10 @@ width: 45%!important;
     margin: 0px 10px;
     border-radius: 50%;
 }
+#for-installment-plan {
+    padding-top: 80px;
+    margin-top: -80px;
+}
 .sale-list{
     margin-top: 100px;
     padding: 40px 20px;
@@ -1338,6 +1345,10 @@ width: 45%!important;
 /* Review Section*/
 .review{
     padding:20px 0 76px 0;
+}
+#reviews{
+    padding-top: 100px;
+    margin-top: -80px;
 }
 .review .slick-slide{
    padding: 25px;
@@ -1634,7 +1645,7 @@ width: 45%!important;
     margin: 0 auto 0 auto;
 }
 .modal-mod-1{
-	z-index: 8;
+	z-index: 4;
 	display: none;	
 	position: absolute;
 	background: #ffffff;
@@ -1644,7 +1655,7 @@ width: 45%!important;
 	height: fit-content;
 }
 .modal-mod-2{
-	z-index: 8;
+	z-index: 4;
 	display: none;	
 	position: absolute;
 	background: #ffffff;
@@ -1654,7 +1665,7 @@ width: 45%!important;
 	height: fit-content;
 }
 .modal-mod-3{
-	z-index: 8;
+	z-index: 4;
 	display: none;	
 	position: absolute;
 	background: #ffffff;
@@ -1699,19 +1710,20 @@ width: 45%!important;
     border-radius: 20px;
     max-width: 500px;
 }
-.modal-form, .modal-form-visit{
+.modal-form, .modal-form-visit, .modal-form-furniture{
     display: none;
     background: #E2E2E2;
     padding: 20px;
     border-radius: 20px;
     max-width: 500px;
 }
-.modal-form img, .modal-form-visit img{
+.modal-form img, .modal-form-visit img .modal-form-furniture{
     width: auto;
     height: 30px;
 }
-.modal-form .mf-button{
+.modal-form .mf-button,  .modal-form-furniture .mf-button{
     border-radius: 25px;
+    width: 322px !important;
 }
 .modal input{
     background: white;
@@ -1779,7 +1791,7 @@ width: 45%!important;
     position: fixed;
     z-index: 2;
     background: #40AC46;
-    top:40%;
+    top:50%;
     right: -140px;
     width: 200px;
     transform: translateY(-50%);
@@ -1792,7 +1804,7 @@ width: 45%!important;
 }
 .messenger{
     position: fixed;
-    top: calc(40% + 140px);
+    top: calc(50% + 140px);
     right: 0;
     display: flex;
     flex-direction: column;
@@ -2537,6 +2549,16 @@ footer .a-tel{
 }
 
 @media(max-width: 768px) {
+    .review-text {
+        margin-right: 32px;
+        max-height: 100px !important;
+    }
+    .progress-bar {
+        margin-bottom: 15px;
+    }
+    .mobil-header-quiz {
+        margin-top: 0px !important;
+    }
     .quiz-back{
         display: none;
     }
@@ -2610,8 +2632,9 @@ footer .a-tel{
         margin-top: 10px;
     }
     .fixed-block{
-        right: -230px;
-        width: 290px;
+        display: none;
+        /* right: -230px;
+        width: 290px; */
     }
     .mini-info-green{
         margin-top: 60px;
@@ -2747,7 +2770,10 @@ footer .a-tel{
     }
     .price-btn-info p{
         font-size: 12px;
-        padding: 10px 10px 50px 60px;
+        padding: 10px 30px 50px 40px;
+    }
+    #sale .mb-5{
+        margin-bottom: 15px !important;
     }
     .price-btn-info br{
         display: none;
@@ -3196,8 +3222,11 @@ footer .a-tel{
     .review-text{
         font-size: 8px;
     }
-    .review-footer{
+    .review-vk-icon{
         display: none;
+    }
+    .review-footer{
+        margin: 10px 0 10px 0;
     }
     .kitchen .b-green{
         font-size: 14px;
@@ -3411,7 +3440,7 @@ footer .a-tel{
         font-size: 10px;
         padding: 8px;
     }
-    .fixed-block img{
+    /* .fixed-block img{
         height: 20px;
         width: auto;
     }
@@ -3435,7 +3464,7 @@ footer .a-tel{
     }
     .fixed-block-text{
         margin-left: 10px;
-    }
+    } */
     .messenger{
         top: calc(40% + 80px);
     }
@@ -3569,10 +3598,10 @@ footer .a-tel{
     .catalog-img div{
         padding: 0 15px !important;
     }
-    .fixed-block{
+    /* .fixed-block{
         top: inherit;
         bottom: 30%;
-    }
+    } */
     .messenger{
         top: inherit;
         bottom: 30%;
@@ -3767,10 +3796,10 @@ footer .a-tel{
         padding: 0;
     }
     .slider-section .mb-5{
-        margin-bottom: 15px;
+        margin-bottom: 15px !important;
     }
     .slider-section .mt-5{
-        margin-top: 15px;
+        margin-top: 15px !important;
     }
     .slider img{
         height: 200px;
@@ -3793,7 +3822,7 @@ footer .a-tel{
         padding-bottom: 0px;
     }
     .empolyee{
-        padding: 25px 0;
+        padding: 25px 0 40px 0;
     }
     .empolyee .my-5{
         margin-bottom: 0 !important;
@@ -3903,11 +3932,11 @@ footer .a-tel{
 @media(min-width: 1600px) {
     .modal-1, .modal-2,.modal-3,.modal-4{
         max-width: 1285px;
-        left: calc(50vw - 642px);
+        left: calc(50vw - 642px + 140px);
     }
     .menu-modal{
         width: 288px;
-        margin-left: calc(50vw - 642px - 280px);
+        margin-left: calc(50vw - 642px - 140px);
     }
 }
 
