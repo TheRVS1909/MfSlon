@@ -985,6 +985,7 @@ jQuery(document).ready(function () {
             $(".fixed-block").toggleClass("open-block");
         }
     });
+    let stopTimer;
     $("#quiz-open, #quiz-open-2").on("click",function (){
         $("#quiz-"+step).hide();
         $("#quiz-"+(step)).css('display', 'flex');
@@ -1070,11 +1071,9 @@ jQuery(document).ready(function () {
 
 	const timeoutOpenModalStock = new Timer(function() {
 		$("#modal-1").click();
-	}, 30000);	
+	}, 10000);	
 
-    timeoutOpenModalStock.start()
-
-    let stopTimer;
+    timeoutOpenModalStock.start();
 
 	let allInput = $(':input');
 	for(el of allInput) {
@@ -1728,6 +1727,8 @@ jQuery(document).ready(function () {
             $(".progress-bar").css("--myVar",(100 - 5)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
         }
+        timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
     });
 
     $(".quiz-back").on("click",function (){
