@@ -58,6 +58,13 @@ body{
 .cookie-btn:hover, .info-click, a, .click{
 cursor: pointer;
 }
+form a {
+    text-decoration: none;
+    color: inherit;
+}
+form a:active{
+    color: inherit;
+}
 .margin-a{
     margin-left: auto;
     margin-right: auto;
@@ -331,7 +338,7 @@ width: 45%!important;
     box-shadow: 0px 4px 17px 4px #00000040;
 }
 #quiz-1 .quiz-1block{
-    margin-top: 40px;
+    margin-top: 0px;
 }
 .quiz-2-name{
     margin-left: 20px;
@@ -484,7 +491,32 @@ width: 45%!important;
 .item-form img{
     border-radius: 20px 20px 0 0;
     width: 100%;
+}
+.Quiz .item-form img{
+    width: auto;
+    max-height: 100px;
+}
+.Quiz .item-form, .modal-1 .item-form{
+    text-align: center;
+    margin-top: 20px;
+}
+#quiz-5 .item-form img{
     width: 100%;
+    max-height: 160px;
+}
+#quiz-5 .item-form {
+    margin-left: 90px !important;
+}
+#quiz-6 .item-form img{
+    width: 100%;
+    max-height: 100px;
+}
+#quiz-9 .item-form img{
+    width: 100%;
+    max-height: none;
+}
+#quiz-9 .item-form{
+    padding-right: 10px;
 }
 #quiz-11 .item-form{
     position: relative;
@@ -1703,6 +1735,17 @@ width: 45%!important;
     border-radius: 20px;
     width: 92vw;
 }
+.modal-info-4{
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: end;
+    z-index: 5;
+    display: none;
+    background: #E2E2E2;
+    padding: 20px;
+    border-radius: 20px;
+    width: 92vw;
+}
 .modal-design{
     display: none;
     background: #E2E2E2;
@@ -1721,7 +1764,7 @@ width: 45%!important;
     width: auto;
     height: 30px;
 }
-.modal-form .mf-button,  .modal-form-furniture .mf-button{
+.modal-form .mf-button,  .modal-form-furniture .mf-button, .modal-form-visit .mf-button, .modal-design .mf-button{
     border-radius: 25px;
     width: 322px !important;
 }
@@ -1763,6 +1806,9 @@ width: 45%!important;
 }
 .action-slider-it img{
     vertical-align: center;
+}
+.action-slider .mf-button{
+    width: 322px !important;
 }
 .modal-4 .form-design {
     margin-right: 0;
@@ -2220,7 +2266,7 @@ footer .a-tel{
     margin-left: 20px;
 }
 #quiz-11 .price{
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 .quiz-fuuter{
     margin-right: 100px;
@@ -2549,6 +2595,13 @@ footer .a-tel{
 }
 
 @media(max-width: 768px) {
+    .modal-form .mf-button, .modal-form-furniture .mf-button, .modal-form-visit .mf-button, .modal-design .mf-button{
+        width: 70% !important;
+    }
+    .Quiz .item-form img{
+        width: 100%;
+        max-height: none;
+    }
     .review-text {
         margin-right: 32px;
         max-height: 100px !important;
@@ -2766,7 +2819,8 @@ footer .a-tel{
         width: max-content;
     }
     .price-btn a{
-        font-size: 16px!important;
+        font-size: 12px!important;
+        padding: 0 30px 0 30px;
     }
     .price-btn-info p{
         font-size: 12px;
@@ -2938,6 +2992,10 @@ footer .a-tel{
 }
 
 @media(max-width: 576px) {
+    .modal-form input,  .modal-form-furniture input, .modal-form-visit input, .modal-design input{
+        height: 33px !important;
+    }
+
     .span-display{
         display: inline-block;
         width: 150px !important;
@@ -3142,9 +3200,6 @@ footer .a-tel{
         background-image: none;
         color: #000000 !important;
         background-color: #ffffff;
-    }
-    .stage-item-2 .mf-white{
-        color: #000000 !important;
     }
     .stage-item-2 .mf-list li{
         color: #000000 !important;

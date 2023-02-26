@@ -985,6 +985,7 @@ jQuery(document).ready(function () {
             $(".fixed-block").toggleClass("open-block");
         }
     });
+    let stopTimer;
     $("#quiz-open, #quiz-open-2").on("click",function (){
         $("#quiz-"+step).hide();
         $("#quiz-"+(step)).css('display', 'flex');
@@ -1031,6 +1032,7 @@ jQuery(document).ready(function () {
     $(".open-modal-design").on("click",function (){
         $(".modal").css("display","flex");
         $(".modal-design").toggle();
+        $(".overlay").toggle();
         timeoutOpenModalStock.pause()
     });
 
@@ -1070,11 +1072,11 @@ jQuery(document).ready(function () {
 
 	const timeoutOpenModalStock = new Timer(function() {
 		$("#modal-1").click();
-	}, 30000);	
+	}, 10000);	
 
-    timeoutOpenModalStock.start()
-
-    let stopTimer;
+    if (localStorage.getItem('quiz') !== 'stop') {
+        timeoutOpenModalStock.start();
+    }
 
 	let allInput = $(':input');
 	for(el of allInput) {
@@ -1170,6 +1172,7 @@ jQuery(document).ready(function () {
 
     $(".overlay-modal-info").on("click", function () {
         $(".modal-info").hide();
+        $(".modal-info-4").hide();
         $(".modal").hide();
         $(".overlay-modal-info").css('display', 'none');
     });
@@ -1514,13 +1517,21 @@ jQuery(document).ready(function () {
             timeoutOpenModalStock.pause()
         });
     }
-    $(`#btn-info-4`).on("click", function () {
-        $("#info-input").addClass("text-start");
-        $("#info-input").removeClass("text-center");
+    $(`#btn-info-44`).on("click", function () {
+        let text = $(this).next().html();
+        let width = $(this).next().attr("data-width");
+        $("#info-input-4").html();
+        $("#info-input-4").html(text);
+        $(".modal").css("display","flex");
+        $(".modal-info-4").css('display', 'flex');
+        $(".modal-info-4").css('max-width', width + "px");
+        $(".overlay-modal-info").toggle();
+        timeoutOpenModalStock.pause()
 
     });
     for (let i = 1; i <= 10; i++) {
-        $(`#btn-info-q${i}`).on("click", function () {
+        $(`#btn-info-q${i}`).on("click", function (e) {
+            e.stopPropagation();
             let text = $(this).next().html();
             let width = $(this).next().attr("data-width");
             $("#info-input").html();
@@ -1728,6 +1739,8 @@ jQuery(document).ready(function () {
             $(".progress-bar").css("--myVar",(100 - 5)+"%");
             $(".progress-bar").find("span").text("Расчет пройден на 100%");
         }
+        timeoutOpenModalStock.clear();
+        stopTimer = 'stop';
     });
 
     $(".quiz-back").on("click",function (){
@@ -1925,7 +1938,7 @@ jQuery(document).ready(function () {
 			// date: $(this).parent.find("#ModalDate").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -1943,7 +1956,7 @@ jQuery(document).ready(function () {
 			// date: $(this).parent.find("#ModalDate").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -1962,7 +1975,7 @@ jQuery(document).ready(function () {
 			// date: $(this).parent?.find("#ModalDate")?.val() ,
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -1980,7 +1993,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -1999,7 +2012,7 @@ jQuery(document).ready(function () {
 			file: $(this).parent().find("#DesignFile2").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2017,7 +2030,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2035,7 +2048,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2053,7 +2066,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2071,7 +2084,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2089,7 +2102,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2107,7 +2120,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2125,7 +2138,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2142,7 +2155,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2159,7 +2172,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2176,7 +2189,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2193,7 +2206,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2212,7 +2225,7 @@ jQuery(document).ready(function () {
 			// file: $(this).parent().find("#DesignFile").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2230,7 +2243,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#ModalName").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2248,7 +2261,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#ModalName").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2265,7 +2278,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2282,7 +2295,7 @@ jQuery(document).ready(function () {
             Телефон: $(this).parent().find("#DesignTel").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2300,7 +2313,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#ExampleName").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2318,7 +2331,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#ExampleName").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
         setTimeout(function(){
 			$(location).attr('href','thank-page.html');
 		  }, 1000 );
@@ -2336,7 +2349,7 @@ jQuery(document).ready(function () {
             Имя: $(this).parent().find("#QuizName").val(),
         })
 		timeoutOpenModalStock.clear();
-        stopTimer = 'stop';
+        localStorage.setItem('quiz', 'stop')
 		
 		setTimeout(function(){
 			$(location).attr('href','thank-page.html');
