@@ -2566,17 +2566,20 @@ const toggleHidden = (index) => {
             return;
         }
     } else {
-        console.log(reviewWatchFullText[index].scrollHeight, reviewWatchFullText[index].offsetHeight)
         if (reviewWatchFullText[index].scrollHeight > reviewWatchFullText[index].offsetHeight) {
-            reviewWatchFullText[index].style.height = reviewWatchFullText[index].scrollHeight + 'px!important';
-            reviewWatchFullText[index].style.maxHeight = 'none';
+            // reviewWatchFullText[index].style.height = reviewWatchFullText[index].scrollHeight + 'px!important';
+            reviewWatchFullText[index].style.cssText = 'max-height: 300px!important';
             return;
         }
     }
 };
 const appointHiddenReviewWatchFull = () => {
-	reviewWatchFullText.forEach((element, index) => element.style.maxHeight = 300 + 'px')
-	document.querySelector('.review-slider').style.height = 674 + "px";
+    if (window.innerWidth > 768) {
+        reviewWatchFullText.forEach((element, index) => element.style.maxHeight = 300 + 'px')
+        document.querySelector('.review-slider').style.height = 674 + "px";
+    } else {
+        reviewWatchFullText.forEach((element, index) => reviewWatchFullText[index].style.cssText = 'max-height: 100px!important');
+    }
 };
 
 const reviewWatchFullBtn = document.querySelectorAll('.review-full-btn');
