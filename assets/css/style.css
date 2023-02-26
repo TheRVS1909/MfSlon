@@ -58,6 +58,13 @@ body{
 .cookie-btn:hover, .info-click, a, .click{
 cursor: pointer;
 }
+form a {
+    text-decoration: none;
+    color: inherit;
+}
+form a:active{
+    color: inherit;
+}
 .margin-a{
     margin-left: auto;
     margin-right: auto;
@@ -1728,6 +1735,17 @@ width: 45%!important;
     border-radius: 20px;
     width: 92vw;
 }
+.modal-info-4{
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: end;
+    z-index: 5;
+    display: none;
+    background: #E2E2E2;
+    padding: 20px;
+    border-radius: 20px;
+    width: 92vw;
+}
 .modal-design{
     display: none;
     background: #E2E2E2;
@@ -1746,7 +1764,7 @@ width: 45%!important;
     width: auto;
     height: 30px;
 }
-.modal-form .mf-button,  .modal-form-furniture .mf-button{
+.modal-form .mf-button,  .modal-form-furniture .mf-button, .modal-form-visit .mf-button, .modal-design .mf-button{
     border-radius: 25px;
     width: 322px !important;
 }
@@ -1788,6 +1806,9 @@ width: 45%!important;
 }
 .action-slider-it img{
     vertical-align: center;
+}
+.action-slider .mf-button{
+    width: 322px !important;
 }
 .modal-4 .form-design {
     margin-right: 0;
@@ -2574,6 +2595,9 @@ footer .a-tel{
 }
 
 @media(max-width: 768px) {
+    .modal-form .mf-button, .modal-form-furniture .mf-button, .modal-form-visit .mf-button, .modal-design .mf-button{
+        width: 70% !important;
+    }
     .Quiz .item-form img{
         width: 100%;
         max-height: none;
@@ -2795,7 +2819,8 @@ footer .a-tel{
         width: max-content;
     }
     .price-btn a{
-        font-size: 16px!important;
+        font-size: 12px!important;
+        padding: 0 30px 0 30px;
     }
     .price-btn-info p{
         font-size: 12px;
@@ -2967,6 +2992,10 @@ footer .a-tel{
 }
 
 @media(max-width: 576px) {
+    .modal-form input,  .modal-form-furniture input, .modal-form-visit input, .modal-design input{
+        height: 33px !important;
+    }
+
     .span-display{
         display: inline-block;
         width: 150px !important;
@@ -3171,9 +3200,6 @@ footer .a-tel{
         background-image: none;
         color: #000000 !important;
         background-color: #ffffff;
-    }
-    .stage-item-2 .mf-white{
-        color: #000000 !important;
     }
     .stage-item-2 .mf-list li{
         color: #000000 !important;
