@@ -2511,6 +2511,10 @@ footer .a-tel{
 }
 
 @media(max-width: 992px) {
+	.review-text {
+		min-height: 120px;
+		max-height: 120px;
+	}
     .f-32{
         font-size: 24px;
     }
@@ -3340,8 +3344,19 @@ footer .a-tel{
     .review-vk-icon{
         display: none;
     }
+	.review-text-end {
+		/* justify-content: flex-end; */
+		position: absolute;
+		right: 40px;
+		top: 0;
+		text-align: end;
+	}
     .review-footer{
+		position: relative;
         margin: 10px 0 10px 0;
+		flex-direction: row;
+		justify-items: end;
+		align-items: end;
     }
     .kitchen .b-green{
         font-size: 14px;

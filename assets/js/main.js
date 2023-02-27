@@ -2571,6 +2571,8 @@ switchCash.addEventListener('change', function(event){
 $(".review-slider").on("beforeChange", () => appointHiddenReviewWatchFull());
 
 const toggleHidden = (index) => {
+	console.log('tut');
+
     if (window.innerWidth > 768) {
         if (reviewWatchFullText[index].scrollHeight > reviewWatchFullText[index].offsetHeight) {
             reviewSlider.style.height = 674 + reviewWatchFullText[index].scrollHeight - reviewWatchFullText[index].offsetHeight + 'px';
@@ -2587,7 +2589,7 @@ const toggleHidden = (index) => {
 };
 const appointHiddenReviewWatchFull = () => {
     if (window.innerWidth > 768) {
-        reviewWatchFullText.forEach((element, index) => element.style.maxHeight = 300 + 'px')
+        reviewWatchFullText.forEach((element, index) => element.style.maxHeight = 300 + 'px');
         document.querySelector('.review-slider').style.height = 674 + "px";
     } else {
         reviewWatchFullText.forEach((element, index) => reviewWatchFullText[index].style.cssText = 'max-height: 100px!important');
