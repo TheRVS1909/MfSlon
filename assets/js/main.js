@@ -995,7 +995,7 @@ jQuery(document).ready(function () {
         if($(".Quiz").data("open") == "close") {
             $(".Quiz").attr("data-open","open");
             $("body").css("overflow","hidden");
-        }else{
+        } else {
             $(".Quiz").attr("data-open","close");
             $("body").css("overflow","none");
         }
@@ -1019,21 +1019,21 @@ jQuery(document).ready(function () {
         $(".modal").css("display","flex");
         $(".modal-form").toggle();
         $(".overlay").toggle();
-        timeoutOpenModalStock.pause()
+        timeoutOpenModalStock.pause();
     })
 
     $(".open-modal-furniture").on("click",function (){
         $(".modal").css("display","flex");
         $(".modal-form-furniture").toggle();
         $(".overlay").toggle();
-        timeoutOpenModalStock.pause()
+        timeoutOpenModalStock.pause();
     })
 
     $(".open-modal-design").on("click",function (){
         $(".modal").css("display","flex");
         $(".modal-design").toggle();
         $(".overlay").toggle();
-        timeoutOpenModalStock.pause()
+        timeoutOpenModalStock.pause();
     });
 
 	// setTimeout(() => {
@@ -1054,21 +1054,21 @@ jQuery(document).ready(function () {
 		};
 	  
 		pause() {
-		  clearTimeout(this.timerId);
-		  this.remainingTime -= new Date() - this.startTime;
-		}
+			clearTimeout(this.timerId);
+			this.remainingTime -= new Date() - this.startTime;
+		};
 	  
 		resume() {
-		  this.startTime = new Date();
-		  clearTimeout(this.timerId);
-		  this.timerId = setTimeout(this.callback, this.delay);
-		}
+			this.startTime = new Date();
+			clearTimeout(this.timerId);
+			this.timerId = setTimeout(this.callback, this.delay);
+		};
 	  
 		start() {
             this.startTime = new Date();
-		  this.timerId = setTimeout(this.callback, this.delay);
+		  	this.timerId = setTimeout(this.callback, this.delay);
 		}
-	  }
+	  };
 
 	const timeoutOpenModalStock = new Timer(function() {
 		$("#modal-1").click();
@@ -1076,24 +1076,24 @@ jQuery(document).ready(function () {
 
     if (localStorage.getItem('quiz') !== 'stop') {
         timeoutOpenModalStock.start();
-    }
+    };
 
 	let allInput = $(':input');
 	for(el of allInput) {
-		$(el).on('focus', function () {timeoutOpenModalStock.pause(); console.log('rabotaet')});
+		$(el).on('focus', function () {timeoutOpenModalStock.pause()});
 		$(el).on('blur', function () {timeoutOpenModalStock.resume()});
 	};
 
     $("#modal-1,#modal-2,#modal-3,#modal-4").on("click",function (){
         $(".menu-modal").css("display","flex");
-       let name = $(this).attr("id");
-       $("."+name).css("display","flex");
-       $(".modal").css("display","block");
-       $(".overlay").toggle();
-       timeoutOpenModalStock.pause()
+		let name = $(this).attr("id");
+		$("."+name).css("display","flex");
+		$(".modal").css("display","block");
+		$(".overlay").toggle();
+		timeoutOpenModalStock.pause();
 
-       $("#"+name+"-item").addClass('active');
-        if (name == 'modal-3') {
+       	$("#"+name+"-item").addClass('active');
+		if (name == 'modal-3') {
             if ( $(".modal-3 .draggable").height() == 0) {
                 if ($(document).width() > 1440) {
                     $(".modal-3 .draggable").css('height', $(".slide-cont").height() + 40);
@@ -1514,7 +1514,7 @@ jQuery(document).ready(function () {
             $("#info-input").addClass("text-center");
             $("#info-input").removeClass("text-start");
             $(".overlay-modal-info").toggle();
-            timeoutOpenModalStock.pause()
+            timeoutOpenModalStock.pause();
         });
     }
     $(`#btn-info-44`).on("click", function () {
@@ -1526,7 +1526,7 @@ jQuery(document).ready(function () {
         $(".modal-info-4").css('display', 'flex');
         $(".modal-info-4").css('max-width', width + "px");
         $(".overlay-modal-info").toggle();
-        timeoutOpenModalStock.pause()
+        timeoutOpenModalStock.pause();
 
     });
     for (let i = 1; i <= 10; i++) {
@@ -1799,10 +1799,10 @@ jQuery(document).ready(function () {
 			adaptiveHeight: true,
 			autoplay: true,
 			autoplaySpeed: 4000,
-			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
-			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -20px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -20px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
-         timeoutOpenModalStock.pause()
+         timeoutOpenModalStock.pause();
 	});
 
     const createPriceTable = (element) => ($(`
@@ -1832,10 +1832,10 @@ jQuery(document).ready(function () {
 			adaptiveHeight: true,
 			autoplay: true,
 			autoplaySpeed: 4000,
-			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
-			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -10px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -30px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -30px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
-         timeoutOpenModalStock.pause()
+         timeoutOpenModalStock.pause();
 	});
 
     const createSlider = (src) => ($(`<div class="stage-slide"><img src=${src}></img></div>`));
@@ -1855,10 +1855,10 @@ jQuery(document).ready(function () {
 			adaptiveHeight: true,
 			autoplay: true,
 			autoplaySpeed: 4000,
-			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
-			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -50px;top: 50%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
+			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -30px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
+			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -30px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
-         timeoutOpenModalStock.pause()
+         timeoutOpenModalStock.pause();
     });
 
     $(".quiz-design-link").on("click",function (){
@@ -2469,7 +2469,6 @@ jQuery(document).ready(function () {
 			});
 			timeoutOpenModalStock.clear();
             stopTimer = 'stop';
-
 			return;
 		};
 	});

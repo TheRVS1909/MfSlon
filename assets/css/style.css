@@ -1,5 +1,15 @@
 @charset "utf-8";
 
+input, select {
+	border: 0;
+	box-shadow: 0px 2px 5px black;
+	background-clip: padding-box;
+	border-radius: 1px;
+	background: white;
+	padding: 15px;
+	-webkit-appearance: none;
+}
+
 html , body {
     padding: 0;
     margin:0;
@@ -216,6 +226,15 @@ form a:active{
 .h-min{
     height: min-content;
 }
+/* Убрать браузерные стили для ссылок */
+.politics {
+	text-decoration: none; 
+	color: #969696;
+}
+.politics:hover {
+	text-decoration: none; 
+	color: #969696;
+}
 .mt-40{
  margin-top: 40px;
 }
@@ -334,6 +353,18 @@ width: 45%!important;
 }
 /* End Header */
 /* Block Quiz  */
+.q5-1 {
+	display: block;
+	text-align: center; 
+	box-sizing: border-box;
+	padding: 7px 0;
+};
+.q5-2 {
+	display: block;
+};
+.q5-3 {
+	display: block;
+};
 .quiz-1block{
     box-shadow: 0px 4px 17px 4px #00000040;
 }
@@ -507,6 +538,16 @@ width: 45%!important;
 #quiz-5 .item-form {
     margin-left: 90px !important;
 }
+@media (max-width: 990px) {
+	#quiz-5 .item-form {
+		margin-left: 60px !important;
+	}
+}
+@media (max-width: 600px) {
+	#quiz-5 .item-form {
+		margin-left: 60px !important;
+	}
+}
 #quiz-6 .item-form img{
     width: 100%;
     max-height: 100px;
@@ -545,6 +586,12 @@ width: 45%!important;
     text-align: center;
     border-radius: 0 0 20px 20px;
     padding: 14px 0;
+}
+@media (max-width: 600px) {
+	.item-name {
+		border-radius: 0 0 14px 14px;
+		padding: 8px 0;
+	}
 }
 #quiz-7 .item-name, #quiz-8 .item-name{
     border-radius: 0;
@@ -1014,7 +1061,9 @@ width: 45%!important;
 .input-design{
     margin-bottom: 25px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 10px !important;
+	height: 36px;
+	box-sizing: border-box;
     padding: 10px;
     border: none;
     outline: none;
@@ -1954,10 +2003,16 @@ width: 45%!important;
 .quiz-back {
     display: block;
 }
-.button-desable{
+.calculate-price-mod-3 {
+	padding: 5px;
+	box-sizing: border-box;
+	height: 36px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/* .button-desable{
     background: #E2E2E2!important;
     border: 1px solid #969696;
-}
+} */
 .info-text, .info-text-q{
     display: none;
 }
@@ -2996,6 +3051,10 @@ footer .a-tel{
         height: 33px !important;
     }
 
+	.discount-block-st {
+		width: 300px;
+	}
+
     .span-display{
         display: inline-block;
         width: 150px !important;
@@ -3259,7 +3318,8 @@ footer .a-tel{
         display: flex !important;
     }
     .credit{
-        margin-left: calc(50vw - 94px);
+        /* margin-left: calc(50vw - 94px); */
+        margin-left: calc(25vw - 5px);
     }
     .installment-plan div{
         margin-left: auto;
@@ -3476,6 +3536,22 @@ footer .a-tel{
         font-size: 10px;
         width: 80%;
     }
+	@media (max-width: 568px) {
+		.main-screen-container {
+			padding-bottom: 25px;
+		}
+		.menu-ul-container {
+			margin: 0 auto;
+			align-items: center;
+		}
+		.menu-ul {
+			margin: 0 auto;
+			align-items: center;
+		}
+		.menu-ul li {
+			text-align: center;
+		}
+	}
     .menu-ul li{
         font-size: 10px;
     }
@@ -3901,7 +3977,7 @@ footer .a-tel{
     }
     .mod-3-designer .text-img{
         margin: 0 !important;
-        margin-left: 8px !important;
+        /* margin-left: 8px !important; */
     }
     .modal-mod-3 .mt-5{
         margin-top: 0 !important;
