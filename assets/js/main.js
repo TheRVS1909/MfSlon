@@ -2511,8 +2511,6 @@ jQuery(document).ready(function () {
     });
 
     resizeObserver.observe($(".q7-2")[0]);
-
-	
 });
 
 // designed-form section, add files
