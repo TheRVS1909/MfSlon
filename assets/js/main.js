@@ -2571,8 +2571,6 @@ switchCash.addEventListener('change', function(event){
 $(".review-slider").on("beforeChange", () => appointHiddenReviewWatchFull());
 
 const toggleHidden = (index) => {
-	console.log('tut');
-
     if (window.innerWidth > 768) {
         if (reviewWatchFullText[index].scrollHeight > reviewWatchFullText[index].offsetHeight) {
             reviewSlider.style.height = 674 + reviewWatchFullText[index].scrollHeight - reviewWatchFullText[index].offsetHeight + 'px';
