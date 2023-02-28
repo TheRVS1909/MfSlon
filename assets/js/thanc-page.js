@@ -1,6 +1,5 @@
-function send(event, php){
+function send(formData, php){
     console.log("Отправка запроса");
-    event.preventDefault ? event.preventDefault() : event.returnValue = false;
     var req = new XMLHttpRequest();
     req.open('POST', php, true);
     req.onload = function() {
@@ -13,7 +12,7 @@ function send(event, php){
     
     // Если не удалось отправить запрос. Стоит блок на хостинге
     req.onerror = function() {alert("Ошибка отправки запроса");};
-    req.send(new FormData(event.target));
+    req.send(formData);
 }
 
 jQuery(document).ready(function () {
