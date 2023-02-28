@@ -960,6 +960,23 @@ const catalog = {
             ],
     },
 };
+function send(event, php){
+    console.log("Отправка запроса");
+    event.preventDefault ? event.preventDefault() : event.returnValue = false;
+    var req = new XMLHttpRequest();
+    req.open('POST', php, true);
+    req.onload = function() {
+        if (req.status >= 200 && req.status < 400) {
+            setTimeout(function(){
+                $(location).attr('href','thank-page.html');
+              }, 1000 );
+        // Если не удалось связаться с php файлом
+        } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
+    
+    // Если не удалось отправить запрос. Стоит блок на хостинге
+    req.onerror = function() {alert("Ошибка отправки запроса");};
+    req.send(new FormData(event.target));
+}
 
 jQuery(document).ready(function () {
     let step = 1;
@@ -1019,21 +1036,21 @@ jQuery(document).ready(function () {
         $(".modal").css("display","flex");
         $(".modal-form").toggle();
         $(".overlay").toggle();
-        timeoutOpenModalStock.pause();
+        timeoutOpenModalStock.clear();
     })
 
     $(".open-modal-furniture").on("click",function (){
         $(".modal").css("display","flex");
         $(".modal-form-furniture").toggle();
         $(".overlay").toggle();
-        timeoutOpenModalStock.pause();
+        timeoutOpenModalStock.clear();
     })
 
     $(".open-modal-design").on("click",function (){
         $(".modal").css("display","flex");
         $(".modal-design").toggle();
         $(".overlay").toggle();
-        timeoutOpenModalStock.pause();
+        timeoutOpenModalStock.clear();
     });
 
 	// setTimeout(() => {
@@ -1072,7 +1089,7 @@ jQuery(document).ready(function () {
 
 	const timeoutOpenModalStock = new Timer(function() {
 		$("#modal-1").click();
-	}, 10000);	
+	}, 20000);	
 
     if (localStorage.getItem('quiz') !== 'stop') {
         timeoutOpenModalStock.start();
@@ -1080,7 +1097,7 @@ jQuery(document).ready(function () {
 
 	let allInput = $(':input');
 	for(el of allInput) {
-		$(el).on('focus', function () {timeoutOpenModalStock.pause()});
+		$(el).on('focus', function () {timeoutOpenModalStock.clear()});
 		$(el).on('blur', function () {timeoutOpenModalStock.resume()});
 	};
 
@@ -1090,7 +1107,7 @@ jQuery(document).ready(function () {
 		$("."+name).css("display","flex");
 		$(".modal").css("display","block");
 		$(".overlay").toggle();
-		timeoutOpenModalStock.pause();
+		timeoutOpenModalStock.clear();
 
        	$("#"+name+"-item").addClass('active');
 		if (name == 'modal-3') {
@@ -1136,7 +1153,7 @@ jQuery(document).ready(function () {
             $(".modal-slider .slick-track").css("width", '');
         }
         if ($(".modal-mod-3").css("display") !== "flex") {
-            timeoutOpenModalStock.pause();
+            timeoutOpenModalStock.clear();
         }
     });
 
@@ -1514,7 +1531,7 @@ jQuery(document).ready(function () {
             $("#info-input").addClass("text-center");
             $("#info-input").removeClass("text-start");
             $(".overlay-modal-info").toggle();
-            timeoutOpenModalStock.pause();
+            timeoutOpenModalStock.clear();
         });
     }
     $(`#btn-info-44`).on("click", function () {
@@ -1526,7 +1543,7 @@ jQuery(document).ready(function () {
         $(".modal-info-4").css('display', 'flex');
         $(".modal-info-4").css('max-width', width + "px");
         $(".overlay-modal-info").toggle();
-        timeoutOpenModalStock.pause();
+        timeoutOpenModalStock.clear();
 
     });
     for (let i = 1; i <= 10; i++) {
@@ -1802,7 +1819,7 @@ jQuery(document).ready(function () {
 			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -20px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
 			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -20px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
-         timeoutOpenModalStock.pause();
+         timeoutOpenModalStock.clear();
 	});
 
     const createPriceTable = (element) => ($(`
@@ -1835,7 +1852,7 @@ jQuery(document).ready(function () {
 			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -30px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
 			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -30px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
-         timeoutOpenModalStock.pause();
+         timeoutOpenModalStock.clear();
 	});
 
     const createSlider = (src) => ($(`<div class="stage-slide"><img src=${src}></img></div>`));
@@ -1858,7 +1875,7 @@ jQuery(document).ready(function () {
 			prevArrow: '<button id="prev" type="button" class="btn btn-juliet" style="left: -30px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleleft.png" alt=""></button>',
 			nextArrow: '<button id="next" type="button" class="btn btn-juliet" style="right: -30px;top: 40%;position: absolute;z-index: 5;"><img src="./assets/img/arrowcircleright.png" alt=""></button>'
 	 	});
-         timeoutOpenModalStock.pause();
+         timeoutOpenModalStock.clear();
     });
 
     $(".quiz-design-link").on("click",function (){
@@ -1929,434 +1946,408 @@ jQuery(document).ready(function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Запись в салон',
-            Имя: $(this).parent().find("#ModalName").val(),
-            Телефон: $(this).parent().find("#ModalTel").val(),
-			// date: $(this).parent.find("#ModalDate").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Запись в салон');
+        form.append('Имя', $(this).parent().find("#ModalName").val());
+        form.append('Телефон', $(this).parent().find("#ModalTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
     $(".call-me").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Перезвоните мне',
-            Телефон: $(this).parent().find("#ModalTel").val(),
-			// date: $(this).parent.find("#ModalDate").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Перезвоните мне');
+        form.append('Телефон', $(this).parent().find("#ModalTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });    
 
 	$(".3d-project-online").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Запись в салон',
-            Имя: $(this).parent().find("#ModalName").val(),
-            Телефон: $(this).parent().find("#ModalTel").val(),
-			// date: $(this).parent?.find("#ModalDate")?.val() ,
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Запись в салон');
+        form.append('Имя', $(this).parent().find("#ModalName").val());
+        form.append('Телефон', $(this).parent().find("#ModalTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".order-measurement-second-step").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Заказать замер',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Заказать замер');
+        form.append('Имя', $(this).parent().find("#ModalName").val());
+        form.append('Телефон', $(this).parent().find("#ModalTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".order-measurement-application").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Заказать замер',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-			file: $(this).parent().find("#DesignFile2").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Заказать замер');
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+        form.append('file', $(this).parent().find("#DesignFile2").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".order-measurement").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Заказать замер',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Заказать замер');
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".get-present").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Получить подарок',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Получить подарок');
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".advantage-offer-installment").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Воспользоваться предложением рассрочки',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Воспользоваться предложением рассрочки');
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".advantage-offer-kitchen").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Воспользоваться предложением установки кухни',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Воспользоваться предложением установки кухни');
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".get-cashback").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Получить кэшбэк',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Получить кэшбэк');
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".get-discount").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Получить cкидку 45%',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Получить cкидку 45%');
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".get-small-discount").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Получить cкидку 40%',
-            Имя: $(this).parent().find("#DesignName").val(),
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Получить cкидку 40%');
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".make-appointment").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Записаться на встречу к дизайнеру',
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Записаться на встречу к дизайнеру');
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".calculate-price-mod-3").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Рассчитать стоимость - заказать проект',
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Рассчитать стоимость - заказать проект');
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".calculate-price-mod-1").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Рассчитать стоимость - рассчитать по вашим размерам',
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Рассчитать стоимость - рассчитать по вашим размерам');
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".calculate-price-mod-2").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Рассчитать стоимость - посмотреть характеристики',
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Рассчитать стоимость - посмотреть характеристики');
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".get-best-price").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Получить лучшую цену на кухню',
-            Телефон: $(this).parent().find("#DesignTel").val(),
-            Имя: $(this).parent().find("#DesignName").val(),
-			// file: $(this).parent().find("#DesignFile").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Получить лучшую цену на кухню');
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".piick-up-equipment").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Подобрать технику для кухни',
-            Телефон: $(this).parent().find("#ModalTel").val(),
-            Имя: $(this).parent().find("#ModalName").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Подобрать технику для кухни');
+        form.append('Телефон', $(this).parent().find("#ModalTel").val());
+        form.append('Имя', $(this).parent().find("#ModalName").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".order-other-furniture").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Заказать другую мебель',
-            Телефон: $(this).parent().find("#ModalTel").val(),
-            Имя: $(this).parent().find("#ModalName").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Заказать другую мебель');
+        form.append('Телефон', $(this).parent().find("#ModalTel").val());
+        form.append('Имя', $(this).parent().find("#ModalName").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".get-consultation").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Получить консультацию',
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Получить консультацию');
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".make-appointment-step-3").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Записаться на встречу',
-            Телефон: $(this).parent().find("#DesignTel").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Записаться на встречу');
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".book-price-standard").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Забронировать стоимость стандарт',
-            Телефон: $(this).parent().find("#ExampleTel").val(),
-            Имя: $(this).parent().find("#ExampleName").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Забронировать стоимость стандарт');
+        form.append('Телефон', $(this).parent().find("#ExampleTel").val());
+        form.append('Имя', $(this).parent().find("#ExampleName").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
 
 	$(".order-measurement-froze").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Заказать замер',
-            Телефон: $(this).parent().find("#ExampleTel").val(),
-            Имя: $(this).parent().find("#ExampleName").val(),
-        })
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Заказать замер');
+        form.append('Телефон', $(this).parent().find("#ExampleTel").val());
+        form.append('Имя', $(this).parent().find("#ExampleName").val());
+
+        send(form, 'mail.php')
+
 		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-        setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
+        localStorage.setItem('quiz', 'stop');
     });
+    
+
+	let quizPrice = {};
 
 	$(".quiz-btn").on("click", function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
-        $.post(url, {
-            city: 'Орел',
-            project_name: 'MFSlon',
-            form_subject: 'Получить все бонусы',
-            Телефон: $(this).parent().find("#QuizTel").val(),
-            Имя: $(this).parent().find("#QuizName").val(),
-        })
-		timeoutOpenModalStock.clear();
-        localStorage.setItem('quiz', 'stop')
-		
-		setTimeout(function(){
-			$(location).attr('href','thank-page.html');
-		  }, 1000 );
-    });
+        const form = new FormData();
+        form.append('city', 'Орел');
+        form.append('project_name', 'MFSlon');
+        form.append('form_subject', 'Получить все бонусы');
+        form.append('Телефон', $(this).parent().find("#QuizTel").val());
+        form.append('Имя', $(this).parent().find("#QuizName").val());
+        for (let key in quizPrice) {
+            form.append(key, quizPrice[key]);
+        }
+        send(form, 'mail.php')
 
-	let quizPrice = {};
+		timeoutOpenModalStock.clear();
+        localStorage.setItem('quiz', 'stop');
+    });
 
 	$(".quiz-next-section").on("click", function () {
         if ($(".quiz-next-section").parent().find(".quiz-next-desable").length !== 0) {
