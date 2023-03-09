@@ -1,13 +1,11 @@
 <?php
 //-------------------------------------------------------------------
-require './lib/PHPMailer/src/PHPMailer.php';
-require './lib/PHPMailer/src/SMTP.php';
-require './lib/PHPMailer/src/Exception.php';
-require './scripts/Add_new_lead.php';
+require './assets/lib/PHPMailer/src/PHPMailer.php';
+require './assets/lib/PHPMailer/src/SMTP.php';
+require './assets/lib/PHPMailer/src/Exception.php';
+require './Add_new_lead.php';
 //-------------------------------------------------------------------
 define('ADMIN_EMAIL',  'order@mfslon.ru');
-define('SECOND_EMAIL', 'nick2112@mail.ru');
-define('THIRD_EMAIL',  'aikp@mail.ru');
 //-------------------------------------------------------------------
 
 
@@ -110,8 +108,8 @@ if ($method === 'POST' && !empty($_POST))
         // Настройки почты
 
         $mail->Host = 'ssl://smtp.mail.ru';                                             // SMTP сервера почты
-        $mail->Username = 'ЛОГИН ПОЧТЫ';                                          // Логин на почте
-        $mail->Password = 'ПАРОЛЬ ПОЧТЫ';                                       // Пароль для внешнего приложения
+		$mail->Username = 'mf-slon@mfslon.ru'; // Логин на почте
+		$mail->Password = 'aeAGvqRqyZ37RFfSG8wj'; // Пароль для внешнего приложения
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 

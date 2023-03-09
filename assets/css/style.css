@@ -282,6 +282,10 @@ width: 45%!important;
     text-decoration: none;
     color: #000000;
 }
+
+.menu a:hover{
+    color: #ffffff;
+}
 /* Navbar  */
 
 .mf-nav{
@@ -695,6 +699,9 @@ width: 45%!important;
 }
 .hover-img:hover .catalog-hover{
     bottom: 0;
+}
+.hover-img .mf-button{
+    max-width: 90%;
 }
 .catalog-item-info{
     display: none !important;
@@ -1449,9 +1456,6 @@ width: 45%!important;
 .review-block{
     display: flex;
     border-radius: 20px;
-    border-color: black;
-    border-width: 5px;
-    border-style: solid;
     box-shadow: 0px 5px 15px black;
 	height: 100%;
 }

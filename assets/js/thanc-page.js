@@ -150,6 +150,7 @@ $(".menu .contacts").on("click",function (){
     form.append('form_subject', 'Запись в салон');
     form.append('Имя', $(this).parent().find("#ModalName").val());
     form.append('Телефон', $(this).parent().find("#ModalTel").val());
+    form.append('Дата', $(this).parent().find("#ModalDate").val());
 
     send(form, 'mail.php')
   });

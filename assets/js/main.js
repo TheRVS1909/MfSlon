@@ -966,9 +966,9 @@ function send(formData, php){
     req.open('POST', php, true);
     req.onload = function() {
         if (req.status >= 200 && req.status < 400) {
-            setTimeout(function(){
-                $(location).attr('href','thank-page.html');
-              }, 1000 );
+            // setTimeout(function(){
+            //     $(location).attr('href','thank-page.html');
+            //   }, 1000 );
         // Если не удалось связаться с php файлом
         } else {alert("Ошибка сервера. Номер: "+req.status);}}; 
     
@@ -1094,11 +1094,11 @@ jQuery(document).ready(function () {
         timeoutOpenModalStock.start();
     };
 
-	let allInput = $(':input');
-	for(el of allInput) {
-		$(el).on('focus', function () {timeoutOpenModalStock.clear()});
-		$(el).on('blur', function () {timeoutOpenModalStock.resume()});
-	};
+	// let allInput = $(':input');
+	// for(el of allInput) {
+	// 	$(el).on('focus', function () {timeoutOpenModalStock.clear()});
+	// 	$(el).on('blur', function () {timeoutOpenModalStock.resume()});
+	// };
 
     $("#modal-1,#modal-2,#modal-3,#modal-4").on("click",function (){
         $(".menu-modal").css("display","flex");
@@ -1616,48 +1616,7 @@ jQuery(document).ready(function () {
         $(".progress-bar").css("--myVar",((step == 10 ? 94 : (step)*10) +"%"));
         $(".progress-bar").find("span").text("Расчет пройден на " + (step == 10 ? 99 : ((step)*10)) +"%");
 
-        if ((step === 1) || (step === 2)){
-            $(".quiz-back").show();
-            $(".quiz-design-link").show();
-        }
-        if(step == 4){
-            $(".quiz-design-link").hide();
-        }
-        if(step == 8 && $(document).width() < 768 || step == 10 && $(document).width() < 768){
-            $(".btn-quiz").hide();
-        }else {
-            $(".btn-quiz").show();
-        }
-        if(step == 9){
-            if(!$("#quiz-10 .switch input").prop('checked') &&
-            !(
-                $(".size-block #sideA").val() !== '' &&
-                $(".size-block #sideB").val() !== '' &&
-                $(".size-block #sideC").val() !== ''
-            )) {
-                $(".quiz-next").addClass("quiz-next-desable");
-                $(".quiz-back").addClass("quiz-next-desable");
-            }
-        }
-        if(step == 8){
-            if($("#quiz-9").find(".active").length == 0) {
-                $(".quiz-next").addClass("quiz-next-desable");
-                $(".quiz-back").addClass("quiz-next-desable");
-            }
-        }
-        if(step == 10){
-            if($("#quiz-11").find(".active").length == 0) {
-                $(".quiz-next").addClass("quiz-next-desable");
-                $(".quiz-back").addClass("quiz-next-desable");
-            }
-        }
-        if(step == 11){
-            $(".quiz-next").hide();
-            $(".quiz-back").hide();
-            $(".progress-bar").css("--myVar",(90)+"%");
-            $(".progress-bar").find("span").text("Расчет пройден на 100%");
-            $(".Quiz .progress-bar").hide();
-        }
+        
         step++;
     });
     $(".quiz-next-section").on("click",function (){
@@ -1951,6 +1910,7 @@ jQuery(document).ready(function () {
         form.append('form_subject', 'Запись в салон');
         form.append('Имя', $(this).parent().find("#ModalName").val());
         form.append('Телефон', $(this).parent().find("#ModalTel").val());
+        form.append('Дата', $(this).parent().find("#ModalDate").val());
 
         send(form, 'mail.php')
 
@@ -1984,6 +1944,7 @@ jQuery(document).ready(function () {
         form.append('form_subject', 'Запись в салон');
         form.append('Имя', $(this).parent().find("#ModalName").val());
         form.append('Телефон', $(this).parent().find("#ModalTel").val());
+        form.append('Дата', $(this).parent().find("#ModalDate").val());
 
         send(form, 'mail.php')
 
@@ -1999,8 +1960,8 @@ jQuery(document).ready(function () {
         form.append('city', 'Орел');
         form.append('project_name', 'MFSlon');
         form.append('form_subject', 'Заказать замер');
-        form.append('Имя', $(this).parent().find("#ModalName").val());
-        form.append('Телефон', $(this).parent().find("#ModalTel").val());
+        form.append('Имя', $(this).parent().find("#DesignName").val());
+        form.append('Телефон', $(this).parent().find("#DesignTel").val());
 
         send(form, 'mail.php')
 
@@ -2121,6 +2082,8 @@ jQuery(document).ready(function () {
         form.append('form_subject', 'Получить cкидку 45%');
         form.append('Имя', $(this).parent().find("#DesignName").val());
         form.append('Телефон', $(this).parent().find("#DesignTel").val());
+        form.append('Action', $(this).parent().parent().find('h1').text());
+        console.log($(this).parent().parent().find('h1').text())
 
         send(form, 'mail.php')
 
@@ -2170,6 +2133,7 @@ jQuery(document).ready(function () {
         form.append('project_name', 'MFSlon');
         form.append('form_subject', 'Рассчитать стоимость - заказать проект');
         form.append('Телефон', $(this).parent().find("#DesignTel").val());
+        form.append('Project', $('.modal-mod-3').find('.title-mod').text());
 
         send(form, 'mail.php')
 
@@ -2186,6 +2150,23 @@ jQuery(document).ready(function () {
         form.append('project_name', 'MFSlon');
         form.append('form_subject', 'Рассчитать стоимость - рассчитать по вашим размерам');
         form.append('Телефон', $(this).parent().find("#DesignTel").val());
+        form.append('Project', $('.modal-mod-1').find('.title-mod').text());
+        
+        const sideA = $('.modal-mod-1').find('#sideA');
+        const sideB = $('.modal-mod-1').find('#sideB');
+
+        form.append('SideA', $(sideA[0]).val() ? $(sideA[0]).val() : $(sideA[1]).val());
+        form.append('SideB', $(sideB[0]).val() ? $(sideB[0]).val() : $(sideB[1]).val());
+
+        let checkeds = '';
+
+        for (item of $(".checkbox-block input")) {
+            if ($(item).prop('checked')) {
+                checkeds = checkeds + $(item).next().text() + ', '
+            }
+        }
+
+        form.append('Appliances', checkeds);
 
         send(form, 'mail.php')
 
@@ -2202,6 +2183,10 @@ jQuery(document).ready(function () {
         form.append('project_name', 'MFSlon');
         form.append('form_subject', 'Рассчитать стоимость - посмотреть характеристики');
         form.append('Телефон', $(this).parent().find("#DesignTel").val());
+        form.append('Project', $('.modal-mod-2').find('.title-mod').text());
+
+        form.append('SideA', $('.modal-mod-2').find('#sideA').val());
+        form.append('SideB', $('.modal-mod-2').find('#sideB').val());
 
         send(form, 'mail.php')
 
@@ -2333,6 +2318,17 @@ jQuery(document).ready(function () {
         if ($(this).parent().find('.button-desable').length !== 0) {
             return
         }
+        let children = $("#quiz-12").find(".switch");
+        for (child of children) {
+            let checked = $(child).find('input').prop('checked');
+            if (checked) {
+                quizPrice.bonus = $(child).find("input").parent().next().text();
+                continue;
+            };
+        };
+        if (quizPrice.bonus == undefined) {
+            quizPrice.bonus = 'Без бонуса';
+        };
         const form = new FormData();
         form.append('city', 'Орел');
         form.append('project_name', 'MFSlon');
@@ -2366,6 +2362,11 @@ jQuery(document).ready(function () {
         if ($(".quiz-next").parent().find(".quiz-next-desable").length !== 0) {
             return;
         }
+
+        if ((step === 1) || (step === 2)){
+            $(".quiz-back").show();
+            $(".quiz-design-link").show();
+        }
 		if (step === 2) {
 			quizPrice.kitchenShape = $(this).parent().parent().parent().find(".active").first().text();
 			
@@ -2386,6 +2387,7 @@ jQuery(document).ready(function () {
 		};
 		if (step === 4) {
 			quizPrice.kitchenUnitLayout = $("#quiz-3").find(".active").text();
+            $(".quiz-design-link").hide();
 			return;
 		};
 		if (step === 5) {
@@ -2408,30 +2410,57 @@ jQuery(document).ready(function () {
 			return;
 		};
 		if (step === 8) {
+            if($(document).width() < 768 || step == 10 && $(document).width() < 768){
+                $(".btn-quiz").hide();
+            }else {
+                $(".btn-quiz").show();
+            }
 			quizPrice.countertopMaterial = $("#quiz-7").find(".active").text();
 			return;
 		};
 		if (step === 9) {
+            if($("#quiz-9").find(".active").length == 0) {
+                $(".quiz-next").addClass("quiz-next-desable");
+                $(".quiz-back").addClass("quiz-next-desable");
+            }
 			quizPrice.skirting = $("#quiz-8").find(".active").text();
 			return;
 		};
 		if (step === 10) {
+            if(!$("#quiz-10 .switch input").prop('checked') &&
+            !(
+                $(".size-block #sideA").val() !== '' &&
+                $(".size-block #sideB").val() !== '' &&
+                $(".size-block #sideC").val() !== ''
+            )) {
+                $(".quiz-next").addClass("quiz-next-desable");
+                $(".quiz-back").addClass("quiz-next-desable");
+            }
 			quizPrice.stage = $("#quiz-9").find(".active").text();
 			return;
 		};
 		if (step === 11) {
-			let checked = $("#quiz-10").find(".switch").children().find('input').prop('checked');
-			if (!checked) {
+            if($("#quiz-11").find(".active").length == 0) {
+                $(".quiz-next").addClass("quiz-next-desable");
+                $(".quiz-back").addClass("quiz-next-desable");
+            }
+			let checked = $("#quiz-10").find(".switch").find('input').prop('checked');
+			if (checked) {
 				quizPrice.kitchenDimensions = 'Без размеров';
 				return;
 			};
-			quizPrice.kitchenDimensions_sideA = $("#quiz-10").find(".sideA").val();
-			quizPrice.kitchenDimensions_sideB = $("#quiz-10").find(".sideB").val();
-			quizPrice.kitchenDimensions_sideC = $("#quiz-10").find(".sideC").val();
+			quizPrice.kitchenDimensions_sideA = $("#quiz-10").find("#sideA").val();
+			quizPrice.kitchenDimensions_sideB = $("#quiz-10").find("#sideB").val();
+			quizPrice.kitchenDimensions_sideC = $("#quiz-10").find("#sideC").val();
 			return;
 		};
 		
 		if (step === 12) {
+            $(".quiz-next").hide();
+            $(".quiz-back").hide();
+            $(".progress-bar").css("--myVar",(90)+"%");
+            $(".progress-bar").find("span").text("Расчет пройден на 100%");
+            $(".Quiz .progress-bar").hide();
             $(".quiz-next").css("display", "none");
 		    $(".quiz-back").css("display", "none");
 			quizPrice.budget = $("#quiz-11").find(".active").text();
@@ -2449,14 +2478,14 @@ jQuery(document).ready(function () {
 			if (quizPrice.bonus !== undefined) {
 				quizPrice.bonus = 'Без бонуса';
 			};
-			$.post(url, {
-				city: 'Орел',
-				project_name: 'MFSlon',
-				form_subject: 'Расчет кухни в 3х вариантах',
-				Телефон: $(this).parent().find("#QuizTel").val(),
-				Имя: $(this).parent().find("#QuizName").val(),
-				// propertyKitchen: quizPrice,
-			});
+			// $.post(url, {
+			// 	city: 'Орел',
+			// 	project_name: 'MFSlon',
+			// 	form_subject: 'Расчет кухни в 3х вариантах',
+			// 	Телефон: $(this).parent().find("#QuizTel").val(),
+			// 	Имя: $(this).parent().find("#QuizName").val(),
+			// 	// propertyKitchen: quizPrice,
+			// });
 			timeoutOpenModalStock.clear();
             stopTimer = 'stop';
 			return;
